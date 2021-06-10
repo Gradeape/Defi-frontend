@@ -189,7 +189,7 @@ const Pools: React.FC = () => {
 
     return sortPools(chosenPools).slice(0, numberOfPoolsVisible)
   }
-
+  /* card layout for each individual card on the page */
   const cardLayout = (
     <CardLayout>
       {poolsToShow().map((pool) =>
@@ -204,6 +204,7 @@ const Pools: React.FC = () => {
 
   const tableLayout = <PoolsTable pools={poolsToShow()} account={account} userDataLoaded={userDataLoaded} />
 
+  /* Top of the page header with Title and help button */
   return (
     <>
       <PageHeader>
@@ -239,6 +240,7 @@ const Pools: React.FC = () => {
               <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase">
                 {t('Sort by')}
               </Text>
+              {/* sort by drop down menu control */}
               <ControlStretch>
                 <Select
                   options={[

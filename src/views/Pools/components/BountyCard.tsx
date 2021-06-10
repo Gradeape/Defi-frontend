@@ -74,7 +74,7 @@ const BountyCard = () => {
     placement: 'bottom-end',
     tooltipOffset: [20, 10],
   })
-
+  // auto cake bounty card control top right
   return (
     <>
       {tooltipVisible && tooltip}

@@ -42,6 +42,7 @@ const PoolsTable: React.FC<PoolsTableProps> = ({ pools, userDataLoaded, account 
       behavior: 'smooth',
     })
   }
+  // container for all the coin rows
   return (
     <StyledTableBorder>
       <StyledTable role="table" ref={tableWrapperEl}>
