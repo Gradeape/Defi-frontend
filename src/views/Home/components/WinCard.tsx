@@ -22,6 +22,8 @@ const StyledFarmStakingCard = styled(Card)`
 const CardMidContent = styled(Heading).attrs({ scale: 'xl' })`
   line-height: 44px;
 `
+
+// card that just links to lottery page
 const WinCard = () => {
   const { t } = useTranslation()
 
