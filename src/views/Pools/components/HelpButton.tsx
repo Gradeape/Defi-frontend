@@ -22,7 +22,7 @@ const StyledLink = styled(Link)`
     flex: 1;
   }
 `
-
+// help button at the top of the page
 const HelpButton = () => {
   const { t } = useTranslation()
   return (

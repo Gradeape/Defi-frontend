@@ -28,7 +28,7 @@ const ToggleView: React.FunctionComponent<ToggleViewProps> = ({ viewMode, onTogg
       onToggle(mode)
     }
   }
-
+  // view toggle below header, 2 squares on the top left one for table one for card
   return (
     <Container>
       <IconButton variant="text" scale="sm" id="clickPoolCardView" onClick={() => handleToggle(ViewMode.CARD)}>
