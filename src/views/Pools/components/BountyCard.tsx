@@ -75,6 +75,7 @@ const BountyCard = () => {
     tooltipOffset: [20, 10],
   })
   // auto cake bounty card control top right
+  // controls the value being claimed
   return (
     <>
       {tooltipVisible && tooltip}
@@ -83,7 +84,7 @@ const BountyCard = () => {
           <Flex flexDirection="column">
             <Flex alignItems="center" mb="12px">
               <Text fontSize="16px" bold color="textSubtle" mr="4px">
-                {t('Auto CAKE Bounty')}
+                {t('Auto Bcharity Bounty')}
               </Text>
               <Box ref={targetRef}>
                 <HelpIcon color="textSubtle" />

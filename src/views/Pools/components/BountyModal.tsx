@@ -72,6 +72,7 @@ const BountyModal: React.FC<BountyModalProps> = ({
       })
   }
 
+  // this is for controlling the UI for auto bounty claim, once you click on claim on the bounty this pops up
   return (
     <Modal title={t('Claim Bounty')} onDismiss={onDismiss} headerBackground={theme.colors.gradients.cardHeader}>
       {tooltipVisible && tooltip}

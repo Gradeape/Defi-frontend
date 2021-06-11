@@ -19,6 +19,7 @@ const PoolTabButtons = ({ stakedOnly, setStakedOnly, hasStakeInFinishedPools, vi
 
   const viewModeToggle = <ToggleView viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} />
 
+  // live finished toggle
   const liveOrFinishedSwitch = (
     <ButtonMenu activeIndex={isExact ? 0 : 1} scale="sm" variant="subtle">
       <ButtonMenuItem as={Link} to={`${url}`}>

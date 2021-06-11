@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
-import { Heading, Flex, Image, Text } from '@pancakeswap/uikit'
+import { Heading, Flex, Image, Text, Box, HelpIcon, useTooltip } from '@pancakeswap/uikit'
 import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
 import { useTranslation } from 'contexts/Localization'
@@ -24,6 +24,8 @@ import HelpButton from './components/HelpButton'
 import PoolsTable from './components/PoolsTable/PoolsTable'
 import { ViewMode } from './components/ToggleView/ToggleView'
 import { getAprData, getCakeVaultEarnings } from './helpers'
+
+// New imports
 
 const CardLayout = styled(FlexLayout)`
   justify-content: center;
@@ -205,19 +207,38 @@ const Pools: React.FC = () => {
   const tableLayout = <PoolsTable pools={poolsToShow()} account={account} userDataLoaded={userDataLoaded} />
 
   /* Top of the page header with Title and help button */
+  const TooltipComponent = () => (
+    <>
+      <Text mb="16px">{t('This bounty is given as a reward for providing a service to other users.')}</Text>
+      <Text mb="16px">
+        {t(
+          'Whenever you successfully claim the bounty, you’re also helping out by activating the Auto CAKE Pool’s compounding function for everyone.',
+        )}
+      </Text>
+    </>
+  )
+
+  const { targetRef, tooltip, tooltipVisible } = useTooltip(<TooltipComponent />, {
+    placement: 'bottom-end',
+    tooltipOffset: [20, 10],
+  })
   return (
     <>
+      {tooltipVisible && tooltip}
       <PageHeader>
         <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
           <Flex flex="1" flexDirection="column" mr={['8px', 0]}>
             <Heading as="h1" scale="xxl" color="secondary" mb="24px">
-              {t('Syrup Pools')}
+              {t('Token pools')}
             </Heading>
             <Heading scale="md" color="text">
-              {t('Just stake some tokens to earn.')}
+              {t('Stake some Bcharity tokens to earn.')}
             </Heading>
             <Heading scale="md" color="text">
               {t('High APR, low risk.')}
+              <Box ref={targetRef}>
+                <HelpIcon color="textSubtle" />
+              </Box>
             </Heading>
           </Flex>
           <Flex flex="1" height="fit-content" justifyContent="center" alignItems="center" mt={['24px', null, '0']}>

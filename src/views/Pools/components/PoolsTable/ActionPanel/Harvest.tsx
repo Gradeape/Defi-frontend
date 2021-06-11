@@ -78,6 +78,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({
     { placement: 'bottom-start' },
   )
 
+  // controls the collect card, once more details is clicked and view switches
   const actionTitle = isAutoVault ? (
     <Text fontSize="12px" bold color="secondary" as="span" textTransform="uppercase">
       {t('Recent CAKE profit')}
