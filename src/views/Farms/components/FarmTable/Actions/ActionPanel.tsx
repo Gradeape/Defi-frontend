@@ -151,6 +151,10 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   const bsc = getBscScanAddressUrl(lpAddress)
   const info = `https://pancakeswap.info/pair/${lpAddress}`
 
+  /* The following components have been removed from StakeContainer:
+  <StyledLinkExternal href={bsc}>{t('View Contract')}</StyledLinkExternal>
+  <StyledLinkExternal href={info}>{t('See Pair Info')}</StyledLinkExternal>
+  */
   return (
     <Container expanded={expanded}>
       <InfoContainer>
@@ -161,8 +165,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
             </StyledLinkExternal>
           </StakeContainer>
         )}
-        <StyledLinkExternal href={bsc}>{t('View Contract')}</StyledLinkExternal>
-        <StyledLinkExternal href={info}>{t('See Pair Info')}</StyledLinkExternal>
+        
         <TagsContainer>
           {farm.isCommunity ? <CommunityTag /> : <CoreTag />}
           {dual ? <DualTag /> : null}
