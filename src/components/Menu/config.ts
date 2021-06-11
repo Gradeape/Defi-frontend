@@ -1,6 +1,10 @@
 import { MenuEntry } from '@pancakeswap/uikit'
 import { ContextApi } from 'contexts/Localization/types'
 
+
+// these icons are defined in ui-kit, 
+// menu icons defined inline under menu widgit in icons folder using thier Svg component(also in ui-kit)
+// other icons (used elsewhere)  use svg files are under pancake-uikit\src\components\Svg\Icons
 const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
   {
     label: t('Home'),
@@ -39,44 +43,44 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
     icon: 'PoolIcon',
     href: '/pools',
   },
+  // {
+  //   label: t('Prediction (BETA)'),
+  //   icon: 'PredictionsIcon',
+  //   href: '/prediction',
+  // },
+  // {
+  //   label: t('Lottery'),
+  //   icon: 'TicketIcon',
+  //   href: '/lottery',
+  // },
   {
-    label: t('Prediction (BETA)'),
-    icon: 'PredictionsIcon',
-    href: '/prediction',
-  },
-  {
-    label: t('Lottery'),
-    icon: 'TicketIcon',
-    href: '/lottery',
-  },
-  {
-    label: t('Collectibles'),
+    label: t('NFTs'),
     icon: 'NftIcon',
-    href: '/collectibles',
+    href: '/collectibles', 
   },
-  {
-    label: t('Team Battle'),
-    icon: 'TeamBattleIcon',
-    href: '/competition',
-  },
-  {
-    label: t('Teams & Profile'),
-    icon: 'GroupsIcon',
-    items: [
-      {
-        label: t('Leaderboard'),
-        href: '/teams',
-      },
-      {
-        label: t('Task Center'),
-        href: '/profile/tasks',
-      },
-      {
-        label: t('Your Profile'),
-        href: '/profile',
-      },
-    ],
-  },
+  // {
+  //   label: t('Team Battle'),
+  //   icon: 'TeamBattleIcon',
+  //   href: '/competition',
+  // },
+  // {
+  //   label: t('Teams & Profile'),
+  //   icon: 'GroupsIcon',
+  //   items: [
+  //     {
+  //       label: t('Leaderboard'),
+  //       href: '/teams',
+  //     },
+  //     {
+  //       label: t('Task Center'),
+  //       href: '/profile/tasks',
+  //     },
+  //     {
+  //       label: t('Your Profile'),
+  //       href: '/profile',
+  //     },
+  //   ],
+  // },
   {
     label: t('Info'),
     icon: 'InfoIcon',
@@ -99,39 +103,39 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
       },
     ],
   },
-  {
-    label: t('IFO'),
-    icon: 'IfoIcon',
-    href: '/ifo',
-  },
+  // {
+  //   label: t('IFO'),
+  //   icon: 'IfoIcon',
+  //   href: '/ifo',
+  // },
   {
     label: t('More'),
     icon: 'MoreIcon',
     items: [
       {
         label: t('Contact'),
-        href: 'https://docs.pancakeswap.finance/contact-us',
+        href: 'https://docs.pancakeswap.finance/contact-us', // TODO: add our contact link
       },
-      {
-        label: t('Voting'),
-        href: 'https://voting.pancakeswap.finance',
-      },
+      // {
+      //   label: t('Voting'),
+      //   href: 'https://voting.pancakeswap.finance',
+      // },
       {
         label: t('Github'),
-        href: 'https://github.com/pancakeswap',
+        href: 'https://github.com/BCharity-Net',
       },
       {
         label: t('Docs'),
-        href: 'https://docs.pancakeswap.finance',
+        href: 'https://docs.pancakeswap.finance', // TODO: add our docs link
       },
-      {
-        label: t('Blog'),
-        href: 'https://pancakeswap.medium.com',
-      },
-      {
-        label: t('Merch'),
-        href: 'https://pancakeswap.creator-spring.com/',
-      },
+      // {
+      //   label: t('Blog'),
+      //   href: 'https://pancakeswap.medium.com',
+      // },
+      // {
+      //   label: t('Merch'),
+      //   href: 'https://pancakeswap.creator-spring.com/',
+      // },
     ],
   },
 ]

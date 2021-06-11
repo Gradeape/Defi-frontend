@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Flex, ArrowForwardIcon } from '@pancakeswap/uikit'
+import { Heading, Card, CardBody, Flex, ArrowForwardIcon,Button } from '@pancakeswap/uikit'
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'contexts/Localization'
 
-const StyledFarmStakingCard = styled(Card)`
+const StyledRedirectCard = styled(Card)`
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -23,26 +23,25 @@ const CardMidContent = styled(Heading).attrs({ scale: 'xl' })`
   line-height: 44px;
 `
 
-// card that just links to lottery page
-const WinCard = () => {
+// card that links to nft website
+const RedirectCard = () => {
   const { t } = useTranslation()
 
   return (
-    <StyledFarmStakingCard>
-      <NavLink exact activeClassName="active" to="/lottery" id="lottery-pot-cta">
-        <CardBody>
+    <StyledRedirectCard>
+        {/* TODO: add link to nft website when it is ready */}
+        <CardBody onClick={() => alert('website is not avalible yet')}>
           <Heading color="contrast" scale="lg">
-            {t('Lottery')}
+            {t('NFT website')}
           </Heading>
-          <CardMidContent color="#7645d9">{t('Coming Soon')}</CardMidContent>
+          <CardMidContent color="rgba(102, 102, 255,1)">{t('Coming Soon')}</CardMidContent>
           <Flex justifyContent="space-between">
             <Heading color="contrast" scale="lg" />
             <ArrowForwardIcon mt={30} color="primary" />
           </Flex>
         </CardBody>
-      </NavLink>
-    </StyledFarmStakingCard>
+    </StyledRedirectCard>
   )
 }
 
-export default WinCard
+export default RedirectCard
