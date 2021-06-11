@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
-import { LinkExternal, Text } from '@pancakeswap/uikit'
+import { LinkExternal, Text, useTooltip, HelpIcon } from '@pancakeswap/uikit'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { getBscScanAddressUrl } from 'utils/bscscan'
@@ -21,7 +21,9 @@ export interface ActionPanelProps {
   userDataReady: boolean
   expanded: boolean
 }
-
+const ReferenceElement = styled.div`
+  display: inline-block;
+`
 const expandAnimation = keyframes`
   from {
     max-height: 0px;
@@ -151,9 +153,20 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   const bsc = getBscScanAddressUrl(lpAddress)
   const info = `https://pancakeswap.info/pair/${lpAddress}`
 
+  const { targetRef, tooltip, tooltipVisible } = useTooltip(
+    t('INFO ON Get CAKE-BNB LP TOKEN HERE'),
+    { placement: 'top-end', tooltipOffset: [20, 10] },
+  )
+
   /* The following components have been removed from StakeContainer:
   <StyledLinkExternal href={bsc}>{t('View Contract')}</StyledLinkExternal>
   <StyledLinkExternal href={info}>{t('See Pair Info')}</StyledLinkExternal>
+
+  The following tag component has been removed from the container
+   <TagsContainer>
+          {farm.isCommunity ? <CommunityTag /> : <CoreTag />}
+          {dual ? <DualTag /> : null}
+        </TagsContainer>
   */
   return (
     <Container expanded={expanded}>
@@ -165,11 +178,13 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
             </StyledLinkExternal>
           </StakeContainer>
         )}
-        
+        <ReferenceElement ref={targetRef}>
+        <HelpIcon color="textSubtle" />
+      </ReferenceElement>
         <TagsContainer>
-          {farm.isCommunity ? <CommunityTag /> : <CoreTag />}
-          {dual ? <DualTag /> : null}
+        {tooltipVisible && tooltip}
         </TagsContainer>
+        
       </InfoContainer>
       <ValueContainer>
         <ValueWrapper>
