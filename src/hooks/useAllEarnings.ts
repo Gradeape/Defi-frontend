@@ -6,6 +6,7 @@ import masterChefABI from 'config/abi/masterchef.json'
 import { farmsConfig } from 'config/constants'
 import useRefresh from './useRefresh'
 
+// used in CakeHarvestBalance.tsx in Home component to get all earnings
 const useAllEarnings = () => {
   const [balances, setBalance] = useState([])
   const { account } = useWeb3React()

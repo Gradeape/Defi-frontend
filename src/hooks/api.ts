@@ -11,6 +11,9 @@ export interface DeBankTvlResponse {
   tvl: number
 }
 
+// used in TotalValueLockedCard.tsx in Home component to get stats
+// use use total value locked(tvl) number though
+// if we want to to use need to change link below
 export const useGetStats = () => {
   const [data, setData] = useState<DeBankTvlResponse | null>(null)
 

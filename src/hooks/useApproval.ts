@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { useLotteryApprove } from './useApprove'
 
+// used on in LotteryCard.tsx in Home component
 export const useApproval = (onPresentApprove: () => void) => {
   const [requestedApproval, setRequestedApproval] = useState(false)
   const { onApprove } = useLotteryApprove()
