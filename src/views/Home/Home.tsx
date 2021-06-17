@@ -10,7 +10,8 @@ import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
 import EarnAPRCard from 'views/Home/components/EarnAPRCard'
 import EarnAssetCard from 'views/Home/components/EarnAssetCard'
 import WinCard from 'views/Home/components/WinCard'
-import TestCard from 'views/Home/components/TestCard' // TODO: remove later, this is just test component
+import TestCard from 'views/Home/components/TestCard'
+import HomeHeaderCard from "./components/HomeHeaderCard"; // TODO: remove later, this is just test component
 
 const Hero = styled.div`
   /* default settings for mobile*/
@@ -39,6 +40,7 @@ const Cards = styled(BaseLayout)`
   align-items: stretch;
   justify-content: stretch;
   margin-bottom: 24px;
+  margin-top: 10px;
   grid-gap: 24px;
 
   & > div {
@@ -92,6 +94,7 @@ const TestCardLayout = styled(BaseLayout)`
   justify-content: stretch;
   margin-bottom: 24px;
   grid-gap: 24px;
+  
 
   & > div {
     grid-column: span 6;
@@ -114,26 +117,30 @@ const TestCardLayout = styled(BaseLayout)`
   }
 `
 
+const FeatureText = styled.div`
+  color: black,
+  font-size: 50px;
+`
+
 
 const Home: React.FC = () => {
   const { t } = useTranslation()
 
   return (
     <Page>
-      <Hero>
-        <Heading as="h1" scale="xl" mb="24px" color="secondary">
-          {/* Title Header on Homepage */}
-          {t('B-Charity')}  
-        </Heading>
-        {/* TODO: add desciption/ subtitle here */}
-        <Text>{t('subtitle here')}</Text> 
-      </Hero>
+      { /* <Hero> */}
+      { /*  <Heading as="h1" scale="xl" mb="24px" color="secondary"> */ }
+      { /*    /!* Title Header on Homepage *!/ */ }
+      { /*    {t('B-Charity')}  */}
+      { /*  </Heading> */ }
+      { /*  /!* TODO: add desciption/ subtitle here *!/ */ }
+      {/*  <Text>{t('subtitle here')}</Text> */}
+      {/* </Hero> */ }
       <div>
-        {/* TODO: remove later this is just a test */}
         <TestCardLayout>
-          <TestCard />
+          <HomeHeaderCard />
         </TestCardLayout>
-        {/* end test */}
+        <Heading scale="xl" color="black">Features</Heading>
         <Cards>
           <FarmStakingCard />
           <LotteryCard />
