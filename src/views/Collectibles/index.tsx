@@ -7,25 +7,34 @@ import NftList from './components/NftList'
 import RedirectCard from './components/RedirectCard'
 
 const StyledHero = styled.div`
-  background-image: linear-gradient(rgba(252, 233, 246,0), rgba(204, 204, 255,0.5));
+  background-image: url(images/BCharity-Images/cat3.png);
+  background-size: 15%;
+  background-repeat: no-repeat;
+  background-position: bottom right;
   border-bottom: 2px solid ${({ theme }) => theme.colors.textSubtle};
   margin-bottom: 24px;
   padding-bottom: 22px;
+  
 `
+
+const StyledPage = styled(Page)`
+    background-image: radial-gradient(farthest-corner at 40px 40px, #b2deee 0%, #b69adb 100%);
+`
+
 
 const Collectibles = () => {
   const { t } = useTranslation()
 
   return (
-    <Page>
+    <StyledPage>
       <StyledHero>
         <Heading as="h1" scale="xxl" color="secondary">
-          {t('Bcharity NFTs')}
+          {t('BCharity NFTs')}
         </Heading>
       </StyledHero>
       {/* <NftList /> */}
       <RedirectCard />
-    </Page>
+    </StyledPage>
   )
 }
 

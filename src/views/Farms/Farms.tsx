@@ -97,6 +97,14 @@ const StyledImage = styled(Image)`
   margin-right: auto;
   margin-top: 58px;
 `
+const RightHeader= styled.div`
+  display:inline-block;
+  vertical-align:top;
+`
+const LeftHeader= styled.div`
+  display:inline-block;
+`
+
 const NUMBER_OF_FARMS_VISIBLE = 12
 
 const Farms: React.FC = () => {
@@ -341,12 +349,21 @@ const Farms: React.FC = () => {
   return (
     <>
       <PageHeader>
-        <Heading as="h1" scale="xxl" color="secondary" mb="24px">
-          {t('Farms')}
-        </Heading>
-        <Heading scale="lg" color="text">
-          {t('Stake Liquidity Pool (LP) tokens to earn.')}
-        </Heading>
+        <LeftHeader>
+          <Heading as="h1" scale="xxl" color="secondary" mb="24px">
+            {t('Farms')}
+          </Heading>
+          <Heading scale="lg" color="text">
+            {t('Stake Liquidity Pool (LP) tokens to earn.')}
+          </Heading>
+        </LeftHeader>
+        <RightHeader>
+          <img src="images/BCharity-Images/cat2.png"
+               alt="cartoon cat"
+               width="200px"
+          />
+        </RightHeader>
+
       </PageHeader>
       <Page>
         <ControlContainer>
