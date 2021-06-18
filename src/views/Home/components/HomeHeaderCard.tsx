@@ -4,44 +4,42 @@ import { Heading, Card, CardBody, Button } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 
 
-
 const StyledHeadingCard = styled(Card)`
-  
   background-image: linear-gradient(165deg, #6f12e0, #459bdb, #459bdb);
-  min-height: 376px;
-  box-shadow: 12px 16px 4px rgba(224,224,231,0.5);
+  box-shadow: 12px 16px 5px #e4e3e9;
+  
 `
 
-const Block = styled.div`
-  margin-bottom: 16px;
-`
 
 const CardImage = styled.img`
+    margin-top: -200px;
     margin-left: 300px;
     margin-right: auto;
-    width = 50%
+    width: 55%;
+    float: right;
 `
-
 
 
 const Subtitle = styled.div`
   color: white;
   font-size: 18px;
   max-width: 400px;
-  padding-left: 30px;
+  padding-left: 45px;
   padding-top: 5px;
+  text-shadow: 2px 3px 2px rgba(98,61,222,0.5);
 `
 
 const HorizontalLayout = styled.div`
-  margin-top: 24px;
+    float: left;
 `
 
 const Title = styled.div`
     color: white;
     font-size: 70px;
     max-width: 400px;
-    padding-left: 30px;
-    padding-top: 100px;
+    padding-left: 45px;
+    padding-top: 90px;
+    text-shadow: 3px 4px 2px rgba(98,61,222,0.6);
 `
 
 const HomeHeaderCard = () => {
@@ -59,11 +57,11 @@ const HomeHeaderCard = () => {
                     {title}
                 </Title>
                 <Subtitle color="white"> {subtitle} </Subtitle>
-                 { /* TODO: insert cat image here */ }
-                <CardImage
-                    src="/images/temp/test-image-bee.svg"
+                 <CardImage
+                    src="/images/BCharity-Images/cat1.png"
                     alt="cartoon cat holding coffee mug" />
             </CardBody>
+
         </StyledHeadingCard>
     )
 }
