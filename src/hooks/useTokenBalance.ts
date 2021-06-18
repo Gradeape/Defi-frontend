@@ -51,6 +51,8 @@ const useTokenBalance = (tokenAddress: string) => {
   return balanceState
 }
 
+// used in Cake stats card on Homepage
+// returns total supply of tokens
 export const useTotalSupply = () => {
   const { slowRefresh } = useRefresh()
   const [totalSupply, setTotalSupply] = useState<BigNumber>()
@@ -68,6 +70,9 @@ export const useTotalSupply = () => {
   return totalSupply
 }
 
+// used in Cake stats card on Homepage
+// returns the number of coins in a burn address
+// that represents the amount of coins burned
 export const useBurnedBalance = (tokenAddress: string) => {
   const [balance, setBalance] = useState(BIG_ZERO)
   const { slowRefresh } = useRefresh()

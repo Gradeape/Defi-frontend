@@ -11,6 +11,7 @@ const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10)
 
 const injected = new InjectedConnector({ supportedChainIds: [chainId] })
 
+// TODO: change bridge
 const walletconnect = new WalletConnectConnector({
   rpc: { [chainId]: rpcUrl },
   bridge: 'https://pancakeswap.bridge.walletconnect.org/',

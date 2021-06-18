@@ -12,6 +12,7 @@ export interface FarmWithBalance extends FarmConfig {
   balance: BigNumber
 }
 
+// used for farm staking card on homepage
 const useFarmsWithBalance = () => {
   const [farmsWithBalances, setFarmsWithBalances] = useState<FarmWithBalance[]>([])
   const { account } = useWeb3React()

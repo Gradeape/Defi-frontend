@@ -10,6 +10,8 @@ import { BigNumber } from 'bignumber.js'
 import CardValue from './CardValue'
 import CardBusdValue from './CardBusdValue'
 
+// Gets and Formats the number of CAKE tokens in user's wallet
+// and shows the approximate busd value of their tokens
 const CakeWalletBalance = () => {
   const { t } = useTranslation()
   const { balance: cakeBalance } = useTokenBalance(getCakeAddress())
