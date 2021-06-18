@@ -166,13 +166,13 @@ const Home: React.FC = () => {
 
   return (
     <Page>
-      <Hero>
-        <Heading as="h1" scale="xl" mb="24px" color="secondary">
-          {/*    /!* Title Header on Homepage *!/ */}
-          {t('B-Charity')}
-        </Heading>
-        <Text>{t('Subtitle here')}</Text>
-      </Hero>
+      {/* <Hero> */}
+      {/* <Heading as="h1" scale="xl" mb="24px" color="secondary"> */}
+      {/*    /!* Title Header on Homepage *!/ */}
+      {/* {t('B-Charity')} */}
+      {/* </Heading> */}
+      {/* <Text>{t('Subtitle here')}</Text> */}
+      {/* </Hero> */}
 
       <div>
         <TestCardLayout>

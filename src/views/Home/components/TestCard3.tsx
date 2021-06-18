@@ -51,7 +51,7 @@ const Actions = styled.div`
 `
 const ImagePositioning = styled.div`
   position: absolute;
-  top: 150px;
+  top: 145px;
   left: 50px;
 `
 const TextColor = styled.div`
@@ -83,15 +83,15 @@ const TestCard = () => {
           </TextColor>
         </Heading>
         <ImagePositioning>
-          <CardImage src="/images/temp/Ecssen-Logo.png" alt="test card image -bee" width={100} height={100} />
+          <CardImage src="/images/BCharity-Images/Feature3.png" alt="test card image -bee" width={150} height={150} />
         </ImagePositioning>
         {/* not good design to have blocks of text like this but this is just a example */}
+        {/* <Block> */}
+        {/* <Label>{t('Subtitle')}:</Label> */}
+        {/* <TestText>{t('this is a block of text')}</TestText> */}
+        {/* </Block> */}
         <Block>
-          {/* <Label>{t('Subtitle')}:</Label> */}
-          {/* <TestText>{t('this is a block of text')}</TestText> */}
-        </Block>
-        <Block>
-          <Label>{t('')}:</Label>
+          {/* <Label>{t('')}:</Label> */}
           <TestText>{t(' %text%', { text: exampleTextAbstract })}</TestText>
         </Block>
         <Actions>
