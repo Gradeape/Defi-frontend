@@ -10,7 +10,6 @@ import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
 import EarnAPRCard from 'views/Home/components/EarnAPRCard'
 import EarnAssetCard from 'views/Home/components/EarnAssetCard'
 import WinCard from 'views/Home/components/WinCard'
-import TestCard1 from 'views/Home/components/TestCard1' // TODO: remove later, this is just test component
 // new
 import TestCard2 from 'views/Home/components/TestCard2'
 import TestCard3 from 'views/Home/components/TestCard3'
@@ -138,53 +137,34 @@ const Home: React.FC = () => {
 
   return (
     <Page>
-      <Hero>
-        <Heading as="h1" scale="xl" mb="24px" color="secondary">
-          {/* Title Header on Homepage */}
-          {t('B-Charity')}
-        </Heading>
-        {/* TODO: add desciption/ subtitle here */}
-        <Text>{t('subtitle here')}</Text>
-      </Hero>
+      {/* <Hero> */}
+      {/*  <Heading as="h1" scale="xl" mb="24px" color="secondary"> */}
+      {/*    /!* Title Header on Homepage *!/ */}
+      {/*    {t('B-Charity')} */}
+      {/*  </Heading> */}
+      {/*  <Text>{t('subtitle here')}</Text> */}
+      {/* </Hero> */}
+
       <div>
-        {/* TODO: remove later this is just a test */}
-        <FeatureCardDiv>
-          <TestCardLayout>
-            <TestCard1 />
-          </TestCardLayout>
-          <TestCardLayout>
-            <TestCard2 />
-          </TestCardLayout>
-          <TestCardLayout>
-            <TestCard3 />
-          </TestCardLayout>
-        </FeatureCardDiv>
-        {/* TODO: Remove later Davids test */}
-
-        {/* <Card>
-          <CardHeader>
-            <Heading size="xl">Card Header</Heading>
-          </CardHeader>
-          <CardBody>Body</CardBody>
-          <CardFooter>Footer</CardFooter>
-        </Card> */}
-
-        {/* end test */}
-        {/* <Hero> */}
-        {/*  <Heading as="h1" scale="xl" mb="24px" color="secondary"> */}
-        {/*    /!* Title Header on Homepage *!/ */}
-        {/*    {t('B-Charity')}  */}
-        {/*  </Heading> */}
-        {/*  /!* TODO: add desciption/ subtitle here *!/ */}
-        {/*  <Text>{t('subtitle here')}</Text> */}
-        {/* </Hero> */}
-
         <TestCardLayout>
           <HomeHeaderCard />
         </TestCardLayout>
         <Heading scale="xl" color="black">
           Features
         </Heading>
+        <div>
+          <FeatureCardDiv>
+            <TestCardLayout>
+              <TestCard />
+            </TestCardLayout>
+            <TestCardLayout>
+              <TestCard2 />
+            </TestCardLayout>
+            <TestCardLayout>
+              <TestCard3 />
+            </TestCardLayout>
+          </FeatureCardDiv>
+        </div>
         <Cards>
           <FarmStakingCard />
           <LotteryCard />
