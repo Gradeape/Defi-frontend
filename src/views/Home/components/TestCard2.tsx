@@ -62,7 +62,10 @@ const ImagePositioning = styled.div`
     top: 107px;
   } */
 `
-
+const TextColor = styled.div`
+  color: white;
+  text-shadow: 2px 3px #7e4c69;
+`
 const TestCard = () => {
   // use this function for translations, for string to be translated,
   // need to include in the string in translation.json file
@@ -81,8 +84,10 @@ const TestCard = () => {
     <StyledTestCard>
       <CardBody>
         <Heading scale="xl" mb="24px">
-          {/* Card title */}
-          {t('')}
+          <TextColor>
+            {/* Card title */}
+            {t('Pools')}
+          </TextColor>
         </Heading>
         <ImagePositioning>
           <CardImage src="/images/BCharity-Images/Feature1.png" alt="Feature #2" width={250} height={250} />

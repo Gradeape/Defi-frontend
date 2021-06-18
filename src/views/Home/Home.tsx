@@ -11,6 +11,7 @@ import EarnAPRCard from 'views/Home/components/EarnAPRCard'
 import EarnAssetCard from 'views/Home/components/EarnAssetCard'
 import WinCard from 'views/Home/components/WinCard'
 // new
+import { NavLink } from 'react-router-dom'
 import TestCard2 from 'views/Home/components/TestCard2'
 import TestCard3 from 'views/Home/components/TestCard3'
 import TestCard from 'views/Home/components/TestCard'
@@ -32,7 +33,8 @@ const Hero = styled.div`
 
   /* desktop changes*/
   ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/temp/test-image-bee.svg'), url('/images/temp/test-image-bee.svg');
+    background-image: url('/images/BCharity-Images/Cat3.png'), url('/images/BCharity-Images/Cat2.png');
+    background-size: 150px 100px;
     background-position: left center, right center;
     height: 165px;
     padding-top: 0;
@@ -135,9 +137,8 @@ const FeatureCardDiv = styled(BaseLayout)`
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    grid-gap: 120px;
     & > div {
-      grid-column: span 2;
+      grid-column: span 8;
     }
   }
 
@@ -155,19 +156,23 @@ const FeatureText = styled.div`
   color: black;
   font-size: 50px;
 `
+const TextColor = styled.div`
+  color: white;
+  text-shadow: 2px 3px #624d30;
+`
 
 const Home: React.FC = () => {
   const { t } = useTranslation()
 
   return (
     <Page>
-      {/* <Hero> */}
-      {/*  <Heading as="h1" scale="xl" mb="24px" color="secondary"> */}
-      {/*    /!* Title Header on Homepage *!/ */}
-      {/*    {t('B-Charity')} */}
-      {/*  </Heading> */}
-      {/*  <Text>{t('subtitle here')}</Text> */}
-      {/* </Hero> */}
+      <Hero>
+        <Heading as="h1" scale="xl" mb="24px" color="secondary">
+          {/*    /!* Title Header on Homepage *!/ */}
+          {t('B-Charity')}
+        </Heading>
+        <Text>{t('Subtitle here')}</Text>
+      </Hero>
 
       <div>
         <TestCardLayout>
@@ -178,18 +183,25 @@ const Home: React.FC = () => {
         </Heading>
         <div>
           <FeatureCardDiv>
-            <TestCardLayout>
-              <TestCard />
-            </TestCardLayout>
-            <TestCardLayout>
-              <TestCard2 />
-            </TestCardLayout>
+            {/* Feature card linking to farms */}
+            <NavLink exact activeClassName="active" to="/farms" id="Farms-link">
+              <TestCardLayout>
+                <TestCard />
+              </TestCardLayout>
+            </NavLink>
+            {/* Feature card linking to pools */}
+            <NavLink exact activeClassName="active" to="/pools" id="Farms-link">
+              <TestCardLayout>
+                <TestCard2 />
+              </TestCardLayout>
+            </NavLink>
+            {/* Feature card linking to Ecssen */}
             <TestCardLayout>
               <TestCard3 />
             </TestCardLayout>
           </FeatureCardDiv>
         </div>
-        <Cards>
+        {/* <Cards>
           <FarmStakingCard />
           <LotteryCard />
         </Cards>
@@ -201,7 +213,7 @@ const Home: React.FC = () => {
         <Cards>
           <CakeStats />
           <TotalValueLockedCard />
-        </Cards>
+        </Cards> */}
       </div>
     </Page>
   )

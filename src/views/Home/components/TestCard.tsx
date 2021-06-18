@@ -58,6 +58,10 @@ const ImagePositioning = styled.div`
     top: 110px;
   } */
 `
+const TextColor = styled.div`
+  color: white;
+  text-shadow: 2px 3px #624d30;
+`
 
 const TestCard = () => {
   // use this function for translations, for string to be translated,
@@ -77,8 +81,10 @@ const TestCard = () => {
     <StyledTestCard>
       <CardBody>
         <Heading scale="xl" mb="24px">
-          {/* Card title */}
-          {t('')}
+          <TextColor>
+            {/* Card title */}
+            {t('Farms')}
+          </TextColor>
         </Heading>
         <ImagePositioning>
           <CardImage src="/images/BCharity-Images/Feature2.png" alt="Feature #1" width={200} height={200} />

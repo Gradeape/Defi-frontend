@@ -4,6 +4,7 @@ import { Heading, Card, CardBody, Button } from '@pancakeswap/uikit'
 // import { harvest } from 'utils/callHelpers'
 // import { useWeb3React } from '@web3-react/core'
 import { useTranslation } from 'contexts/Localization'
+import { MousePointer } from 'react-feather'
 // import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
 // import { useMasterchef } from 'hooks/useContract'
 // import UnlockButton from 'components/UnlockButton'
@@ -17,7 +18,7 @@ const StyledTestCard = styled(Card)`
   // background-image: linear-gradient(rgba(204, 204, 255, 1), rgba(252, 233, 246, 0.5));
   background-repeat: no-repeat;
   background-position: top right;
-  min-height: 250px;
+  max-height: 250px;
   max-width: 200px;
   background-color: #198dd6;
 
@@ -50,6 +51,12 @@ const Actions = styled.div`
 `
 const ImagePositioning = styled.div`
   position: absolute;
+  top: 150px;
+  left: 50px;
+`
+const TextColor = styled.div`
+  color: white;
+  text-shadow: 2px 3px #0e4b72;
 `
 
 const TestCard = () => {
@@ -59,7 +66,7 @@ const TestCard = () => {
   const { t } = useTranslation()
 
   // example string of text
-  const exampleTextAbstract = 'Features Test Card'
+  const exampleTextAbstract = 'Find out more about ECSSEN Career School!'
   /* 'BCHARITY is a blockchain-based charity loyalty-point tokenomics ecosystem with better transparency and accountability ' +
     'driven by community DAOs of all the public and altruism stakeholders, including  donors, volunteers, employees, etc, through  system integration' +
     ' of decentralized protocols. BCHARITY products and services include  internal exchange to convert all kind of donations into BCHARITY Token, ' +
@@ -70,18 +77,22 @@ const TestCard = () => {
     <StyledTestCard>
       <CardBody>
         <Heading scale="xl" mb="24px">
-          {/* Card title */}
-          {t('')}
+          <TextColor>
+            {/* Card title */}
+            {t('ECSSEN')}
+          </TextColor>
         </Heading>
-        <CardImage src="/images/temp/Ecssen-Logo.png" alt="test card image -bee" width={64} height={64} />
+        <ImagePositioning>
+          <CardImage src="/images/temp/Ecssen-Logo.png" alt="test card image -bee" width={100} height={100} />
+        </ImagePositioning>
         {/* not good design to have blocks of text like this but this is just a example */}
         <Block>
           {/* <Label>{t('Subtitle')}:</Label> */}
           {/* <TestText>{t('this is a block of text')}</TestText> */}
         </Block>
         <Block>
-          <Label>{t('Example Text')}:</Label>
-          <TestText>{t('Abstract: %text%', { text: exampleTextAbstract })}</TestText>
+          <Label>{t('')}:</Label>
+          <TestText>{t(' %text%', { text: exampleTextAbstract })}</TestText>
         </Block>
         <Actions>
           {/* <Button id="test-button" onClick={() => alert('you clicked the button :)')} width="100%">
