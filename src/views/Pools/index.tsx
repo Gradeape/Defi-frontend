@@ -25,7 +25,7 @@ import PoolsTable from './components/PoolsTable/PoolsTable'
 import { ViewMode } from './components/ToggleView/ToggleView'
 import { getAprData, getCakeVaultEarnings } from './helpers'
 
-// New imports
+// New code
 
 const CardLayout = styled(FlexLayout)`
   justify-content: center;

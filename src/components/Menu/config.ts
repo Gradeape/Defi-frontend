@@ -1,8 +1,7 @@
 import { MenuEntry } from '@pancakeswap/uikit'
 import { ContextApi } from 'contexts/Localization/types'
 
-
-// these icons are defined in ui-kit, 
+// these icons are defined in ui-kit,
 // menu icons defined inline under menu widgit in icons folder using thier Svg component(also in ui-kit)
 // other icons (used elsewhere)  use svg files are under pancake-uikit\src\components\Svg\Icons
 const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
@@ -56,7 +55,7 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
   {
     label: t('NFTs'),
     icon: 'NftIcon',
-    href: '/collectibles', 
+    href: '/collectibles',
   },
   // {
   //   label: t('Team Battle'),
@@ -126,7 +125,8 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
       },
       {
         label: t('Docs'),
-        href: 'https://docs.pancakeswap.finance', // TODO: add our docs link
+        href: 'https://bcharityfi.gitbook.io/bcharity/',
+        // href: 'https://docs.pancakeswap.finance', // TODO: add our docs link
       },
       // {
       //   label: t('Blog'),

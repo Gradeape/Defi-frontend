@@ -9,6 +9,7 @@ interface FeeSummaryProps {
   stakeAmount: string
 }
 
+// staking fee summary and how its calculated and shown
 const FeeSummary: React.FC<FeeSummaryProps> = ({ stakingTokenSymbol, stakeAmount }) => {
   const { t } = useTranslation()
   const {

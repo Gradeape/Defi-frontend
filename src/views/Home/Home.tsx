@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Text, BaseLayout } from '@pancakeswap/uikit'
+import { Flex, CardBody, CardFooter, Heading, Text, BaseLayout } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import Page from 'components/layout/Page'
 import FarmStakingCard from 'views/Home/components/FarmStakingCard'
@@ -11,13 +11,16 @@ import EarnAPRCard from 'views/Home/components/EarnAPRCard'
 import EarnAssetCard from 'views/Home/components/EarnAssetCard'
 import WinCard from 'views/Home/components/WinCard'
 import TestCard from 'views/Home/components/TestCard' // TODO: remove later, this is just test component
+// new
+import TestCard2 from 'views/Home/components/TestCard2'
+import TestCard3 from 'views/Home/components/TestCard3'
 
 const Hero = styled.div`
   /* default settings for mobile*/
   align-items: center;
-  background-image: url(images/pan-bg-mobile.svg); 
+  background-image: url(images/pan-bg-mobile.svg);
   background-repeat: no-repeat;
-  background-position: top center; 
+  background-position: top center;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -28,11 +31,15 @@ const Hero = styled.div`
 
   /* desktop changes*/
   ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/temp/test-image-bee.svg'), url('/images/temp/test-image-bee.svg'); 
+    background-image: url('/images/temp/test-image-bee.svg'), url('/images/temp/test-image-bee.svg');
     background-position: left center, right center;
     height: 165px;
     padding-top: 0;
   }
+`
+const CardHeader = styled(BaseLayout)`
+  align-items: stretch;
+  justify-content: stretch;
 `
 
 const Cards = styled(BaseLayout)`
@@ -113,7 +120,10 @@ const TestCardLayout = styled(BaseLayout)`
     }
   }
 `
-
+const FeatureCardDiv = styled(Flex)`
+  justify-content: flex-end;
+  align-items: center;
+`
 
 const Home: React.FC = () => {
   const { t } = useTranslation()
@@ -123,16 +133,34 @@ const Home: React.FC = () => {
       <Hero>
         <Heading as="h1" scale="xl" mb="24px" color="secondary">
           {/* Title Header on Homepage */}
-          {t('B-Charity')}  
+          {t('B-Charity')}
         </Heading>
         {/* TODO: add desciption/ subtitle here */}
-        <Text>{t('subtitle here')}</Text> 
+        <Text>{t('subtitle here')}</Text>
       </Hero>
       <div>
         {/* TODO: remove later this is just a test */}
-        <TestCardLayout>
-          <TestCard />
-        </TestCardLayout>
+        <FeatureCardDiv>
+          <TestCardLayout>
+            <TestCard />
+          </TestCardLayout>
+          <TestCardLayout>
+            <TestCard2 />
+          </TestCardLayout>
+          <TestCardLayout>
+            <TestCard3 />
+          </TestCardLayout>
+        </FeatureCardDiv>
+        {/* TODO: Remove later Davids test */}
+
+        {/* <Card>
+          <CardHeader>
+            <Heading size="xl">Card Header</Heading>
+          </CardHeader>
+          <CardBody>Body</CardBody>
+          <CardFooter>Footer</CardFooter>
+        </Card> */}
+
         {/* end test */}
         <Cards>
           <FarmStakingCard />
