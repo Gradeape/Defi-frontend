@@ -15,7 +15,7 @@ import TestCard1 from 'views/Home/components/TestCard1' // TODO: remove later, t
 import TestCard2 from 'views/Home/components/TestCard2'
 import TestCard3 from 'views/Home/components/TestCard3'
 import TestCard from 'views/Home/components/TestCard'
-import HomeHeaderCard from "./components/HomeHeaderCard"; // TODO: remove later, this is just test component
+import HomeHeaderCard from './components/HomeHeaderCard' // TODO: remove later, this is just test component
 
 const Hero = styled.div`
   /* default settings for mobile*/
@@ -102,7 +102,6 @@ const TestCardLayout = styled(BaseLayout)`
   justify-content: stretch;
   margin-bottom: 24px;
   grid-gap: 24px;
-  
 
   & > div {
     grid-column: span 6;
@@ -134,7 +133,6 @@ const FeatureText = styled.div`
   font-size: 50px;
 `
 
-
 const Home: React.FC = () => {
   const { t } = useTranslation()
 
@@ -152,7 +150,7 @@ const Home: React.FC = () => {
         {/* TODO: remove later this is just a test */}
         <FeatureCardDiv>
           <TestCardLayout>
-            <TestCard />
+            <TestCard1 />
           </TestCardLayout>
           <TestCardLayout>
             <TestCard2 />
@@ -172,19 +170,21 @@ const Home: React.FC = () => {
         </Card> */}
 
         {/* end test */}
-      { /* <Hero> */}
-      { /*  <Heading as="h1" scale="xl" mb="24px" color="secondary"> */ }
-      { /*    /!* Title Header on Homepage *!/ */ }
-      { /*    {t('B-Charity')}  */}
-      { /*  </Heading> */ }
-      { /*  /!* TODO: add desciption/ subtitle here *!/ */ }
-      {/*  <Text>{t('subtitle here')}</Text> */}
-      {/* </Hero> */ }
-      <div>
+        {/* <Hero> */}
+        {/*  <Heading as="h1" scale="xl" mb="24px" color="secondary"> */}
+        {/*    /!* Title Header on Homepage *!/ */}
+        {/*    {t('B-Charity')}  */}
+        {/*  </Heading> */}
+        {/*  /!* TODO: add desciption/ subtitle here *!/ */}
+        {/*  <Text>{t('subtitle here')}</Text> */}
+        {/* </Hero> */}
+
         <TestCardLayout>
           <HomeHeaderCard />
         </TestCardLayout>
-        <Heading scale="xl" color="black">Features</Heading>
+        <Heading scale="xl" color="black">
+          Features
+        </Heading>
         <Cards>
           <FarmStakingCard />
           <LotteryCard />
