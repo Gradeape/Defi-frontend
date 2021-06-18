@@ -17,9 +17,14 @@ const StyledTestCard = styled(Card)`
   // background-image: linear-gradient(rgba(204, 204, 255, 1), rgba(252, 233, 246, 0.5));
   background-repeat: no-repeat;
   background-position: top right;
-  max-height: 250px;
+  min-height: 250px;
   max-width: 200px;
   background-color: #198dd6;
+
+  // for the phone but it screws up the desk top
+  /* ${({ theme }) => theme.mediaQueries.sm} {
+    max-width: 160px;
+  } */
 `
 
 const Block = styled.div`
@@ -42,6 +47,9 @@ const TestText = styled.div`
 
 const Actions = styled.div`
   margin-top: 24px;
+`
+const ImagePositioning = styled.div`
+  position: absolute;
 `
 
 const TestCard = () => {

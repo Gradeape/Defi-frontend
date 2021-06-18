@@ -17,9 +17,18 @@ const StyledTestCard = styled(Card)`
   // background-image: linear-gradient(rgba(204, 204, 255, 1), rgba(252, 233, 246, 0.5));
   background-repeat: no-repeat;
   background-position: top right;
-  max-height: 250px;
+  min-height: 250px;
   max-width: 200px;
   background-color: #f895ce;
+
+  // for the phone but it screws up the desk top
+  /* ${({ theme }) => theme.mediaQueries.lg} {
+    min-height: 250px;
+    max-width: 200px;
+  }
+  ${({ theme }) => theme.mediaQueries.sm} {
+    max-width: 160px;
+  } */
 `
 
 const Block = styled.div`
@@ -43,6 +52,16 @@ const TestText = styled.div`
 const Actions = styled.div`
   margin-top: 24px;
 `
+const ImagePositioning = styled.div`
+  position: absolute;
+  top: 62px;
+
+  // for the phone but it screws up the desk top
+  /* ${({ theme }) => theme.mediaQueries.sm} {
+    position: absolute;
+    top: 107px;
+  } */
+`
 
 const TestCard = () => {
   // use this function for translations, for string to be translated,
@@ -65,16 +84,18 @@ const TestCard = () => {
           {/* Card title */}
           {t('')}
         </Heading>
-        <CardImage src="/images/temp/Ecssen-Logo.png" alt="test card image -bee" width={64} height={64} />
+        <ImagePositioning>
+          <CardImage src="/images/BCharity-Images/Feature1.png" alt="Feature #2" width={250} height={250} />
+        </ImagePositioning>
         {/* not good design to have blocks of text like this but this is just a example */}
         <Block>
           {/* <Label>{t('Subtitle')}:</Label> */}
           {/* <TestText>{t('this is a block of text')}</TestText> */}
         </Block>
-        <Block>
+        {/* <Block>
           <Label>{t('Example Text')}:</Label>
           <TestText>{t('Abstract: %text%', { text: exampleTextAbstract })}</TestText>
-        </Block>
+        </Block> */}
         <Actions>
           {/* <Button id="test-button" onClick={() => alert('you clicked the button :)')} width="100%">
             {t('Link button')}

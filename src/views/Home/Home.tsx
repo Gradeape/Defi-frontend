@@ -122,13 +122,37 @@ const TestCardLayout = styled(BaseLayout)`
     }
   }
 `
-const FeatureCardDiv = styled(Flex)`
-  justify-content: flex-end;
-  align-items: center;
+const FeatureCardDiv = styled(BaseLayout)`
+  align-items: stretch;
+  justify-content: stretch;
+  margin-bottom: 24px;
+  margin-top: 10px;
+  grid-gap: 24px;
+
+  & > div {
+    grid-column: span 6;
+    width: 100%;
+  }
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    grid-gap: 120px;
+    & > div {
+      grid-column: span 2;
+    }
+  }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    margin-bottom: 32px;
+    grid-gap: 120px;
+
+    & > div {
+      grid-column: span 4;
+    }
+  }
 `
 
 const FeatureText = styled.div`
-  color: black,
+  color: black;
   font-size: 50px;
 `
 
