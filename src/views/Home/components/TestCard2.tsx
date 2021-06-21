@@ -18,7 +18,7 @@ const StyledTestCard = styled(Card)`
   background-repeat: no-repeat;
   background-position: top right;
   min-height: 250px;
-  max-width: 200px;
+  min-width: 180px;
   background-color: #f895ce;
 
   // for the phone but it screws up the desk top
@@ -54,7 +54,8 @@ const Actions = styled.div`
 `
 const ImagePositioning = styled.div`
   position: absolute;
-  top: 62px;
+  top: 0;
+  left: 100px;
 
   // for the phone but it screws up the desk top
   /* ${({ theme }) => theme.mediaQueries.sm} {

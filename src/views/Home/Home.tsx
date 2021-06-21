@@ -144,10 +144,10 @@ const FeatureCardDiv = styled(BaseLayout)`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     margin-bottom: 32px;
-    grid-gap: 120px;
+    grid-gap: 50px;
 
     & > div {
-      grid-column: span 4;
+      grid-column: span 2;
     }
   }
 `

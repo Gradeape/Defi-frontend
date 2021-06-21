@@ -19,7 +19,7 @@ const StyledTestCard = styled(Card)`
   background-repeat: no-repeat;
   background-position: top right;
   max-height: 250px;
-  max-width: 200px;
+  min-width: 180px;
   background-color: #198dd6;
 
   // for the phone but it screws up the desk top
@@ -51,8 +51,8 @@ const Actions = styled.div`
 `
 const ImagePositioning = styled.div`
   position: absolute;
-  top: 145px;
-  left: 50px;
+  top: 142px;
+  left: 100px;
 `
 const TextColor = styled.div`
   color: white;
