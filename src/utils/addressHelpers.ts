@@ -8,7 +8,16 @@ export const getAddress = (address: Address): string => {
   return address[chainId] ? address[chainId] : address[mainNetChainId]
 }
 
-// TODO: add helper to get address for our own token
+// Helper to get address for our own token
+export const getGiveAddress = () => {
+  return getAddress(tokens.give.address)
+}
+
+// for testing our masterchef contract
+// TODO: delete later
+export const getTestMasterChefAddress = () => {
+  return getAddress(addresses.testMasterChef)
+}
 
 export const getCakeAddress = () => {
   return getAddress(tokens.cake.address)
