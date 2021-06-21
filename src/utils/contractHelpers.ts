@@ -23,9 +23,11 @@ import {
   getCakeVaultAddress,
   getPredictionsAddress,
   getChainlinkOracleAddress,
+  getGiveAddress, getTestMasterChefAddress,
 } from 'utils/addressHelpers'
 
 // ABI
+import giveAbi from 'config/abi/give.json'
 import profileABI from 'config/abi/pancakeProfile.json'
 import pancakeRabbitsAbi from 'config/abi/pancakeRabbits.json'
 import bunnyFactoryAbi from 'config/abi/bunnyFactory.json'
@@ -41,6 +43,7 @@ import lotteryAbi from 'config/abi/lottery.json'
 import lotteryTicketAbi from 'config/abi/lotteryNft.json'
 import lotteryV2Abi from 'config/abi/lotteryV2.json'
 import masterChef from 'config/abi/masterchef.json'
+import testMasterChef from 'config/abi/testMasterchef.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefV2 from 'config/abi/sousChefV2.json'
 import sousChefBnb from 'config/abi/sousChefBnb.json'
@@ -60,6 +63,17 @@ const getContract = (abi: any, address: string, web3?: Web3, account?: string) =
   return new _web3.eth.Contract(abi as unknown as AbiItem, address, {
     gasPrice: getGasPriceInWei(gasPrice).toString(),
   })
+}
+
+// helper to get our give token contract
+export const getGiveContract = (web3?: Web3) => {
+  return getContract(giveAbi, getGiveAddress(), web3)
+}
+
+// for testing our masterchef contract
+// TODO: delete later
+export const getTestMasterchefContract = (web3?: Web3) => {
+  return getContract(testMasterChef, getTestMasterChefAddress(), web3)
 }
 
 export const getBep20Contract = (address: string, web3?: Web3) => {

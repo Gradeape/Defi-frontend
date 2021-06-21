@@ -3,6 +3,14 @@ const tokens = {
     symbol: 'BNB',
     projectLink: 'https://www.binance.com/',
   },
+  give: {
+    symbol: 'GIVE',
+    address: {
+      56:'0xc9f3D7ee9C287d25509F07b464f82A401f1a1544',
+      97:'',
+    },
+    decimals: 18,
+  },
   cake: {
     symbol: 'CAKE',
     address: {

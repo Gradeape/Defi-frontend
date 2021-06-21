@@ -23,11 +23,25 @@ import {
   getChainlinkOracleContract,
   getSouschefV2Contract,
   getLotteryV2Contract,
+  getGiveContract, getTestMasterchefContract,
 } from 'utils/contractHelpers'
 
 /**
  * Helper hooks to get specific contracts (by ABI)
  */
+
+// for our GIVE token
+export const useGive = () => {
+  const web3 = useWeb3()
+  return useMemo(() => getGiveContract(web3), [web3])
+}
+
+// testing our masterchef contract - mainnet not testnet,
+// TODO: delete later
+export const useTestMasterchef = () => {
+  const web3 = useWeb3()
+  return useMemo(() => getTestMasterchefContract(web3), [web3])
+}
 
 export const useIfoV1Contract = (address: string) => {
   const web3 = useWeb3()
