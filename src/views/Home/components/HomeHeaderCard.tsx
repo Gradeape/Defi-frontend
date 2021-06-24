@@ -61,7 +61,7 @@ const HomeHeaderCard = () => {
       <CardBody>
         <Title>{title}</Title>
         <Subtitle color="white"> {subtitle} </Subtitle>
-        <CardImage src="/images/BCharity-Images/cat1.png" alt="cartoon cat holding coffee mug" />
+        <CardImage src="/images/BCharity-Images/cat1-compressed.png" alt="cartoon cat holding coffee mug" />
       </CardBody>
     </StyledHeadingCard>
   )
