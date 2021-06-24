@@ -3,6 +3,10 @@ export default {
     97: '',
     56: '0xd9145CCE52D386f254917e481eB44e9943F39138',
   },
+  bscMasterChef:{
+    97: '0xd1319ae20Fb7c6fBD07BF9CaF3Ea89189Bda8E7f',
+    56: '',
+  },
 
   masterChef: {
     97: '0x1d32c2945C8FDCBc7156c553B7cEa4325a17f4f9',

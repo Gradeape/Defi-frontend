@@ -19,6 +19,14 @@ const tokens = {
     decimals: 18,
     projectLink:'https://bcharityfi.gitbook.io/bcharity/',
   },
+  bscGive: {
+    symbol: 'GIVE',
+    address: {
+      56:'',
+      97:'0xDe9a4503d2CFCe0c4b3E1189F3FC3e5db05a4D39',
+    },
+    decimals: 18,
+  },
   cake: {
     symbol: 'CAKE',
     address: {
