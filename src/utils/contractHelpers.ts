@@ -104,6 +104,7 @@ export const getIfoV2Contract = (address: string, web3?: Web3) => {
 export const getSouschefContract = (id: number, web3?: Web3) => {
   const config = poolsConfig.find((pool) => pool.sousId === id)
   const abi = config.poolCategory === PoolCategory.BINANCE ? sousChefBnb : sousChef
+  // return getContract(testMasterChef, getTestMasterChefAddress(), web3)
   return getContract(abi, getAddress(config.contractAddress), web3)
 }
 export const getSouschefV2Contract = (id: number, web3?: Web3) => {
@@ -114,6 +115,7 @@ export const getPointCenterIfoContract = (web3?: Web3) => {
   return getContract(pointCenterIfo, getPointCenterIfoAddress(), web3)
 }
 export const getCakeContract = (web3?: Web3) => {
+  // return getContract(giveAbi, getGiveAddress(), web3)
   return getContract(cakeAbi, getCakeAddress(), web3)
 }
 export const getProfileContract = (web3?: Web3) => {
@@ -137,7 +139,9 @@ export const getLotteryTicketContract = (web3?: Web3) => {
 export const getLotteryV2Contract = (web3?: Web3) => {
   return getContract(lotteryV2Abi, getLotteryV2Address(), web3)
 }
+// going to try to change it to ours
 export const getMasterchefContract = (web3?: Web3) => {
+  // return getContract(testMasterChef, getTestMasterChefAddress(), web3)
   return getContract(masterChef, getMasterChefAddress(), web3)
 }
 export const getClaimRefundContract = (web3?: Web3) => {

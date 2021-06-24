@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Flex, ArrowForwardIcon,Button } from '@pancakeswap/uikit'
+import { Heading, Card, CardBody, Flex, ArrowForwardIcon, Button } from '@pancakeswap/uikit'
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'contexts/Localization'
 
@@ -29,17 +29,17 @@ const RedirectCard = () => {
 
   return (
     <StyledRedirectCard>
-        {/* TODO: add link to nft website when it is ready */}
-        <CardBody onClick={() => alert('website is not avalible yet')}>
-          <Heading color="contrast" scale="lg">
-            {t('NFT website')}
-          </Heading>
-          <CardMidContent color="rgba(102, 102, 255,1)">{t('Coming Soon')}</CardMidContent>
-          <Flex justifyContent="space-between">
-            <Heading color="contrast" scale="lg" />
-            <ArrowForwardIcon mt={30} color="primary" />
-          </Flex>
-        </CardBody>
+      {/* TODO: add link to nft website when it is ready */}
+      <CardBody onClick={() => alert('website is not avalible yet'.concat(process.env.REACT_APP_CHAIN_ID))}>
+        <Heading color="contrast" scale="lg">
+          {t('NFT website')}
+        </Heading>
+        <CardMidContent color="rgba(102, 102, 255,1)">{t('Coming Soon')}</CardMidContent>
+        <Flex justifyContent="space-between">
+          <Heading color="contrast" scale="lg" />
+          <ArrowForwardIcon mt={30} color="primary" />
+        </Flex>
+      </CardBody>
     </StyledRedirectCard>
   )
 }
