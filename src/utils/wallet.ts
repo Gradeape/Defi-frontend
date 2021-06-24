@@ -11,13 +11,28 @@ export const setupNetwork = async () => {
   const provider = (window as WindowChain).ethereum
   if (provider) {
     const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10)
+    // new test
+    // const chainId = parseInt('4', 10)
     try {
       await provider.request({
         method: 'wallet_addEthereumChain',
         params: [
           {
-            chainId: `0x${chainId.toString(16)}`,
+            /* chainId: `0x${chainId.toString(16)}`,
             chainName: 'Binance Smart Chain Mainnet',
+            nativeCurrency: {
+              name: 'BNB',
+              symbol: 'bnb',
+              decimals: 18, */
+            // rinkeby test
+            /* chainId: `0x${chainId.toString(16)}`,
+            chainName: 'Rinkeby Test Network',
+            nativeCurrency: {
+              name: 'ETH',
+              symbol: 'eth',
+              decimals: 18, */
+            chainId: `0x${chainId.toString(16)}`,
+            chainName: 'BSC Testnet',
             nativeCurrency: {
               name: 'BNB',
               symbol: 'bnb',
