@@ -24,13 +24,25 @@ const CardImage = styled.img`
 const Subtitle = styled.div`
   color: white;
   font-size: 18px;
-  max-width: 400px;
+  max-width: 500px;
   padding-left: 45px;
-  padding-top: 10px;
+  padding-top: 60px;
   padding-bottom: 10px;
   //   text-shadow: 2px 3px 2px rgba(98,61,222,0.5);
-  /* font-family: 'Arial Rounded MT Bold'; */
-  text-align: center;
+  // text-align: center;
+  letter-spacing: 3px;
+`
+
+const LearnMoreButton = styled.button`
+  border: 2px solid white;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  margin-left: 45px;
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
 `
 
 const HorizontalLayout = styled.div`
@@ -42,10 +54,10 @@ const Title = styled.div`
   font-size: 70px;
   max-width: 400px;
   padding-left: 45px;
-  padding-top: 85px;
+  // padding-top: 85px;
   text-shadow: 3px 4px 2px rgba(98, 61, 222, 0.6);
-  /* font-family: 'Arial Rounded MT Bold'; */
-  text-align: center;
+  font-family: 'Arial Rounded MT Bold'; 
+  // text-align: center;
 `
 
 const HomeHeaderCard = () => {
@@ -54,13 +66,16 @@ const HomeHeaderCard = () => {
   // more is written about translation in CONTRIBUTING.md
   const { t } = useTranslation()
 
-  const subtitle = 'Value Oriented, Economically Sustainable Hybrid Yield Aggregator'
+  const subtitle = 'Value-oriented, economically sustainable hybrid yield aggregator on Polygon.'
   const title = 'BCharity'
   return (
     <StyledHeadingCard>
       <CardBody>
-        <Title>{title}</Title>
+        
         <Subtitle color="white"> {subtitle} </Subtitle>
+        <Title>{title}</Title>
+        <LearnMoreButton>Learn More...</LearnMoreButton>
+        
         <CardImage src="/images/BCharity-Images/cat1.png" alt="cartoon cat holding coffee mug" />
       </CardBody>
     </StyledHeadingCard>
