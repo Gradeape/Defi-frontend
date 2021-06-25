@@ -8,22 +8,23 @@ const tokens = {
     address: {
       // 80001 polygon
       // rinkeby
-      // 4:'0x4EfbD6D22fE24B7f22BFFAE9b5626989b1597eF2'
+      4: '0xa2CeDAFE74B3Cbcdcca2edeBf04fDd9a38Ce5852',
       // new test(with cake 56)
-      56:'0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
+      56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
       // old test
       // 56:'0xc9f3D7ee9C287d25509F07b464f82A401f1a1544',
       // new test
       // 97:'0x4EfbD6D22fE24B7f22BFFAE9b5626989b1597eF2',
+      97: '',
     },
     decimals: 18,
-    projectLink:'https://bcharityfi.gitbook.io/bcharity/',
+    projectLink: 'https://bcharityfi.gitbook.io/bcharity/',
   },
   bscGive: {
     symbol: 'GIVE',
     address: {
-      56:'',
-      97:'0xDe9a4503d2CFCe0c4b3E1189F3FC3e5db05a4D39',
+      56: '',
+      97: '0xDe9a4503d2CFCe0c4b3E1189F3FC3e5db05a4D39',
     },
     decimals: 18,
   },
