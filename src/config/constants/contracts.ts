@@ -1,9 +1,11 @@
 export default {
-  testMasterChef:{
+  testMasterChef: {
     97: '',
+    // this was not uploaded on to the main bsc scan
     56: '0xd9145CCE52D386f254917e481eB44e9943F39138',
+    4: '0xA36A83BB42D7D5f39421114209254C06F835Fd9D',
   },
-  bscMasterChef:{
+  bscMasterChef: {
     97: '0xd1319ae20Fb7c6fBD07BF9CaF3Ea89189Bda8E7f',
     56: '',
   },

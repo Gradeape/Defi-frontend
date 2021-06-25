@@ -152,9 +152,9 @@
         "type": "address"
       },
       {
-      "internalType": "address",
-      "name": "spender",
-      "type": "address"
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
       }
     ],
     "name": "allowance",
@@ -475,9 +475,9 @@
     "name": "numCheckpoints",
     "outputs": [
       {
-      "internalType": "uint32",
-      "name": "",
-      "type": "uint32"
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
       }
     ],
     "stateMutability": "view",
