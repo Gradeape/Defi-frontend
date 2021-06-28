@@ -15,6 +15,7 @@ import { NavLink } from 'react-router-dom'
 import TestCard2 from 'views/Home/components/TestCard2'
 import TestCard3 from 'views/Home/components/TestCard3'
 import TestCard from 'views/Home/components/TestCard'
+import FarmingandstakingCard from 'views/Home/components/FarmingandstakingCard'
 import HomeHeaderCard from './components/HomeHeaderCard' // TODO: remove later, this is just test component
 
 const Hero = styled.div`
@@ -200,6 +201,11 @@ const Home: React.FC = () => {
               <TestCard3 />
             </TestCardLayout>
           </FeatureCardDiv>
+        </div>
+        <div>
+          <TestCardLayout>
+            <FarmingandstakingCard />
+          </TestCardLayout>
         </div>
         {/* <Cards>
           <FarmStakingCard />
