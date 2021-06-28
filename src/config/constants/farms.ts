@@ -39,7 +39,7 @@ const farms: FarmConfig[] = [
     pid: 3,
     lpSymbol: 'MKR',
     lpAddresses: {
-      4: 'xF9bA5210F91D0474bd1e1DcDAeC4C58E359AaD85',
+      4: '0xF9bA5210F91D0474bd1e1DcDAeC4C58E359AaD85',
       137: '',
     },
     token: tokens.maker,
@@ -49,7 +49,7 @@ const farms: FarmConfig[] = [
     pid: 4,
     lpSymbol: 'UNI',
     lpAddresses: {
-      4: 'x1f9840a85d5aF5bf1D1762F925BDADdC4201F984',
+      4: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984',
       137: '',
     },
     token: tokens.uniswap,
