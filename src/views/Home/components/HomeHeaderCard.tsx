@@ -23,7 +23,7 @@ const VerticalLine = styled.line`
 `
 
 const HorizontalLineOrange = styled.line`
-  border-top: 25px solid orange;
+  border-top: 25px solid #FFC37B;
   width: 500px;
   position: absolute;
   left: 10px;
@@ -31,23 +31,23 @@ const HorizontalLineOrange = styled.line`
 `
 
 const HorizontalLinePink = styled.line`
-  border-top: 25px solid pink;
+  border-top: 25px solid #F895CE;
   width: 680px;
   position: absolute;
-  left: 35%;
+  right: 10px;
   top: 99%;
 `
 
 const CardImage = styled.img`
   position: relative;
-  width: 45%;
+  width: 40%;
   float: right;
   bottom: 90%;
   right: 5%;
 `
 
 const Update = styled.div`
-  color: pink;
+  color: #F895CE;
   font-size: 13px;
   max-width: 500px;
   padding-left: 10%;
