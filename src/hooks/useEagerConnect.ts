@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { connectorLocalStorageKey, ConnectorNames } from '@pancakeswap/uikit'
 import useAuth from 'hooks/useAuth'
 
+// BinanceChain
 const _binanceChainListener = async () =>
   new Promise<void>((resolve) =>
     Object.defineProperty(window, 'BinanceChain', {

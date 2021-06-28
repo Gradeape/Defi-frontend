@@ -23,11 +23,15 @@ import {
   getCakeVaultAddress,
   getPredictionsAddress,
   getChainlinkOracleAddress,
-  getGiveAddress, getTestMasterChefAddress,
+  getGiveAddress,
+  getTestMasterChefAddress,
+  // getBscMasterChefAddress,
 } from 'utils/addressHelpers'
 
 // ABI
 import giveAbi from 'config/abi/give.json'
+import bscGiveAbi from 'config/abi/bscGive.json'
+import bscMasterchef from 'config/abi/bscMasterchef.json'
 import profileABI from 'config/abi/pancakeProfile.json'
 import pancakeRabbitsAbi from 'config/abi/pancakeRabbits.json'
 import bunnyFactoryAbi from 'config/abi/bunnyFactory.json'
@@ -69,12 +73,18 @@ const getContract = (abi: any, address: string, web3?: Web3, account?: string) =
 export const getGiveContract = (web3?: Web3) => {
   return getContract(giveAbi, getGiveAddress(), web3)
 }
+// export const getBscGiveContract = (web3?: Web3) => {
+//   return getContract(bscGiveAbi, getBscGiveContract(), web3)
+// }
 
 // for testing our masterchef contract
 // TODO: delete later
 export const getTestMasterchefContract = (web3?: Web3) => {
   return getContract(testMasterChef, getTestMasterChefAddress(), web3)
 }
+// export const getBscMasterchefContract = (web3?: Web3) => {
+//   return getContract(bscMasterchef, getBscMasterChefAddress(), web3)
+// }
 
 export const getBep20Contract = (address: string, web3?: Web3) => {
   return getContract(bep20Abi, address, web3)
@@ -94,6 +104,7 @@ export const getIfoV2Contract = (address: string, web3?: Web3) => {
 export const getSouschefContract = (id: number, web3?: Web3) => {
   const config = poolsConfig.find((pool) => pool.sousId === id)
   const abi = config.poolCategory === PoolCategory.BINANCE ? sousChefBnb : sousChef
+  // return getContract(testMasterChef, getTestMasterChefAddress(), web3)
   return getContract(abi, getAddress(config.contractAddress), web3)
 }
 export const getSouschefV2Contract = (id: number, web3?: Web3) => {
@@ -104,6 +115,7 @@ export const getPointCenterIfoContract = (web3?: Web3) => {
   return getContract(pointCenterIfo, getPointCenterIfoAddress(), web3)
 }
 export const getCakeContract = (web3?: Web3) => {
+  // return getContract(giveAbi, getGiveAddress(), web3)
   return getContract(cakeAbi, getCakeAddress(), web3)
 }
 export const getProfileContract = (web3?: Web3) => {
@@ -127,7 +139,9 @@ export const getLotteryTicketContract = (web3?: Web3) => {
 export const getLotteryV2Contract = (web3?: Web3) => {
   return getContract(lotteryV2Abi, getLotteryV2Address(), web3)
 }
+// going to try to change it to ours
 export const getMasterchefContract = (web3?: Web3) => {
+  // return getContract(testMasterChef, getTestMasterChefAddress(), web3)
   return getContract(masterChef, getMasterChefAddress(), web3)
 }
 export const getClaimRefundContract = (web3?: Web3) => {
