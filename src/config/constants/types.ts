@@ -1,9 +1,8 @@
 import { TranslatableText } from 'state/types'
 
 export interface Address {
-  97?: string
-  56: string
   4?: string
+  137: string
 }
 
 export interface Token {
@@ -154,3 +153,15 @@ export type PageMeta = {
   description?: string
   image?: string
 }
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
