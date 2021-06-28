@@ -12,9 +12,9 @@ export const getAddress = (address: Address): string => {
 export const getGiveAddress = () => {
   return getAddress(tokens.give.address)
 }
-export const getBscGiveAddress = () => {
-  return getAddress(tokens.bscGive.address)
-}
+// export const getBscGiveAddress = () => {
+//   return getAddress(tokens.bscGive.address)
+// }
 
 // for testing our masterchef contract
 // TODO: delete later
@@ -22,9 +22,9 @@ export const getTestMasterChefAddress = () => {
   return getAddress(addresses.testMasterChef)
 }
 
-export const getBscMasterChefAddress = () => {
-  return getAddress(addresses.bscMasterChef)
-}
+// export const getBscMasterChefAddress = () => {
+//   return getAddress(addresses.bscMasterChef)
+// }
 
 export const getCakeAddress = () => {
   return getAddress(tokens.cake.address)

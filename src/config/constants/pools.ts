@@ -16,24 +16,24 @@ const pools: PoolConfig[] = [
     sortOrder: 1,
     isFinished: false,
   },
-  {
-    // MARSH token
-    // Changing 97 address to GIVE for testing
-    // find some test staking tokens on rinkeby to test with 
-    sousId: 172,
-    stakingToken: tokens.marsh,
-    earningToken: tokens.give,
-    contractAddress: {
-      97: '',
-      56: '0x567fd708e788e51b68666b9310ee9df163d60fae',
-      // test code
-      // 56: '0x4EfbD6D22fE24B7f22BFFAE9b5626989b1597eF2',
-    },
-    poolCategory: PoolCategory.CORE,
-    harvest: true,
-    sortOrder: 999,
-    tokenPerBlock: '0.1108',
-  },
+  // {
+  //   // MARSH token
+  //   // Changing 97 address to GIVE for testing
+  //   // find some test staking tokens on rinkeby to test with
+  //   sousId: 172,
+  //   stakingToken: tokens.marsh,
+  //   earningToken: tokens.give,
+  //   contractAddress: {
+  //     97: '',
+  //     56: '0x567fd708e788e51b68666b9310ee9df163d60fae',
+  //     // test code
+  //     // 56: '0x4EfbD6D22fE24B7f22BFFAE9b5626989b1597eF2',
+  //   },
+  //   poolCategory: PoolCategory.CORE,
+  //   harvest: true,
+  //   sortOrder: 999,
+  //   tokenPerBlock: '0.1108',
+  // },
   {
     sousId: 171,
     stakingToken: tokens.cake,
