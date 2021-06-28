@@ -45,7 +45,7 @@ const CardImage = styled.img`
   bottom: 90%;
   right: 5%;
 `
-// test
+// test 1
 const Update = styled.div`
   color: pink;
   font-size: 13px;
