@@ -24,9 +24,9 @@ import {
   getSouschefV2Contract,
   getLotteryV2Contract,
   getGiveContract,
-  getTestMasterchefContract,
+  // getTestMasterchefContract,
   getBscGiveContract,
-  getBscMasterchefContract,
+  // getBscMasterchefContract,
 } from 'utils/contractHelpers'
 
 /**
@@ -45,18 +45,18 @@ export const useBscGive = () => {
   return useMemo(() => getBscGiveContract(web3), [web3])
 }
 
-// testing our masterchef contract - mainnet not testnet,
-// TODO: delete later
-export const useTestMasterchef = () => {
-  const web3 = useWeb3()
-  return useMemo(() => getTestMasterchefContract(web3), [web3])
-}
-
-// bsc testnet master chef
-export const useBscMasterchef = () => {
-  const web3 = useWeb3()
-  return useMemo(() => getBscMasterchefContract(web3), [web3])
-}
+// // testing our masterchef contract - mainnet not testnet,
+// // TODO: delete later
+// export const useTestMasterchef = () => {
+//   const web3 = useWeb3()
+//   return useMemo(() => getTestMasterchefContract(web3), [web3])
+// }
+//
+// // bsc testnet master chef
+// export const useBscMasterchef = () => {
+//   const web3 = useWeb3()
+//   return useMemo(() => getBscMasterchefContract(web3), [web3])
+// // }
 
 export const useIfoV1Contract = (address: string) => {
   const web3 = useWeb3()

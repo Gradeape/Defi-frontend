@@ -24,8 +24,8 @@ import {
   getPredictionsAddress,
   getChainlinkOracleAddress,
   getGiveAddress,
-  getTestMasterChefAddress,
-  getBscMasterChefAddress,
+  // getTestMasterChefAddress,
+  // getBscMasterChefAddress,
 } from 'utils/addressHelpers'
 
 // ABI
@@ -77,14 +77,14 @@ export const getBscGiveContract = (web3?: Web3) => {
   return getContract(bscGiveAbi, getBscGiveContract(), web3)
 }
 
-// for testing our masterchef contract
-// TODO: delete later
-export const getTestMasterchefContract = (web3?: Web3) => {
-  return getContract(testMasterChef, getTestMasterChefAddress(), web3)
-}
-export const getBscMasterchefContract = (web3?: Web3) => {
-  return getContract(bscMasterchef, getBscMasterChefAddress(), web3)
-}
+// // for testing our masterchef contract
+// // TODO: delete later
+// export const getTestMasterchefContract = (web3?: Web3) => {
+//   return getContract(testMasterChef, getTestMasterChefAddress(), web3)
+// }
+// export const getBscMasterchefContract = (web3?: Web3) => {
+//   return getContract(bscMasterchef, getBscMasterChefAddress(), web3)
+// }
 
 export const getBep20Contract = (address: string, web3?: Web3) => {
   return getContract(bep20Abi, address, web3)

@@ -326,13 +326,17 @@ export const useAchievements = () => {
 }
 
 export const usePriceBnbBusd = (): BigNumber => {
-  const bnbBusdFarm = useFarmFromPid(252)
-  return new BigNumber(bnbBusdFarm.quoteToken.busdPrice)
+  // const bnbBusdFarm = useFarmFromPid(252)
+  // return new BigNumber(bnbBusdFarm.quoteToken.busdPrice)
+  console.error('This function usePriceBnbBusd is not implemented, returned zero')
+  return BIG_ZERO
 }
 
 export const usePriceCakeBusd = (): BigNumber => {
-  const cakeBnbFarm = useFarmFromPid(251)
-  return new BigNumber(cakeBnbFarm.token.busdPrice)
+  // const cakeBnbFarm = useFarmFromPid(251)
+  // return new BigNumber(cakeBnbFarm.token.busdPrice)
+  console.error('This function usePriceCakeBusd is not implemented, returned zero')
+  return BIG_ZERO
 }
 
 // Block
