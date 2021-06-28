@@ -55,3 +55,5 @@ const tokens = {
         logoURI: 'ipfs://QmXttGpZrECX5qCyXbBQiqgQNytVGeZW5Anewvh2jc4psg'
     }
 }
+
+export default tokens

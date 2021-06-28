@@ -5,6 +5,14 @@ export interface Address {
   137: string
 }
 
+// this is just so there is no errors for the other constants files that use the bsc chain ids
+export interface Address2 {
+  97?: string
+  56: string
+  137: string
+}
+
+
 export interface Token {
   symbol: string
   address?: Address
@@ -96,7 +104,7 @@ export type NftVideo = {
 
 export type NftSource = {
   [key in NftType]: {
-    address: Address
+    address: Address2
     identifierKey: string
   }
 }
@@ -153,15 +161,4 @@ export type PageMeta = {
   description?: string
   image?: string
 }
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+

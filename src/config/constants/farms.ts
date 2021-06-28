@@ -77,3 +77,5 @@ const farms: FarmConfig[] = [
   },
 
 ]
+
+export default farms

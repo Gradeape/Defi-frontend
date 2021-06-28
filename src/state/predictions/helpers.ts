@@ -2,7 +2,7 @@ import { request, gql } from 'graphql-request'
 import { GRAPH_API_PREDICTION } from 'config/constants/endpoints'
 import { Bet, BetPosition, Market, PredictionStatus, Round, RoundData } from 'state/types'
 import makeBatchRequest from 'utils/makeBatchRequest'
-import { getPredictionsContract } from 'utils/contractHelpers'
+// import { getPredictionsContract } from 'utils/contractHelpers'
 import {
   BetResponse,
   getRoundBaseFields,
@@ -180,22 +180,23 @@ export const getUnclaimedWinningBets = (bets: Bet[]): Bet[] => {
  * Gets static data from the contract
  */
 export const getStaticPredictionsData = async () => {
-  const { methods } = getPredictionsContract()
-  const [currentEpoch, intervalBlocks, minBetAmount, isPaused, bufferBlocks] = await makeBatchRequest([
-    methods.currentEpoch().call,
-    methods.intervalBlocks().call,
-    methods.minBetAmount().call,
-    methods.paused().call,
-    methods.bufferBlocks().call,
-  ])
-
-  return {
-    status: isPaused ? PredictionStatus.PAUSED : PredictionStatus.LIVE,
-    currentEpoch: Number(currentEpoch),
-    intervalBlocks: Number(intervalBlocks),
-    bufferBlocks: Number(bufferBlocks),
-    minBetAmount,
-  }
+  // const { methods } = getPredictionsContract()
+  // const [currentEpoch, intervalBlocks, minBetAmount, isPaused, bufferBlocks] = await makeBatchRequest([
+  //   methods.currentEpoch().call,
+  //   methods.intervalBlocks().call,
+  //   methods.minBetAmount().call,
+  //   methods.paused().call,
+  //   methods.bufferBlocks().call,
+  // ])
+  //
+  // return {
+  //   status: isPaused ? PredictionStatus.PAUSED : PredictionStatus.LIVE,
+  //   currentEpoch: Number(currentEpoch),
+  //   intervalBlocks: Number(intervalBlocks),
+  //   bufferBlocks: Number(bufferBlocks),
+  //   minBetAmount,
+  // }
+  return null
 }
 
 export const getMarketData = async (): Promise<{
