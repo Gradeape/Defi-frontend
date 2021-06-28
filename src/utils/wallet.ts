@@ -39,7 +39,16 @@ export const setupNetwork = async () => {
               decimals: 18, */
             },
             rpcUrls: nodes,
-            blockExplorerUrls: [`${BASE_BSC_SCAN_URL}/`],
+            blockExplorerUrls: [`https://explorer.binance.org/smart-testnet`],
+            // chainId: `0x${chainId.toString(16)}`,
+            // chainName: 'Rinkeby Test Network',
+            // nativeCurrency: {
+            //   name: 'ETH',
+            //   symbol: 'ETH',
+            //   decimals: 18,
+            // },
+            // rpcUrls: nodes,
+            // blockExplorerUrls: [`https://rinkeby.etherscan.io`],
           },
         ],
       })
