@@ -34,13 +34,13 @@ const HorizontalLinePink = styled.line`
   border-top: 25px solid #F895CE;
   width: 680px;
   position: absolute;
-  left: 35%;
+  right: 10px;
   top: 99%;
 `
 
 const CardImage = styled.img`
   position: relative;
-  width: 45%;
+  width: 40%;
   float: right;
   bottom: 90%;
   right: 5%;
