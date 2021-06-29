@@ -8,5 +8,10 @@ export default {
   placeholder:{
     4: '',
     137: '',
-  }
+  },
+  multiCall: {
+    4: '0x42ad527de7d4e9d9d011ac45b31d8551f8fe9821',
+    137: '0x11ce4B23bD875D7F5C6a31084f55fDe1e9A87507',
+  },
+
 }
