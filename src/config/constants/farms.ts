@@ -55,26 +55,26 @@ const farms: FarmConfig[] = [
     token: tokens.uniswap,
     quoteToken: tokens.weth,
   },
-  {
-    pid: 5,
-    lpSymbol: 'GIVE-ETH LP',
-    lpAddresses: {
-      4: '0x53E98FFF0aBa503AB7dF61AaC1c0aE05A4aE9ae6',
-      137: '',
-    },
-    token: tokens.give,
-    quoteToken: tokens.weth,
-  },
-  {
-    pid: 6,
-    lpSymbol: 'GIVE-DAI LP',
-    lpAddresses: {
-      4: '0xCda79fCE58C2cFf1f9AeCE96f7bD37334D35ABB6',
-      137: '',
-    },
-    token: tokens.give,
-    quoteToken: tokens.dai,
-  },
+  // {
+  //   pid: 5,
+  //   lpSymbol: 'GIVE-ETH LP',
+  //   lpAddresses: {
+  //     4: '0x53E98FFF0aBa503AB7dF61AaC1c0aE05A4aE9ae6',
+  //     137: '',
+  //   },
+  //   token: tokens.give,
+  //   quoteToken: tokens.weth,
+  // },
+  // {
+  //   pid: 6,
+  //   lpSymbol: 'GIVE-DAI LP',
+  //   lpAddresses: {
+  //     4: '0xCda79fCE58C2cFf1f9AeCE96f7bD37334D35ABB6',
+  //     137: '',
+  //   },
+  //   token: tokens.give,
+  //   quoteToken: tokens.dai,
+  // },
 
 ]
 
