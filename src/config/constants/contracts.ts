@@ -1,6 +1,6 @@
 export default {
   masterChef: {
-    4: '0x55a84BA00720F0A9d8aB4C6eFB5341450f6b32E7',
+    4: '0xC4CBb72bd3Aa961ea07CEa804577F942279Ef9a7',
     137: '',
   },
   // placeholder address to deal with import errors later on
