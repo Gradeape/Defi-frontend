@@ -15,21 +15,37 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
     icon: 'TradeIcon',
     items: [
       {
-        label: t('Exchange'),
-        href: 'https://exchange.pancakeswap.finance/#/swap',
+        label: t('Swap (Uniswap)'),
+        href: 'https://app.uniswap.org/#/swap',
       },
       {
-        label: t('Liquidity'),
-        href: 'https://exchange.pancakeswap.finance/#/pool',
+        label: t('Swap (QuickSwap)'),
+        href: 'https://quickswap.exchange/#/swap',
       },
       {
-        label: t('LP Migration'),
-        href: 'https://v1exchange.pancakeswap.finance/#/migrate',
+        label: t('Exchange (Uniswap)'),
+        href: 'https://app.uniswap.org/#/add/v2/ETH',
       },
       {
-        label: t('V1 Liquidity (Old)'),
-        href: 'https://v1exchange.pancakeswap.finance/#/pool',
+        label: t('Exchange (QuickSwap)'),
+        href: 'https://quickswap.exchange/#/swap',
       },
+      // {
+      //   label: t('Exchange'),
+      //   href: 'https://exchange.pancakeswap.finance/#/swap',
+      // },
+      // {
+      //   label: t('Liquidity'),
+      //   href: 'https://exchange.pancakeswap.finance/#/pool',
+      // },
+      // {
+      //   label: t('LP Migration'),
+      //   href: 'https://v1exchange.pancakeswap.finance/#/migrate',
+      // },
+      // {
+      //   label: t('V1 Liquidity (Old)'),
+      //   href: 'https://v1exchange.pancakeswap.finance/#/pool',
+      // },
     ],
   },
   {
