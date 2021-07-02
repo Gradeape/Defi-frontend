@@ -2,6 +2,20 @@ import tokens from './tokens'
 import { PoolConfig, PoolCategory } from './types'
 
 const pools: PoolConfig[] = [
+     {
+       sousId: 0,
+       stakingToken: tokens.give,
+       earningToken: tokens.give,
+       contractAddress: {
+       4: '0x297aF17d0f9A7345e4bD9a529258E2Afaa7017D2',
+       137: '',
+     },
+    poolCategory: PoolCategory.CORE,
+    harvest: true,
+    tokenPerBlock: '10',
+    sortOrder: 1,
+    isFinished: false,
+  }
   // {
   //   sousId: 0,
   //   stakingToken: tokens.cake,

@@ -53,6 +53,15 @@ const tokens = {
         },
         decimals: 18,
         logoURI: 'ipfs://QmXttGpZrECX5qCyXbBQiqgQNytVGeZW5Anewvh2jc4psg'
+    },
+    usdc: {
+      symbol: 'USDC',
+      address: {
+        4: '0xeb8f08a975ab53e34d8a0330e0d34de942c95926',
+        137: ''
+      },
+      decimals: 18, 
+      logoURI: 'ipfs://QmXttGpZrECX5qCyXbBQiqgQNytVGeZW5Anewvh2jc4psg'
     }
 }
 export default tokens
