@@ -30,7 +30,7 @@ const CardBack = styled(Card)`
   background-position: top right;
   min-height: 250px;
   max-width: 200%;
-  background-image: linear-gradient(165deg, #6f12e0, #459bdb, #459bdb);
+  background-image: linear-gradient(165deg, #3C71E2, #459bdb, #459bdb);
 
   // for the phone but it screws up the desk top
   /* ${({ theme }) => theme.mediaQueries.sm} {

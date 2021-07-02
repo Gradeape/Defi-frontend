@@ -29,7 +29,7 @@ const StyledTestCard = styled(Card)`
 `
 
 const OuterBox = styled.div`
-  // background-image: linear-gradient(165deg, #6f12e0, #459bdb, #459bdb);
+  // background-image: linear-gradient(165deg, #DE70E7, #459bdb, #459bdb);
   background-color: purple;
   opacity: 0.5;
   height: 100px;
@@ -39,7 +39,7 @@ const OuterBox = styled.div`
 const BotCard = styled.div`
   margin-top: 200px;
   margin-left: 1%;
-  background-image: linear-gradient(165deg, #6f12e0, #459bdb, #459bdb);
+  background-image: linear-gradient(0.3turn, #EC77E5, #356EDF);
   height: 1200px;
   width: 1200px;
   border-radius: 100px;

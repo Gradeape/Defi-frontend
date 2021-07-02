@@ -98,7 +98,7 @@ const TextColor = styled.div`
 `
 
 const BlueCircle = styled.div`
-  background-image: linear-gradient(165deg, #6f12e0, #459bdb, #459bdb);
+  background-image: linear-gradient(165deg, #ADFCAC, #9895DB, #67B4EB);
   border-radius: 50%;
   width: 250px;
   height: 250px;
@@ -109,7 +109,7 @@ const BlueCircle = styled.div`
 `
 
 const BlueCircleA = styled.div`
-  background-image: linear-gradient(165deg, #6f12e0, #459bdb, #459bdb);
+  background-image: linear-gradient(165deg, #ADFCAC, #9895DB, #67B4EB);
   border-radius: 50%;
   width: 250px;
   height: 250px;
@@ -121,7 +121,7 @@ const BlueCircleA = styled.div`
 `
 
 const OrangeCircle = styled.div`
-  background-image: linear-gradient(165deg, #6f12e0, #459bdb, #459bdb);
+  background-image: linear-gradient(165deg, #FF7AB0, #FEBD95, #FFAF43);
   border-radius: 50%;
   width: 200px;
   height: 200px;
@@ -131,7 +131,7 @@ const OrangeCircle = styled.div`
   
 `
 const OrangeCircleA = styled.div`
-  background-image: linear-gradient(165deg, #6f12e0, #459bdb, #459bdb);
+  background-image: linear-gradient(165deg, #FF7AB0, #FEBD95, #FFAF43);
   border-radius: 50%;
   width: 200px;
   height: 200px;
@@ -142,7 +142,7 @@ const OrangeCircleA = styled.div`
 `
 
 const PinkCircle = styled.div`
-  background-image: linear-gradient(165deg, #6f12e0, #459bdb, #459bdb);
+  background-image: linear-gradient(165deg, #C36CF3, #F9C0D6, #EA5CF1);
   border-radius: 50%;
   width: 300px;
   height: 300px;
@@ -153,7 +153,7 @@ const PinkCircle = styled.div`
 `
 
 const PinkCircleA = styled.div`
-  background-image: linear-gradient(165deg, #6f12e0, #459bdb, #459bdb);
+  background-image: linear-gradient(165deg, #C36CF3, #F9C0D6, #EA5CF1);
   border-radius: 50%;
   width: 300px;
   height: 300px;
@@ -240,6 +240,7 @@ const FSCard2 = () => {
           <BlueCircleTextA>Supply</BlueCircleTextA>
         </BlueCircle>
 
+        
         <OrangeCircleA> </OrangeCircleA>
         <OrangeCircle>
           <OrangeCircleTextA>20</OrangeCircleTextA>
