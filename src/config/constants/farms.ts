@@ -8,6 +8,7 @@ const farms: FarmConfig[] = [
   {
     pid: 0,
     lpSymbol: 'GIVE',
+    isSingleToken: true,
     lpAddresses: {
       4: '0x297aF17d0f9A7345e4bD9a529258E2Afaa7017D2',
       137: '',
@@ -18,6 +19,7 @@ const farms: FarmConfig[] = [
   {
     pid: 1,
     lpSymbol: 'WETH',
+    isSingleToken: true,
     lpAddresses: {
       // original farms.ts
       4: '0xdf032bc4b9dc2782bb09352007d4c57b75160b15',
@@ -31,6 +33,7 @@ const farms: FarmConfig[] = [
   {
     pid: 2,
     lpSymbol: 'DAI',
+    isSingleToken: true,
     lpAddresses: {
       4: '0xc7AD46e0b8a400Bb3C915120d284AafbA8fc4735',
       137: '',
@@ -41,6 +44,7 @@ const farms: FarmConfig[] = [
   {
     pid: 3,
     lpSymbol: 'MKR',
+    isSingleToken: true,
     lpAddresses: {
       4: '0xF9bA5210F91D0474bd1e1DcDAeC4C58E359AaD85',
       137: '',
@@ -51,6 +55,7 @@ const farms: FarmConfig[] = [
   {
     pid: 4,
     lpSymbol: 'UNI',
+    isSingleToken: true,
     lpAddresses: {
       4: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984',
       137: '',
@@ -61,6 +66,7 @@ const farms: FarmConfig[] = [
   {
     pid: 5,
     lpSymbol: 'USDC',
+    isSingleToken: true,
     lpAddresses: {
       4: '0xeb8f08a975ab53e34d8a0330e0d34de942c95926',
       137: '',
@@ -91,6 +97,7 @@ const farms: FarmConfig[] = [
   {
     pid: 8,
     lpSymbol: 'WETH2',
+    isSingleToken: true,
     lpAddresses: {
       4: '0xc778417E063141139Fce010982780140Aa0cD5Ab',
       137: '',

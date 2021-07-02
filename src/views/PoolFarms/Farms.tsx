@@ -133,14 +133,14 @@ const Farms: React.FC = () => {
     setStakedOnly(!isActive)
   }, [isActive])
 
-  // original code
+  // original code (does not show give pool)
   // const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid))
   // const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X' && !isArchivedPid(farm.pid))
   // const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
 
   // test code
-  const activeFarms = farmsLP.filter((farm) => !isArchivedPid(farm.pid))
-  const inactiveFarms = farmsLP.filter((farm) => !isArchivedPid(farm.pid))
+  const activeFarms = farmsLP.filter((farm) => farm.isSingleToken && !isArchivedPid(farm.pid))
+  const inactiveFarms = farmsLP.filter((farm) => farm.isSingleToken && !isArchivedPid(farm.pid))
   const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
 
   const stakedOnlyFarms = activeFarms.filter(
@@ -357,7 +357,7 @@ const Farms: React.FC = () => {
       <PageHeader>
         <LeftHeader>
           <Heading as="h1" scale="xxl" color="secondary" mb="24px">
-            {t('Pools')}
+            {t('Farms')}
           </Heading>
           <Heading scale="lg" color="text">
             {t('Stake Liquidity Pool (LP) tokens to earn.')}
