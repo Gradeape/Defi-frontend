@@ -4,8 +4,8 @@ import { Address } from 'config/constants/types'
 
 export const getAddress = (address: Address): string => {
   const mainNetChainId = 137
-  // const chainId = process.env.REACT_APP_CHAIN_ID
-  const chainId = 4 // TODO: change back
+  const chainId = process.env.REACT_APP_CHAIN_ID
+  // const chainId = 4 // TODO: change back
   return address[chainId] ? address[chainId] : address[mainNetChainId]
 }
 

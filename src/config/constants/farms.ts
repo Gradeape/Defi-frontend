@@ -13,7 +13,7 @@ const farms: FarmConfig[] = [
       137: '',
     },
     token: tokens.give,
-    quoteToken: tokens.weth,
+    quoteToken: tokens.usdc,
   },
   {
     pid: 1,
@@ -23,7 +23,7 @@ const farms: FarmConfig[] = [
       137: '',
     },
     token: tokens.weth,
-    quoteToken: tokens.weth,
+    quoteToken: tokens.usdc,
   },
   {
     pid: 2,
@@ -33,23 +33,23 @@ const farms: FarmConfig[] = [
       137: '',
     },
     token: tokens.dai,
-    quoteToken: tokens.weth,
+    quoteToken: tokens.usdc,
   },
   {
     pid: 3,
     lpSymbol: 'MKR',
     lpAddresses: {
-      4: '0xF9bA5210F91D0474bd1e1DcDAeC4C58E359AaD85',
+      4: 'xF9bA5210F91D0474bd1e1DcDAeC4C58E359AaD85',
       137: '',
     },
     token: tokens.maker,
-    quoteToken: tokens.weth,
+    quoteToken: tokens.usdc,
   },
   {
     pid: 4,
     lpSymbol: 'UNI',
     lpAddresses: {
-      4: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984',
+      4: 'x1f9840a85d5aF5bf1D1762F925BDADdC4201F984',
       137: '',
     },
     token: tokens.uniswap,
@@ -57,7 +57,17 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 5,
-    lpSymbol: 'GIVE-ETH LP',
+    lpSymbol: 'USDC',
+    lpAddresses: {
+      4: '0xeb8f08a975ab53e34d8a0330e0d34de942c95926',
+      137: '',
+    },
+    token: tokens.usdc,
+    quoteToken: tokens.weth,
+  },
+  {
+    pid: 6,
+    lpSymbol: 'GIVE-WETH LP',
     lpAddresses: {
       4: '0x53E98FFF0aBa503AB7dF61AaC1c0aE05A4aE9ae6',
       137: '',
@@ -66,16 +76,15 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.weth,
   },
   {
-    pid: 6,
-    lpSymbol: 'GIVE-DAI LP',
+    pid: 7,
+    lpSymbol: 'GIVE-USDC LP',
     lpAddresses: {
-      4: '0xCda79fCE58C2cFf1f9AeCE96f7bD37334D35ABB6',
+      4: '0xc7084c6573b691561009bedd8be7e8ab2951d8ab',
       137: '',
     },
     token: tokens.give,
-    quoteToken: tokens.dai,
+    quoteToken: tokens.usdc,
   },
-
 ]
 
 export default farms
