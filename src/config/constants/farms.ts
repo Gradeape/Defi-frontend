@@ -19,7 +19,10 @@ const farms: FarmConfig[] = [
     pid: 1,
     lpSymbol: 'WETH',
     lpAddresses: {
-      4: '0xdf032bc4b9dc2782bb09352007d4c57b75160b15',
+      // original farms.ts
+      // 4: '0xdf032bc4b9dc2782bb09352007d4c57b75160b15',
+      // from tokens.ts
+      4: '0xc778417e063141139fce010982780140aa0cd5ab',
       137: '',
     },
     token: tokens.weth,
