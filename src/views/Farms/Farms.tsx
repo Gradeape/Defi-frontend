@@ -97,12 +97,12 @@ const StyledImage = styled(Image)`
   margin-right: auto;
   margin-top: 58px;
 `
-const RightHeader= styled.div`
-  display:inline-block;
-  vertical-align:top;
+const RightHeader = styled.div`
+  display: inline-block;
+  vertical-align: top;
 `
-const LeftHeader= styled.div`
-  display:inline-block;
+const LeftHeader = styled.div`
+  display: inline-block;
 `
 
 const NUMBER_OF_FARMS_VISIBLE = 12
@@ -133,8 +133,13 @@ const Farms: React.FC = () => {
     setStakedOnly(!isActive)
   }, [isActive])
 
-  const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid))
-  const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X' && !isArchivedPid(farm.pid))
+  // original code (does not show give pool)
+  // const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid))
+  // const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X' && !isArchivedPid(farm.pid))
+  // const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
+
+  const activeFarms = farmsLP.filter((farm) => !isArchivedPid(farm.pid))
+  const inactiveFarms = farmsLP.filter((farm) => !isArchivedPid(farm.pid))
   const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
 
   const stakedOnlyFarms = activeFarms.filter(
@@ -358,12 +363,8 @@ const Farms: React.FC = () => {
           </Heading>
         </LeftHeader>
         <RightHeader>
-          <img src="images/BCharity-Images/cat2.png"
-               alt="cartoon cat"
-               width="200px"
-          />
+          <img src="images/BCharity-Images/cat2.png" alt="cartoon cat" width="200px" />
         </RightHeader>
-
       </PageHeader>
       <Page>
         <ControlContainer>
