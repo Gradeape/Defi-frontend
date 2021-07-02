@@ -30,7 +30,11 @@ export const stake = async (masterChefContract, pid, amount, account) => {
   }
 
   return masterChefContract.methods
-    .deposit(pid, new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString(), "0x0000000000000000000000000000000000000000") // TODO: change to referer
+    .deposit(
+      pid,
+      new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString(),
+      '0x0000000000000000000000000000000000000000',
+    ) // TODO: change to referer
     .send({ from: account, gas: DEFAULT_GAS_LIMIT })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
