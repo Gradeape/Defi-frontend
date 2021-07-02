@@ -163,12 +163,12 @@ export const useFetchPublicPoolsData = () => {
 
 export const usePools = (account): { pools: Pool[]; userDataLoaded: boolean } => {
   const { fastRefresh } = useRefresh()
-  const dispatch = useAppDispatch()
+  // const dispatch = useAppDispatch()
   useEffect(() => {
     if (account) {
-      dispatch(fetchPoolsUserDataAsync(account))
+      // dispatch(fetchPoolsUserDataAsync(account))
     }
-  }, [account, dispatch, fastRefresh])
+  }, [account, fastRefresh])
 
   const { pools, userDataLoaded } = useSelector((state: State) => ({
     pools: state.pools.data,

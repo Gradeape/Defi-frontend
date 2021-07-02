@@ -13,6 +13,7 @@ import {
   makeRoundData,
 } from './helpers'
 
+/* 
 const initialState: PredictionsState = {
   status: PredictionStatus.INITIAL,
   isLoading: false,
@@ -30,6 +31,7 @@ const initialState: PredictionsState = {
   history: {},
   bets: {},
 }
+*/ 
 
 // Thunks
 export const fetchBet = createAsyncThunk<{ account: string; bet: Bet }, { account: string; id: string }>(
@@ -88,6 +90,7 @@ export const fetchHistory = createAsyncThunk<{ account: string; bets: Bet[] }, {
   },
 )
 
+/* 
 export const predictionsSlice = createSlice({
   name: 'predictions',
   initialState,
@@ -223,7 +226,9 @@ export const predictionsSlice = createSlice({
     })
   },
 })
+*/ 
 
+/* 
 // Actions
 export const {
   initialize,
@@ -239,3 +244,4 @@ export const {
 } = predictionsSlice.actions
 
 export default predictionsSlice.reducer
+*/ 

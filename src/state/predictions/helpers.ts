@@ -132,7 +132,7 @@ export const transformRoundResponse = (roundResponse: RoundResponse): Round => {
 
 export const transformMarketResponse = (marketResponse: MarketResponse): Market => {
   return {
-    id: marketResponse.id,
+    // id: marketResponse.id,
     paused: marketResponse.paused,
     epoch: Number(marketResponse.epoch.epoch),
   }

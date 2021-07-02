@@ -13,7 +13,7 @@ import {
 } from '@pancakeswap/uikit'
 import { useAppDispatch } from 'state'
 import { HistoryFilter } from 'state/types'
-import { setHistoryFilter, setHistoryPaneState, fetchHistory } from 'state/predictions'
+// import { setHistoryFilter, setHistoryPaneState, fetchHistory } from 'state/predictions'
 import { useGetHistoryFilter, useGetIsFetchingHistory } from 'state/hooks'
 import { useTranslation } from 'contexts/Localization'
 import styled from 'styled-components'
@@ -73,13 +73,13 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
   const { account } = useWeb3React()
 
   const handleClick = () => {
-    dispatch(setHistoryPaneState(false))
+    // dispatch(setHistoryPaneState(false))
   }
 
   const handleChange = (newFilter: HistoryFilter) => async () => {
     if (newFilter !== historyFilter) {
-      await dispatch(fetchHistory({ account, claimed: getClaimParam(newFilter) }))
-      dispatch(setHistoryFilter(newFilter))
+      // await dispatch(fetchHistory({ account, claimed: getClaimParam(newFilter) }))
+      // dispatch(setHistoryFilter(newFilter))
     }
   }
 

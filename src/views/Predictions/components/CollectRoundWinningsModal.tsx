@@ -20,7 +20,7 @@ import { useWeb3React } from '@web3-react/core'
 import { getBscScanTransactionUrl } from 'utils/bscscan'
 import { useAppDispatch } from 'state'
 import { usePriceBnbBusd } from 'state/hooks'
-import { markBetAsCollected } from 'state/predictions'
+// d import { markBetAsCollected } from 'state/predictions'
 import { useTranslation } from 'contexts/Localization'
 import useToast from 'hooks/useToast'
 import { usePredictionsContract } from 'hooks/useContract'
@@ -72,7 +72,7 @@ const CollectRoundWinningsModal: React.FC<CollectRoundWinningsModalProps> = ({
           await onSuccess()
         }
 
-        dispatch(markBetAsCollected({ account, roundId }))
+        // dispatch(markBetAsCollected({ account, roundId }))
         onDismiss()
         setIsPendingTx(false)
         toastSuccess(

@@ -123,12 +123,13 @@ export const fetchPoolsUserDataAsync =
     dispatch(setPoolsUserData(userData))
   }
 
-export const updateUserAllowance =
-  (sousId: number, account: string): AppThunk =>
-  async (dispatch) => {
-    const allowances = await fetchPoolsAllowance(account)
-    dispatch(updatePoolsUserData({ sousId, field: 'allowance', value: allowances[sousId] }))
+export const updateUserAllowance = 
+  (sousId: number, account: string): AppThunk => 
+    async (dispatch) => {
+      const allowances = await fetchPoolsAllowance(account)
+      dispatch(updatePoolsUserData({ sousId, field: 'allowance', value: allowances[sousId] }))  
   }
+  
 
 export const updateUserBalance =
   (sousId: number, account: string): AppThunk =>

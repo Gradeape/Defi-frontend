@@ -21,7 +21,7 @@ const useStake = (pid: number) => {
 }
 
 export const useSousStake = (sousId: number, isUsingBnb = false) => {
-  const dispatch = useAppDispatch()
+  // const dispatch = useAppDispatch()
   const { account } = useWeb3React()
   const masterChefContract = useMasterchef()
   const sousChefContract = useSousChef(sousId)
@@ -35,10 +35,10 @@ export const useSousStake = (sousId: number, isUsingBnb = false) => {
       } else {
         await sousStake(sousChefContract, amount, decimals, account)
       }
-      dispatch(updateUserStakedBalance(sousId, account))
-      dispatch(updateUserBalance(sousId, account))
+      // dispatch(updateUserStakedBalance(sousId, account))
+      // dispatch(updateUserBalance(sousId, account))
     },
-    [account, dispatch, isUsingBnb, masterChefContract, sousChefContract, sousId],
+    [account, isUsingBnb, masterChefContract, sousChefContract, sousId],
   )
 
   return { onStake: handleStake }

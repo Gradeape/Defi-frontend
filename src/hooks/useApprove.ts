@@ -29,6 +29,7 @@ export const useApprove = (lpContract: Contract) => {
 }
 
 // Approve a Pool
+/* 
 export const useSousApprove = (lpContract: Contract, sousId, earningTokenSymbol) => {
   const [requestedApproval, setRequestedApproval] = useState(false)
   const { toastSuccess, toastError } = useToast()
@@ -41,7 +42,7 @@ export const useSousApprove = (lpContract: Contract, sousId, earningTokenSymbol)
     try {
       setRequestedApproval(true)
       const tx = await approve(lpContract, sousChefContract, account)
-      dispatch(updateUserAllowance(sousId, account))
+      dispatch(updateUserAllowance (sousId, account))
       if (tx) {
         toastSuccess(
           t('Contract Enabled'),
@@ -61,6 +62,7 @@ export const useSousApprove = (lpContract: Contract, sousId, earningTokenSymbol)
 
   return { handleApprove, requestedApproval }
 }
+*/ 
 
 // Approve CAKE auto pool
 export const useVaultApprove = (setLastUpdated: () => void) => {

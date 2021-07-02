@@ -8,7 +8,7 @@ import { useCakeVault } from 'state/hooks'
 import { Pool } from 'state/types'
 import Balance from 'components/Balance'
 import { useTranslation } from 'contexts/Localization'
-import { useCheckVaultApprovalStatus, useSousApprove, useVaultApprove } from 'hooks/useApprove'
+import { useCheckVaultApprovalStatus, useVaultApprove } from 'hooks/useApprove'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { PoolCategory } from 'config/constants/types'
 import { BIG_ZERO } from 'utils/bigNumber'
@@ -44,19 +44,19 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataLoa
   const { t } = useTranslation()
   const { account } = useWeb3React()
 
-  const stakingTokenContract = useERC20(stakingToken.address ? getAddress(stakingToken.address) : '')
-  const { handleApprove: handlePoolApprove, requestedApproval: requestedPoolApproval } = useSousApprove(
-    stakingTokenContract,
-    sousId,
-    earningToken.symbol,
-  )
+  // const stakingTokenContract = useERC20(stakingToken.address ? getAddress(stakingToken.address) : '')
+  // const { handleApprove: handlePoolApprove, requestedApproval: requestedPoolApproval } = useSousApprove(
+  //  stakingTokenContract,
+  //  sousId,
+  //  earningToken.symbol,
+  // )
 
   const { isVaultApproved, setLastUpdated } = useCheckVaultApprovalStatus()
   const { handleApprove: handleVaultApprove, requestedApproval: requestedVaultApproval } =
     useVaultApprove(setLastUpdated)
 
-  const handleApprove = isAutoVault ? handleVaultApprove : handlePoolApprove
-  const requestedApproval = isAutoVault ? requestedVaultApproval : requestedPoolApproval
+  // const handleApprove = isAutoVault ? handleVaultApprove : handlePoolApprove
+  // const requestedApproval = isAutoVault ? requestedVaultApproval : requestedPoolApproval
 
   const isBnbPool = poolCategory === PoolCategory.BINANCE
   const allowance = userData?.allowance ? new BigNumber(userData.allowance) : BIG_ZERO
@@ -168,12 +168,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataLoa
           <Text fontSize="12px" bold color="textSubtle" as="span" textTransform="uppercase">
             {t('Enable pool')}
           </Text>
-        </ActionTitles>
-        <ActionContent>
-          <Button width="100%" disabled={requestedApproval} onClick={handleApprove} variant="secondary">
-            {t('Enable')}
-          </Button>
-        </ActionContent>
+        </ActionTitles> 
       </ActionContainer>
     )
   }

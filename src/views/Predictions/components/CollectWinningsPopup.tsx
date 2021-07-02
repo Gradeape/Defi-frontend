@@ -7,7 +7,7 @@ import { useTranslation } from 'contexts/Localization'
 import { getBetHistory } from 'state/predictions/helpers'
 import { useGetPredictionsStatus, useIsHistoryPaneOpen } from 'state/hooks'
 import { useAppDispatch } from 'state'
-import { setHistoryPaneState } from 'state/predictions'
+// import { setHistoryPaneState } from 'state/predictions'
 
 /**
  * @see https://github.com/animate-css/animate.css/tree/main/source
@@ -126,10 +126,10 @@ const CollectWinningsPopup = () => {
   const { account } = useWeb3React()
   const predictionStatus = useGetPredictionsStatus()
   const isHistoryPaneOpen = useIsHistoryPaneOpen()
-  const dispatch = useAppDispatch()
+  // const dispatch = useAppDispatch()
 
   const handleOpenHistory = () => {
-    dispatch(setHistoryPaneState(true))
+    // dispatch(setHistoryPaneState(true))
   }
 
   const handleClick = () => {

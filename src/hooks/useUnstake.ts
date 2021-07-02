@@ -21,7 +21,7 @@ const useUnstake = (pid: number) => {
 }
 
 export const useSousUnstake = (sousId, enableEmergencyWithdraw = false) => {
-  const dispatch = useAppDispatch()
+  // const dispatch = useAppDispatch()
   const { account } = useWeb3React()
   const masterChefContract = useMasterchef()
   const sousChefContract = useSousChef(sousId)
@@ -38,11 +38,11 @@ export const useSousUnstake = (sousId, enableEmergencyWithdraw = false) => {
         const txHash = await sousUnstake(sousChefContract, amount, decimals, account)
         console.info(txHash)
       }
-      dispatch(updateUserStakedBalance(sousId, account))
-      dispatch(updateUserBalance(sousId, account))
-      dispatch(updateUserPendingReward(sousId, account))
+      // dispatch(updateUserStakedBalance(sousId, account))
+      // dispatch(updateUserBalance(sousId, account))
+      // dispatch(updateUserPendingReward(sousId, account))
     },
-    [account, dispatch, enableEmergencyWithdraw, masterChefContract, sousChefContract, sousId],
+    [account, enableEmergencyWithdraw, masterChefContract, sousChefContract, sousId],
   )
 
   return { onUnstake: handleUnstake }
