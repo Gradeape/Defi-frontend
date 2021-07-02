@@ -11,15 +11,16 @@ import { useTranslation } from 'contexts/Localization'
 // import CakeWalletBalance from './CakeWalletBalance'
 // import { Button as testbutton } from 'bcharity-uikit'
 
+// font import
+
 // changed name to match card , changed background to gradient
 // to stack a bg image on top of gradient, list it before linear-gradient
+
 const StyledTestCard = styled(Card)`
-  // background-image: linear-gradient(rgba(204, 204, 255, 1), rgba(252, 233, 246, 0.5));
-  background-repeat: no-repeat;
-  background-position: top right;
-  min-height: 250px;
+
+  max-height: 600px;
   min-width: 180px;
-  background-color: #ffc77d;
+  color: #FAF9FA;
 
   // for the phone but it screws up the desk top
   /* ${({ theme }) => theme.mediaQueries.sm} {
@@ -27,8 +28,28 @@ const StyledTestCard = styled(Card)`
   } */
 `
 
+const OuterBox = styled.div`
+  // background-image: linear-gradient(165deg, #6f12e0, #459bdb, #459bdb);
+  background-color: purple;
+  opacity: 0.5;
+  height: 100px;
+  width: 1000px;
+`
+
+const BotCard = styled.div`
+  margin-top: 200px;
+  margin-left: 1%;
+  background-image: linear-gradient(165deg, #6f12e0, #459bdb, #459bdb);
+  height: 1200px;
+  width: 1200px;
+  border-radius: 100px;
+  transform: rotate(340deg);
+`
+
 const Block = styled.div`
   margin-bottom: 16px;
+  max-width: 100px;
+  overflow: hidden;
 `
 
 const CardImage = styled.img`
@@ -50,8 +71,8 @@ const Actions = styled.div`
 `
 const ImagePositioning = styled.div`
   position: absolute;
-  top: 50px;
-  left: 100px;
+  top: 200px;
+  left: 500px;
 
   // for the phone but it screws up the desk top
   /* ${({ theme }) => theme.mediaQueries.sm} {
@@ -59,12 +80,75 @@ const ImagePositioning = styled.div`
     top: 110px;
   } */
 `
-const TextColor = styled.div`
-  color: white;
-  text-shadow: 2px 3px #624d30;
+const ImagePositioningTL = styled.div`
+  position: absolute;
+  top: 200px;
+  left: 500px;
+`
+const TestContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 `
 
-const TestCard = () => {
+const TextColor = styled.div`
+  font-style: Tw Cen MT;
+  color: black;
+`
+const TextColorBlue = styled.div`
+  color: #459bdb;
+`
+const TextColorPink = styled.div`
+  color: #f895ce;
+`
+const SmallerFont = styled.div`
+  font-size: 13px;
+`
+const ImageDiv = styled.div``
+const TextContainer = styled.div`
+  max-height: 250px;
+  max-width: 250px;
+  
+`
+
+const Title = styled.div`
+  font-family: Tw Cen MT;
+  float: right;
+  color: white;
+  font-size: 100px;
+  transform: rotate(20deg);
+  margin-top: 100px;
+`
+
+const Subtitle = styled.div`
+  float: right;
+  font-family: Tw Cen MT;
+  color: white;
+  font-size: 35px;
+  transform: rotate(20deg);
+  margin-top: 170px;
+  margin-right: -340px;
+  text-align: right;
+  width: 550px;
+`
+
+const ButtonButton = styled.button`
+  float: right;
+  font-family: Tw Cen MT;
+  border-radius: 5px;
+  font-size: 35px;
+  transform: rotate(20deg);
+  margin-top: 320px;
+  margin-right: -510px;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  font-size: 30px;
+`
+
+
+const BottomCard = () => {
   // use this function for translations, for string to be translated,
   // need to include in the string in translation.json file
   // more is written about translation in CONTRIBUTING.md
@@ -79,52 +163,15 @@ const TestCard = () => {
     'all the actors involved in the non-profit sector and templates of smart contracts to run fundraising campaigns and programs.    ' */
 
   return (
-    <StyledTestCard>
-      <CardBody>
-        <Heading scale="xl" mb="24px">
-          <TextColor>
-            {/* Card title */}
-            {t('Farms')}
-          </TextColor>
-        </Heading>
-        <ImagePositioning>
-          <CardImage src="/images/BCharity-Images/Feature2.png" alt="Feature #1" width={200} height={200} />
-        </ImagePositioning>
-        {/* not good design to have blocks of text like this but this is just a example */}
-        <Block>
-          {/* <Label>{t('Subtitle')}:</Label> */}
-          {/* <TestText>{t('this is a block of text')}</TestText> */}
-        </Block>
-        {/* <Block>
-          <Label>{t('Example Text')}:</Label>
-          <TestText>{t('Abstract: %text%', { text: exampleTextAbstract })}</TestText>
-        </Block> */}
-        <Actions>
-          {/* <Button id="test-button" onClick={() => alert('you clicked the button :)')} width="100%">
-            {t('Link button')}
-          </Button> */}
-        </Actions>
-        {/* <Actions>
-          {account ? (
-            <Button
-              id="harvest-all"
-              disabled={balancesWithValue.length <= 0 || pendingTx}
-              onClick={harvestAllFarms}
-              width="100%"
-            >
-              {pendingTx
-                ? t('Collecting CAKE')
-                : t('Harvest all (%count%)', {
-                    count: balancesWithValue.length,
-                  })}
-            </Button>
-          ) : (
-            <UnlockButton width="100%" />
-          )}
-        </Actions> */}
-      </CardBody>
-    </StyledTestCard>
+      <StyledTestCard>
+        <BotCard>
+          <Title>Title here</Title>
+          <Subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Subtitle>
+          <ButtonButton>Button</ButtonButton>
+        </BotCard>
+        
+      </StyledTestCard>
   )
 }
 
-export default TestCard
+export default BottomCard

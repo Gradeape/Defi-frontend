@@ -4,13 +4,14 @@ import { Heading, Card, CardBody, Button } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 
 const StyledHeadingCard = styled(Card)`
-  margin-top: 25px;
+  margin-top: 35px;
   background-image: linear-gradient(165deg, #6f12e0, #459bdb, #459bdb);
   box-shadow: 12px 16px 5px #e4e3e9;
-  height: 48%;
+  // max-height: 1000%;
   max-width: 100%;
   overflow: visible;
   position: relative;
+  padding-bottom: 0;
 `
 
 const VerticalLine = styled.line`
@@ -19,7 +20,7 @@ const VerticalLine = styled.line`
   position: absolute;
   left: 10.5%;
   margin-left: -3px;
-  top: 83px;
+  top: 63px;
 `
 
 const HorizontalLineOrange = styled.line`
@@ -39,10 +40,10 @@ const HorizontalLinePink = styled.line`
 `
 
 const CardImage = styled.img`
-  position: relative;
-  width: 40%;
+  position: absolute;
+  width: 430px;
   float: right;
-  bottom: 90%;
+  bottom: 0px;
   right: 5%;
 `
 
@@ -52,7 +53,7 @@ const Update = styled.div`
   max-width: 500px;
   padding-left: 10%;
   padding-bottom: 10px;
-  padding-top: 60px;
+  padding-top: 40px;
   letter-spacing: 2px;
   font-family: 'Tw Cen MT'; 
 `
@@ -63,8 +64,6 @@ const Subtitle = styled.div`
   max-width: 500px;
   padding-left: 11%;
   padding-bottom: 10px;
-  //   text-shadow: 2px 3px 2px rgba(98,61,222,0.5);
-  // text-align: center;
   letter-spacing: 2px;
   font-family: 'Tw Cen MT'; 
 `
@@ -107,7 +106,7 @@ const HomeHeaderCard = () => {
   const title = 'BCharity'
   return (
     <StyledHeadingCard>
-      {/* <CardBody> */}
+
         <VerticalLine />
         <Update color="pink">UPDATE</Update>
         <Subtitle color="white"> {subtitle} </Subtitle>
@@ -116,7 +115,7 @@ const HomeHeaderCard = () => {
         <CardImage src="/images/BCharity-Images/cat1.png" alt="cartoon cat holding coffee mug" />
         <HorizontalLineOrange />
         <HorizontalLinePink />
-      {/* </CardBody> */}
+
     </StyledHeadingCard>
   )
 }

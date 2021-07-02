@@ -12,10 +12,17 @@ import EarnAssetCard from 'views/Home/components/EarnAssetCard'
 import WinCard from 'views/Home/components/WinCard'
 // new
 import { NavLink } from 'react-router-dom'
-import TestCard2 from 'views/Home/components/TestCard2'
-import TestCard3 from 'views/Home/components/TestCard3'
-import TestCard from 'views/Home/components/TestCard'
+// import TestCard2 from 'views/Home/components/TestCard2'
+// import TestCard3 from 'views/Home/components/TestCard3'
+// import TestCard from 'views/Home/components/TestCard'
+
+import MainCard from 'views/Home/components/MainCard'
+import MainCard1 from 'views/Home/components/MainCard1'
+import MainCard2 from 'views/Home/components/MainCard2'
 import FarmingandstakingCard from 'views/Home/components/FarmingandstakingCard'
+import FSCard2 from 'views/Home/components/FarmingandstakingCard2'
+import BottomCard from 'views/Home/components/BottomCard'
+
 import HomeHeaderCard from './components/HomeHeaderCard' // TODO: remove later, this is just test component
 
 const Hero = styled.div`
@@ -98,12 +105,16 @@ const CTACards = styled(BaseLayout)`
     }
   }
 `
+
 // testing different spans for the cards
-const TestCardLayout = styled(BaseLayout)`
+const HomeHeaderCardLayout = styled(BaseLayout)`
   align-items: stretch;
+  display: flex;
   justify-content: stretch;
   margin-bottom: 24px;
   grid-gap: 24px;
+  max-height: 275px;
+  min-height: 275px;
 
   & > div {
     grid-column: span 6;
@@ -117,7 +128,7 @@ const TestCardLayout = styled(BaseLayout)`
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    margin-bottom: 32px;
+    margin-bottom: 40px;
     grid-gap: 32px;
 
     & > div {
@@ -125,12 +136,45 @@ const TestCardLayout = styled(BaseLayout)`
     }
   }
 `
-const FeatureCardDiv = styled(BaseLayout)`
+// make space between cards scale
+// testing different spans for the cards
+const TestCardLayout = styled(BaseLayout)`
+  // align-items: start;
+  // display: flex;
+  // justify-content: stretch;
+  margin-bottom: 24px;
+  // grid-gap: 24px;
+
+  & > div {
+    grid-column: span 6;
+  }
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    & > div {
+      grid-column: span 10;
+    }
+  }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    margin-top: 0px;
+    // grid-gap: 32px;
+
+    & > div {
+      grid-column: span 12;
+    }
+  }
+`
+
+
+
+const FarmsAndStaking = styled(BaseLayout)`
   align-items: stretch;
+  display: flex;
   justify-content: stretch;
   margin-bottom: 24px;
-  margin-top: 10px;
   grid-gap: 24px;
+  // max-height: 275px;
+  // min-height: 275px;
 
   & > div {
     grid-column: span 6;
@@ -139,10 +183,40 @@ const FeatureCardDiv = styled(BaseLayout)`
 
   ${({ theme }) => theme.mediaQueries.sm} {
     & > div {
+      grid-column: span 10;
+    }
+  }
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    // margin-bottom: -175px;
+    grid-gap: 32px;
+
+    & > div {
+      grid-column: span 12;
+    }
+  }
+`
+
+
+const FeatureCardDiv = styled(BaseLayout)`
+  // align-items: stretch;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  grid-gap: 24px;
+  display: flex;
+
+  & > div {
+    grid-column: span 6vw;
+  }
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    & > div {
       grid-column: span 8;
     }
   }
 
+
+//  change to make veritcal
   ${({ theme }) => theme.mediaQueries.lg} {
     margin-bottom: 32px;
     grid-gap: 50px;
@@ -158,8 +232,10 @@ const FeatureText = styled.div`
   font-size: 50px;
 `
 const TextColor = styled.div`
-  color: white;
-  text-shadow: 2px 3px #624d30;
+  color: black;
+  font-family: 'Tw Cen MT'; 
+  font-size: 50px;
+  margin-bottom: 20px;
 `
 
 const Home: React.FC = () => {
@@ -176,50 +252,44 @@ const Home: React.FC = () => {
       {/* </Hero> */}
 
       <div>
-        <TestCardLayout>
+        <HomeHeaderCardLayout>
           <HomeHeaderCard />
-        </TestCardLayout>
-        <Heading scale="xl" color="black">
-          Features
-        </Heading>
+        </HomeHeaderCardLayout>
+        <TextColor>
+            Features
+        </TextColor>
         <div>
           <FeatureCardDiv>
             {/* Feature card linking to farms */}
             <NavLink exact activeClassName="active" to="/farms" id="Farms-link">
               <TestCardLayout>
-                <TestCard />
+                <MainCard />
               </TestCardLayout>
             </NavLink>
             {/* Feature card linking to pools */}
             <NavLink exact activeClassName="active" to="/pools" id="Farms-link">
               <TestCardLayout>
-                <TestCard2 />
+                <MainCard1 />
               </TestCardLayout>
             </NavLink>
             {/* Feature card linking to Ecssen */}
             <TestCardLayout>
-              <TestCard3 />
+              <MainCard2 />
             </TestCardLayout>
           </FeatureCardDiv>
         </div>
         <div>
-          <TestCardLayout>
+          <FarmsAndStaking>
             <FarmingandstakingCard />
-          </TestCardLayout>
+          </FarmsAndStaking>
+          <FarmsAndStaking>
+            <FSCard2 />
+          </FarmsAndStaking>
+          <FarmsAndStaking>
+            <BottomCard />
+          </FarmsAndStaking>
         </div>
-        {/* <Cards>
-          <FarmStakingCard />
-          <LotteryCard />
-        </Cards>
-        <CTACards>
-          <EarnAPRCard />
-          <EarnAssetCard />
-          <WinCard />
-        </CTACards>
-        <Cards>
-          <CakeStats />
-          <TotalValueLockedCard />
-        </Cards> */}
+
       </div>
     </Page>
   )
