@@ -20,9 +20,9 @@ const farms: FarmConfig[] = [
     lpSymbol: 'WETH',
     lpAddresses: {
       // original farms.ts
-      // 4: '0xdf032bc4b9dc2782bb09352007d4c57b75160b15',
+      4: '0xdf032bc4b9dc2782bb09352007d4c57b75160b15',
       // from tokens.ts
-      4: '0xc778417e063141139fce010982780140aa0cd5ab',
+      // 4: '0xc778417e063141139fce010982780140aa0cd5ab',
       137: '',
     },
     token: tokens.weth,
@@ -82,10 +82,20 @@ const farms: FarmConfig[] = [
     pid: 7,
     lpSymbol: 'GIVE-USDC LP',
     lpAddresses: {
-      4: '0xc7084c6573b691561009bedd8be7e8ab2951d8ab',
+      4: '0xC7084C6573B691561009BedD8BE7E8aB2951d8aB',
       137: '',
     },
     token: tokens.give,
+    quoteToken: tokens.usdc,
+  },
+  {
+    pid: 8,
+    lpSymbol: 'WETH2',
+    lpAddresses: {
+      4: '0xc778417E063141139Fce010982780140Aa0cD5Ab',
+      137: '',
+    },
+    token: tokens.weth,
     quoteToken: tokens.usdc,
   },
 ]
