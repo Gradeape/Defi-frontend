@@ -11,7 +11,7 @@ const farms: FarmConfig[] = [
       137: '0x9Bbcda2606e616659b118399A2823E8a392f55DA',
     },
     token: tokens.give,
-    quoteToken: tokens.give,
+    quoteToken: tokens.wmatic,
   },
   {
     pid: 1,
@@ -21,7 +21,7 @@ const farms: FarmConfig[] = [
       137: '0xe9c29faa9ba030df89dcc4efdcbf50168bae4a58',
     },
     token: tokens.give,
-    quoteToken: tokens.usdc,
+    quoteToken: tokens.give,
   },
   {
     pid: 2,
@@ -63,7 +63,7 @@ const farms: FarmConfig[] = [
       137: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
     },
     token: tokens.usdc,
-    quoteToken: tokens.wmatic,
+    quoteToken: tokens.usdc,
   },
   {
     pid: 6,
@@ -74,7 +74,7 @@ const farms: FarmConfig[] = [
       137: '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063',
     },
     token: tokens.dai,
-    quoteToken: tokens.usdc,
+    quoteToken: tokens.dai,
   },
   {
     pid: 7,
@@ -129,6 +129,16 @@ const farms: FarmConfig[] = [
       137: '0xd6df932a45c0f255f85145f286ea0b292b21c90b',
     },
     token: tokens.aave,
+    quoteToken: tokens.usdc,
+  },
+  {
+    pid: 12,
+    lpSymbol: 'MATIC-USDC',
+    lpAddresses: {
+      4: '',
+      137: '0x6e7a5fafcec6bb1e78bae2a1f0b612012bf14827',
+    },
+    token: tokens.wmatic,
     quoteToken: tokens.usdc,
   },
 ]
