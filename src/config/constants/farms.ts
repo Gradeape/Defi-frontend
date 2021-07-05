@@ -2,66 +2,57 @@ import tokens from './tokens'
 import { FarmConfig } from './types'
 
 const farms: FarmConfig[] = [
-  /**
-   * These 3 farms (PID 0, 251, 252) should always be at the top of the file.
-   */
   {
     pid: 0,
     lpSymbol: 'GIVE',
     isSingleToken: true,
     lpAddresses: {
       4: '0x297aF17d0f9A7345e4bD9a529258E2Afaa7017D2',
-      137: '',
+      137: '0x9Bbcda2606e616659b118399A2823E8a392f55DA',
     },
     token: tokens.give,
     quoteToken: tokens.usdc,
   },
   {
     pid: 1,
-    lpSymbol: 'WETH',
-    isSingleToken: true,
+    lpSymbol: 'GIVE-USDC LP',
     lpAddresses: {
-      // original farms.ts
-      4: '0xdf032bc4b9dc2782bb09352007d4c57b75160b15',
-      // from tokens.ts
-      // 4: '0xc778417e063141139fce010982780140aa0cd5ab',
-      137: '',
+      4: '',
+      137: '0xe9c29faa9ba030df89dcc4efdcbf50168bae4a58',
     },
-    token: tokens.weth,
+    token: tokens.give,
     quoteToken: tokens.usdc,
   },
   {
     pid: 2,
-    lpSymbol: 'DAI',
-    isSingleToken: true,
+    lpSymbol: 'GIVE-WMATIC LP',
     lpAddresses: {
-      4: '0xc7AD46e0b8a400Bb3C915120d284AafbA8fc4735',
-      137: '',
+      4: '',
+      137: '0x71cb1552dadb57ad9cf3d5327b2de9035fa39b3f',
     },
-    token: tokens.dai,
-    quoteToken: tokens.usdc,
+    token: tokens.give,
+    quoteToken: tokens.wmatic,
   },
   {
     pid: 3,
-    lpSymbol: 'MKR',
-    isSingleToken: true,
+    lpSymbol: 'GIVE-QUICK LP',
     lpAddresses: {
-      4: '0xF9bA5210F91D0474bd1e1DcDAeC4C58E359AaD85',
-      137: '',
+      4: '',
+      137: '0x933a80ba311C3922E37e32d876AE3f460b2bd343',
     },
-    token: tokens.maker,
-    quoteToken: tokens.usdc,
+    token: tokens.give,
+    quoteToken: tokens.quick,
   },
   {
     pid: 4,
-    lpSymbol: 'UNI',
+    lpSymbol: 'WMATIC',
     isSingleToken: true,
     lpAddresses: {
-      4: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984',
-      137: '',
+      4: '',
+      137: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
     },
-    token: tokens.uniswap,
-    quoteToken: tokens.weth,
+    token: tokens.wmatic,
+    quoteToken: tokens.usdc,
   },
   {
     pid: 5,
@@ -69,40 +60,75 @@ const farms: FarmConfig[] = [
     isSingleToken: true,
     lpAddresses: {
       4: '0xeb8f08a975ab53e34d8a0330e0d34de942c95926',
-      137: '',
+      137: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
     },
     token: tokens.usdc,
-    quoteToken: tokens.weth,
+    quoteToken: tokens.wmatic,
   },
   {
     pid: 6,
-    lpSymbol: 'GIVE-WETH LP',
+    lpSymbol: 'DAI',
+    isSingleToken: true,
     lpAddresses: {
-      4: '0x53E98FFF0aBa503AB7dF61AaC1c0aE05A4aE9ae6',
-      137: '',
+      4: '0xc7AD46e0b8a400Bb3C915120d284AafbA8fc4735',
+      137: '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063',
     },
-    token: tokens.give,
-    quoteToken: tokens.weth,
+    token: tokens.dai,
+    quoteToken: tokens.usdc,
   },
   {
     pid: 7,
-    lpSymbol: 'GIVE-USDC LP',
+    lpSymbol: 'WBTC',
+    isSingleToken: true,
     lpAddresses: {
-      4: '0xC7084C6573B691561009BedD8BE7E8aB2951d8aB',
-      137: '',
+      4: '',
+      137: '0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6',
     },
-    token: tokens.give,
+    token: tokens.wbtc,
     quoteToken: tokens.usdc,
   },
   {
     pid: 8,
-    lpSymbol: 'WETH2',
+    lpSymbol: 'WETH',
     isSingleToken: true,
     lpAddresses: {
       4: '0xc778417E063141139Fce010982780140Aa0cD5Ab',
-      137: '',
+      137: '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619',
     },
     token: tokens.weth,
+    quoteToken: tokens.usdc,
+  },
+  {
+    pid: 9,
+    lpSymbol: 'QUICK',
+    isSingleToken: true,
+    lpAddresses: {
+      4: '',
+      137: '0x831753dd7087cac61ab5644b308642cc1c33dc13',
+    },
+    token: tokens.quick,
+    quoteToken: tokens.usdc,
+  },
+  {
+    pid: 10,
+    lpSymbol: 'CRV',
+    isSingleToken: true,
+    lpAddresses: {
+      4: '',
+      137: '0x172370d5cd63279efa6d502dab29171933a610af',
+    },
+    token: tokens.crv,
+    quoteToken: tokens.usdc,
+  },
+  {
+    pid: 11,
+    lpSymbol: 'AAVE',
+    isSingleToken: true,
+    lpAddresses: {
+      4: '',
+      137: '0xd6df932a45c0f255f85145f286ea0b292b21c90b',
+    },
+    token: tokens.aave,
     quoteToken: tokens.usdc,
   },
 ]
