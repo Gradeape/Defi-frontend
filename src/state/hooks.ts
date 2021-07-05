@@ -9,7 +9,7 @@ import Nfts from 'config/constants/nfts'
 import { farmsConfig } from 'config/constants'
 import { getWeb3NoAccount } from 'utils/web3'
 import { getBalanceAmount } from 'utils/formatBalance'
-import { BIG_ZERO } from 'utils/bigNumber'
+import {BIG_ONE, BIG_ZERO} from 'utils/bigNumber'
 import useRefresh from 'hooks/useRefresh'
 import { filterFarmsByQuoteToken } from 'utils/farmsPriceHelpers'
 import {
@@ -328,15 +328,17 @@ export const useAchievements = () => {
 export const usePriceBnbBusd = (): BigNumber => {
   // const bnbBusdFarm = useFarmFromPid(252)
   // return new BigNumber(bnbBusdFarm.quoteToken.busdPrice)
-  console.error('This function usePriceBnbBusd is not implemented, returned zero')
-  return BIG_ZERO
+  const giveWmaticFarm = useFarmFromPid(12)
+  return new BigNumber(giveWmaticFarm.quoteToken.busdPrice)
 }
 
 export const usePriceCakeBusd = (): BigNumber => {
   // const cakeBnbFarm = useFarmFromPid(251)
   // return new BigNumber(cakeBnbFarm.token.busdPrice)
-  console.error('This function usePriceCakeBusd is not implemented, returned zero')
-  return BIG_ZERO
+
+  // previous function got cake price in busd so this should get give price in busd?
+  const giveFarm = useFarmFromPid(1)
+  return new BigNumber(giveFarm.token.busdPrice)
 }
 
 // Block
