@@ -11,7 +11,7 @@ const farms: FarmConfig[] = [
       137: '0x9Bbcda2606e616659b118399A2823E8a392f55DA',
     },
     token: tokens.give,
-    quoteToken: tokens.usdc,
+    quoteToken: tokens.give,
   },
   {
     pid: 1,
@@ -52,7 +52,7 @@ const farms: FarmConfig[] = [
       137: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
     },
     token: tokens.wmatic,
-    quoteToken: tokens.usdc,
+    quoteToken: tokens.wmatic,
   },
   {
     pid: 5,
