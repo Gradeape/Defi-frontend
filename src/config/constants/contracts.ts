@@ -1,7 +1,7 @@
 export default {
   masterChef: {
     4: '0xd9145CCE52D386f254917e481eB44e9943F39138',
-    137: '0xA06904f8C7bC5AF435826E77Aa7F7b0993602DFA',
+    137: '0x56823FBB2Bfc1795AbA546F336ddf1c90cad38B3',
   },
   // placeholder address to deal with import errors later on
   // the contracts that use this address will NOT work as expected
