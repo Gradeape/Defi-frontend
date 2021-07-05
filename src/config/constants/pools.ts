@@ -3,7 +3,11 @@ import { PoolConfig, PoolCategory } from './types'
 
 const pools: PoolConfig[] = [
      {
+<<<<<<< Updated upstream
        sousId: 0,
+=======
+       sousId: 1,
+>>>>>>> Stashed changes
        stakingToken: tokens.give,
        earningToken: tokens.give,
        contractAddress: {
