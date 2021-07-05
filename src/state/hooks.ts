@@ -53,6 +53,9 @@ export const usePollFarmsData = (includeArchive = false) => {
  * Fetches the "core" farm data used globally
  * 251 = CAKE-BNB LP
  * 252 = BUSD-BNB LP
+ * changed to our farms
+ * 1 = GIVE-USDC LP
+ * 12 = MATIC-USDC
  */
 export const usePollCoreFarmData = () => {
   const dispatch = useAppDispatch()
@@ -60,7 +63,7 @@ export const usePollCoreFarmData = () => {
   const web3 = getWeb3NoAccount()
 
   useEffect(() => {
-    dispatch(fetchFarmsPublicDataAsync([251, 252]))
+    dispatch(fetchFarmsPublicDataAsync([1, 12]))
   }, [dispatch, fastRefresh, web3])
 }
 
