@@ -39,7 +39,6 @@ import bunnySpecialAbi from 'config/abi/bunnySpecial.json'
 import bep20Abi from 'config/abi/erc20.json'
 import erc721Abi from 'config/abi/erc721.json'
 import lpTokenAbi from 'config/abi/lpToken.json'
-import cakeAbi from 'config/abi/cake.json'
 import ifoV1Abi from 'config/abi/ifoV1.json'
 import ifoV2Abi from 'config/abi/ifoV2.json'
 import pointCenterIfo from 'config/abi/pointCenterIfo.json'
@@ -116,7 +115,7 @@ export const getPointCenterIfoContract = (web3?: Web3) => {
 }
 export const getCakeContract = (web3?: Web3) => {
   // return getContract(giveAbi, getGiveAddress(), web3)
-  return getContract(cakeAbi, getCakeAddress(), web3)
+  return getContract(giveAbi, getGiveAddress(), web3)
 }
 export const getProfileContract = (web3?: Web3) => {
   return getContract(profileABI, getPancakeProfileAddress(), web3)

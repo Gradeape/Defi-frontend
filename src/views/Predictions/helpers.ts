@@ -4,20 +4,20 @@ import { DefaultTheme } from 'styled-components'
 import { formatNumber, getBalanceAmount } from 'utils/formatBalance'
 import getTimePeriods from 'utils/getTimePeriods'
 
-export const getBnbAmount = (bnbBn: BigNumber) => {
-  return getBalanceAmount(bnbBn, 18)
+export const getGiveAmount = (giveBn: BigNumber) => {
+  return getBalanceAmount(giveBn, 18)
 }
 
 export const formatUsd = (usd: number) => {
   return `$${formatNumber(usd || 0, 3, 3)}`
 }
 
-export const formatBnb = (bnb: number) => {
-  return bnb ? bnb.toLocaleString(undefined, { minimumFractionDigits: 3, maximumFractionDigits: 3 }) : '0'
+export const formatGive = (give: number) => {
+  return give ? give.toLocaleString(undefined, { minimumFractionDigits: 3, maximumFractionDigits: 3 }) : '0'
 }
 
-export const formatBnbFromBigNumber = (bnbBn: BigNumber) => {
-  return formatBnb(getBnbAmount(bnbBn).toNumber())
+export const formatGiveFromBigNumber = (giveBn: BigNumber) => {
+  return formatGive(getGiveAmount(giveBn).toNumber())
 }
 
 export const padTime = (num: number) => num.toString().padStart(2, '0')

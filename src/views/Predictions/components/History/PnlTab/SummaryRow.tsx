@@ -1,7 +1,7 @@
 import React from 'react'
 import BigNumber from 'bignumber.js'
 import { Flex, Text } from '@pancakeswap/uikit'
-import { formatBnb } from 'views/Predictions/helpers'
+import { formatGive } from 'views/Predictions/helpers'
 import { useTranslation } from 'contexts/Localization'
 
 type SummaryType = 'won' | 'lost' | 'entered'
@@ -9,7 +9,7 @@ type SummaryType = 'won' | 'lost' | 'entered'
 interface SummaryRowProps {
   type: SummaryType
   summary: any
-  bnbBusdPrice: BigNumber
+  giveBusdPrice: BigNumber
 }
 
 const summaryTypeColors = {
@@ -24,7 +24,7 @@ const summaryTypeSigns = {
   entered: '',
 }
 
-const SummaryRow: React.FC<SummaryRowProps> = ({ type, summary, bnbBusdPrice }) => {
+const SummaryRow: React.FC<SummaryRowProps> = ({ type, summary, giveBusdPrice }) => {
   const { t } = useTranslation()
 
   const color = summaryTypeColors[type]
@@ -50,10 +50,7 @@ const SummaryRow: React.FC<SummaryRowProps> = ({ type, summary, bnbBusdPrice }) 
         </Flex>
         <Flex flex="3" flexDirection="column">
           <Text bold fontSize="20px" color={color}>
-            {`${summaryTypeSigns[type]}${formatBnb(displayAmount)} BNB`}
-          </Text>
-          <Text fontSize="12px" color="textSubtle">
-            {`~$${formatBnb(bnbBusdPrice.times(displayAmount).toNumber())}`}
+            {`${summaryTypeSigns[type]}${formatGive(displayAmount)} BNB`}
           </Text>
         </Flex>
       </Flex>

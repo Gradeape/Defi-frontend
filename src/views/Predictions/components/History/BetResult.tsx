@@ -9,7 +9,7 @@ import { Bet, BetPosition } from 'state/types'
 import { fetchBet } from 'state/predictions'
 import { Result } from 'state/predictions/helpers'
 import useIsRefundable from '../../hooks/useIsRefundable'
-import { formatBnb, getPayout } from '../../helpers'
+import { formatGive, getPayout } from '../../helpers'
 import CollectWinningsButton from '../CollectWinningsButton'
 import PositionTag from '../PositionTag'
 import ReclaimPositionButton from '../ReclaimPositionButton'
@@ -31,7 +31,7 @@ const BetResult: React.FC<BetResultProps> = ({ bet, result }) => {
   const dispatch = useAppDispatch()
   const { account } = useWeb3React()
   const { isRefundable } = useIsRefundable(bet.round.epoch)
-  const bnbBusdPrice = usePriceBnbBusd()
+  const giveBusdPrice = usePriceGiveBusd()
   const canClaim = useBetCanClaim(account, bet.round.id)
 
   // Winners get the payout, otherwise the claim what they put it if it was canceled
@@ -124,19 +124,6 @@ const BetResult: React.FC<BetResultProps> = ({ bet, result }) => {
           <PositionTag betPosition={bet.position}>
             {bet.position === BetPosition.BULL ? t('Up') : t('Down')}
           </PositionTag>
-        </Flex>
-        <Flex alignItems="center" justifyContent="space-between" mb="16px">
-          <Text>{t('Your position')}</Text>
-          <Text>{`${formatBnb(bet.amount)} BNB`}</Text>
-        </Flex>
-        <Flex alignItems="start" justifyContent="space-between">
-          <Text bold>{t('Your Result')}</Text>
-          <Box style={{ textAlign: 'right' }}>
-            <Text bold color={getResultColor()}>{`${result === Result.LOSE ? '-' : '+'}${formatBnb(payout)} BNB`}</Text>
-            <Text fontSize="12px" color="textSubtle">
-              {`~$${formatBnb(bnbBusdPrice.times(payout).toNumber())}`}
-            </Text>
-          </Box>
         </Flex>
       </StyledBetResult>
     </>

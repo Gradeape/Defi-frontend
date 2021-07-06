@@ -20,14 +20,14 @@ import { useWeb3React } from '@web3-react/core'
 import { useGetMinBetAmount } from 'state/hooks'
 import { useTranslation } from 'contexts/Localization'
 import { usePredictionsContract } from 'hooks/useContract'
-import { useGetBnbBalance } from 'hooks/useTokenBalance'
+import { useGetGiveBalance } from 'hooks/useTokenBalance'
 import useToast from 'hooks/useToast'
 import { BetPosition } from 'state/types'
 import { getDecimalAmount } from 'utils/formatBalance'
 import UnlockButton from 'components/UnlockButton'
 import { BIG_NINE, BIG_TEN } from 'utils/bigNumber'
 import PositionTag from '../PositionTag'
-import { getBnbAmount } from '../../helpers'
+import { getGiveAmount } from '../../helpers'
 import useSwiper from '../../hooks/useSwiper'
 import FlexRow from '../FlexRow'
 import Card from './Card'
@@ -63,8 +63,8 @@ const getPercentDisplay = (percentage: number) => {
   return `${percentage.toLocaleString(undefined, { maximumFractionDigits: 1 })}%`
 }
 
-const getButtonProps = (value: BigNumber, bnbBalance: BigNumber, minBetAmountBalance: number) => {
-  if (bnbBalance.eq(0)) {
+const getButtonProps = (value: BigNumber, giveBalance: BigNumber, minBetAmountBalance: number) => {
+  if (giveBalance.eq(0)) {
     return { key: 'Insufficient BNB balance', disabled: true }
   }
 
@@ -80,20 +80,20 @@ const SetPositionCard: React.FC<SetPositionCardProps> = ({ position, togglePosit
   const [errorMessage, setErrorMessage] = useState(null)
   const { account } = useWeb3React()
   const { swiper } = useSwiper()
-  const { balance: bnbBalance } = useGetBnbBalance()
+  const { balance: giveBalance } = useGetGiveBalance()
   const minBetAmount = useGetMinBetAmount()
   const { t } = useTranslation()
   const { toastError } = useToast()
   const predictionsContract = usePredictionsContract()
 
-  const balanceDisplay = getBnbAmount(bnbBalance).toString()
-  const maxBalance = getBnbAmount(bnbBalance.gt(dust) ? bnbBalance.minus(dust) : bnbBalance).toNumber()
+  const balanceDisplay = getGiveAmount(giveBalance).toString()
+  const maxBalance = getGiveAmount(giveBalance.gt(dust) ? giveBalance.minus(dust) : giveBalance).toNumber()
   const valueAsBn = new BigNumber(value)
 
   const percentageOfMaxBalance = valueAsBn.div(maxBalance).times(100).toNumber()
   const percentageDisplay = getPercentDisplay(percentageOfMaxBalance)
   const showFieldWarning = account && valueAsBn.gt(0) && errorMessage !== null
-  const minBetAmountBalance = getBnbAmount(minBetAmount).toNumber()
+  const minBetAmountBalance = getGiveAmount(minBetAmount).toNumber()
 
   const handleChange = (input) => {
     setValue(input)
@@ -126,7 +126,7 @@ const SetPositionCard: React.FC<SetPositionCardProps> = ({ position, togglePosit
     swiper.attachEvents()
   }
 
-  const { key, disabled } = getButtonProps(valueAsBn, bnbBalance, minBetAmountBalance)
+  const { key, disabled } = getButtonProps(valueAsBn, giveBalance, minBetAmountBalance)
 
   const handleEnterPosition = () => {
     const betMethod = position === BetPosition.BULL ? 'betBull' : 'betBear'
@@ -160,7 +160,7 @@ const SetPositionCard: React.FC<SetPositionCardProps> = ({ position, togglePosit
     } else if (bnValue.gt(0) && bnValue.lt(minBetAmountBalance)) {
       setErrorMessage({
         key: 'A minimum amount of %num% %token% is required',
-        data: { num: minBetAmountBalance, token: 'BNB' },
+        data: { num: minBetAmountBalance, token: 'GIVE' },
       })
     } else {
       setErrorMessage(null)
