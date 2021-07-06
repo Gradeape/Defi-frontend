@@ -4,6 +4,7 @@ import { Flex, CardBody, CardFooter, Heading, Text, BaseLayout } from '@pancakes
 import { useTranslation } from 'contexts/Localization'
 import Page from 'components/layout/Page'
 import FarmStakingCard from 'views/Home/components/FarmStakingCard'
+import NewsCard from 'views/Home/components/NewsCard'
 import LotteryCard from 'views/Home/components/LotteryCard'
 import CakeStats from 'views/Home/components/CakeStats'
 import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
@@ -25,29 +26,6 @@ import BottomCard from 'views/Home/components/BottomCard'
 
 import HomeHeaderCard from './components/HomeHeaderCard' // TODO: remove later, this is just test component
 
-const Hero = styled.div`
-  /* default settings for mobile*/
-  align-items: center;
-  background-image: url(images/pan-bg-mobile.svg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: auto;
-  margin-bottom: 32px;
-  padding-top: 116px;
-  text-align: center;
-
-  /* desktop changes*/
-  ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/BCharity-Images/Cat3.png'), url('/images/BCharity-Images/Cat2.png');
-    background-size: 150px 100px;
-    background-position: left center, right center;
-    height: 165px;
-    padding-top: 0;
-  }
-`
 const CardHeader = styled(BaseLayout)`
   align-items: stretch;
   justify-content: stretch;
@@ -243,54 +221,35 @@ const Home: React.FC = () => {
 
   return (
     <Page>
-      {/* <Hero> */}
-      {/* <Heading as="h1" scale="xl" mb="24px" color="secondary"> */}
-      {/*    /!* Title Header on Homepage *!/ */}
-      {/* {t('B-Charity')} */}
-      {/* </Heading> */}
-      {/* <Text>{t('Subtitle here')}</Text> */}
-      {/* </Hero> */}
-
       <div>
         <HomeHeaderCardLayout>
           <HomeHeaderCard />
         </HomeHeaderCardLayout>
-        <TextColor>
-            Features
-        </TextColor>
-        <div>
-          <FeatureCardDiv>
-            {/* Feature card linking to farms */}
-            <NavLink exact activeClassName="active" to="/farms" id="Farms-link">
-              <TestCardLayout>
-                <MainCard />
-              </TestCardLayout>
-            </NavLink>
-            {/* Feature card linking to pools */}
-            <NavLink exact activeClassName="active" to="/pools" id="Farms-link">
-              <TestCardLayout>
-                <MainCard1 />
-              </TestCardLayout>
-            </NavLink>
-            {/* Feature card linking to Ecssen */}
-            <TestCardLayout>
-              <MainCard2 />
-            </TestCardLayout>
-          </FeatureCardDiv>
-        </div>
-        <div>
-          <FarmsAndStaking>
-            <FarmingandstakingCard />
-          </FarmsAndStaking>
-          <FarmsAndStaking>
-            <FSCard2 />
-          </FarmsAndStaking>
-          <FarmsAndStaking>
-            <BottomCard />
-          </FarmsAndStaking>
-        </div>
-
       </div>
+
+      <div>
+          <Cards>
+            <FarmStakingCard />
+            <FarmStakingCard />
+          </Cards>
+          <Cards>
+            <CakeStats />
+            <TotalValueLockedCard />
+          </Cards>
+      </div>
+
+      <div>
+        {/* <FarmsAndStaking>
+          <FarmingandstakingCard />
+        </FarmsAndStaking> */}
+        <FarmsAndStaking>
+          <FSCard2 />
+        </FarmsAndStaking>
+        <FarmsAndStaking>
+          <BottomCard />
+        </FarmsAndStaking>
+      </div>
+
     </Page>
   )
 }

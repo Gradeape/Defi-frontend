@@ -41,7 +41,7 @@ const HorizontalLinePink = styled.line`
 
 const CardImage = styled.img`
   position: absolute;
-  width: 430px;
+  width: 400px;
   float: right;
   bottom: 0px;
   right: 5%;

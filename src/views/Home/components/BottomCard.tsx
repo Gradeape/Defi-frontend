@@ -20,7 +20,8 @@ const StyledTestCard = styled(Card)`
 
   max-height: 600px;
   min-width: 180px;
-  color: #FAF9FA;
+  background-color: #FAF9FA;
+  border-radius: 0px;
 
   // for the phone but it screws up the desk top
   /* ${({ theme }) => theme.mediaQueries.sm} {
@@ -44,6 +45,7 @@ const BotCard = styled.div`
   width: 1200px;
   border-radius: 100px;
   transform: rotate(340deg);
+  background-color: #FAF9FA;
 `
 
 const Block = styled.div`

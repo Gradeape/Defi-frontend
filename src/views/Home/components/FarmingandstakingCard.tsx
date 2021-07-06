@@ -34,7 +34,8 @@ const Block = styled.div`
 `
 
 const CardImage = styled.img`
-  margin-bottom: 0x;
+  margin-bottom: 0px;
+  margin-right: 0px;
 `
 
 const Label = styled.div`
@@ -74,17 +75,29 @@ const TestContainer = styled.div`
 `
 
 const TextColor = styled.div`
-  font-style: Tw Cen MT;
+  font-family: Tw Cen MT;
   color: black;
+  font-size: 55px;
+  width: 300px;
 `
 const TextColorBlue = styled.div`
   color: #459bdb;
-`
+  font-family: Tw Cen MT;
+  font-size: 55px;
+  margin-top: -15px;
+  `
 const TextColorPink = styled.div`
   color: #f895ce;
+  font-family: Tw Cen MT;
+  font-size: 55px;
+  margin-top: -15px;
 `
 const SmallerFont = styled.div`
-  font-size: 13px;
+  font-size: 15px;
+  color: black;
+  margin-top: 25px;
+  letter-spacing: 1px;
+  width: 250px;
 `
 const ImageDiv = styled.div``
 const TextContainer = styled.div`
@@ -107,12 +120,10 @@ const TestCard = () => {
     'all the actors involved in the non-profit sector and templates of smart contracts to run fundraising campaigns and programs.    ' */
 
   return (
-    <StyledTestCard>
       <CardBody>
         <TestContainer>
-          <CardImage src="/images/BCharity-Images/Info1.png" alt="Money" width={500} height={500} />
+          <CardImage src="/images/BCharity-Images/Info1.png" alt="Money" width={600} height={600} />
           <TextContainer>
-            <Heading scale="xl" mb="24px">
               <TextColor>
                 {/* Card title */}
                 {t('Farming and')}
@@ -123,12 +134,10 @@ const TestCard = () => {
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis molestie dolor nec maximus.',
                 )}
               </SmallerFont>
-            </Heading>
           </TextContainer>
         </TestContainer>
         <TestContainer>
           <TextContainer>
-            <Heading scale="xl" mb="24px">
               <TextColor>
                 {/* Card title */}
                 {t('Farming and')}
@@ -139,9 +148,8 @@ const TestCard = () => {
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis molestie dolor nec maximus.',
                 )}
               </SmallerFont>
-            </Heading>
           </TextContainer>
-          <CardImage src="/images/BCharity-Images/Info2.png" alt="Money" width={500} height={500} />
+          <CardImage src="/images/BCharity-Images/Info2.png" alt="Money" width={700} height={700} />
         </TestContainer>
         {/* <ImagePositioning>
           <CardImage src="/images/BCharity-Images/Info2.png" alt="Hand" width={550} height={550} />
@@ -179,7 +187,6 @@ const TestCard = () => {
           )}
         </Actions> */}
       </CardBody>
-    </StyledTestCard>
   )
 }
 

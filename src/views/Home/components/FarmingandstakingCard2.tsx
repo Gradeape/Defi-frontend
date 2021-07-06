@@ -228,7 +228,6 @@ const FSCard2 = () => {
   const APR = '482%'
 
   return (
-    <StyledTestCard>
       <CardBody>
         <EarningTextColor>Earning up to</EarningTextColor>
         <APRFormat>{APR}</APRFormat>
@@ -253,7 +252,6 @@ const FSCard2 = () => {
         </PinkCircle>
 
       </CardBody>
-    </StyledTestCard>
   )
 }
 
