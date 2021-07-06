@@ -6,6 +6,7 @@ BigNumber.config({
   DECIMAL_PLACES: 80,
 })
 
+// polygon block time is ~2 seconds
 export const BSC_BLOCK_TIME = 2
 
 // CAKE_PER_BLOCK details
@@ -24,7 +25,7 @@ export const BASE_EXCHANGE_URL = 'https://exchange.pancakeswap.finance'
 export const BASE_ADD_LIQUIDITY_URL = `${BASE_EXCHANGE_URL}/#/add`
 export const BASE_LIQUIDITY_POOL_URL = `${BASE_EXCHANGE_URL}/#/pool`
 // export const BASE_BSC_SCAN_URL = 'https://bscscan.com'
-export const BASE_BSC_SCAN_URL = 'https://rinkeby.etherscan.io'
+export const BASE_BSC_SCAN_URL = 'https://polygonscan.com/'
 export const LOTTERY_MAX_NUMBER_OF_TICKETS = 50
 export const LOTTERY_TICKET_PRICE = 1
 export const DEFAULT_TOKEN_DECIMAL = BIG_TEN.pow(18)

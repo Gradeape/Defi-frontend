@@ -13,14 +13,13 @@ const getFarmBaseTokenPrice = (farm: Farm, quoteTokenFarm: Farm, bnbPriceBusd: B
   const hasTokenPriceVsQuote = Boolean(farm.tokenPriceVsQuote)
 
   // added UDSC here as well
-  if (farm.quoteToken.symbol === 'USDC' || farm.quoteToken.symbol === 'DAI' ) {
+  if (farm.quoteToken.symbol === 'USDC' || farm.quoteToken.symbol === 'DAI') {
     return hasTokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO
   }
 
   if (farm.quoteToken.symbol === 'WMATIC') {
     return hasTokenPriceVsQuote ? bnbPriceBusd.times(farm.tokenPriceVsQuote) : BIG_ZERO
   }
-
 
   // We can only calculate profits without a quoteTokenFarm for BUSD/BNB farms
   if (!quoteTokenFarm) {
@@ -39,7 +38,7 @@ const getFarmBaseTokenPrice = (farm: Farm, quoteTokenFarm: Farm, bnbPriceBusd: B
       : BIG_ZERO
   }
 
-  if (quoteTokenFarm.quoteToken.symbol === 'USDC'|| farm.quoteToken.symbol === 'DAI') {
+  if (quoteTokenFarm.quoteToken.symbol === 'USDC' || farm.quoteToken.symbol === 'DAI') {
     const quoteTokenInBusd = quoteTokenFarm.tokenPriceVsQuote
     return hasTokenPriceVsQuote && quoteTokenInBusd
       ? new BigNumber(farm.tokenPriceVsQuote).times(quoteTokenInBusd)

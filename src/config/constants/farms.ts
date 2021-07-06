@@ -141,7 +141,6 @@ const farms: FarmConfig[] = [
     token: tokens.wmatic,
     quoteToken: tokens.usdc,
   },
-
 ]
 
 export default farms
