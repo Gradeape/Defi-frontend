@@ -7,7 +7,7 @@ import { useAppDispatch } from 'state'
 import { updateUserAllowance } from 'state/actions'
 import { approve } from 'utils/callHelpers'
 import { useTranslation } from 'contexts/Localization'
-import { useMasterchef, useCake, useSousChef, useLottery, useCakeVaultContract } from './useContract'
+import { useMasterchef, useCake, useReferral, useSousChef, useLottery, useCakeVaultContract } from './useContract'
 import useToast from './useToast'
 import useLastUpdated from './useLastUpdated'
 
@@ -114,6 +114,21 @@ export const useCheckVaultApprovalStatus = () => {
   }, [account, cakeContract, cakeVaultContract, lastUpdated])
 
   return { isVaultApproved, setLastUpdated }
+}
+// referral approval 
+export const useReferralApprove = (lpContract: Contract) => {
+  const { account } = useWeb3React()
+  const referralContract = useReferral()
+
+  const handleApprove = useCallback(async () => {
+    try {
+      const tx = await approve(lpContract, referralContract, account)
+      return tx
+    } catch (e) {
+      return false
+    }
+  }, [account, lpContract, referralContract])
+  return {onApprove: handleApprove}
 }
 
 // Approve the lottery

@@ -12,6 +12,7 @@ import {
   getBunnyFactoryAddress,
   getBunnySpecialAddress,
   getCakeAddress,
+  getReferralAddress,
   getLotteryAddress,
   getLotteryTicketAddress,
   getLotteryV2Address,
@@ -43,6 +44,7 @@ import cakeAbi from 'config/abi/cake.json'
 import ifoV1Abi from 'config/abi/ifoV1.json'
 import ifoV2Abi from 'config/abi/ifoV2.json'
 import pointCenterIfo from 'config/abi/pointCenterIfo.json'
+import referralAbi from 'config/abi/referral.json'
 import lotteryAbi from 'config/abi/lottery.json'
 import lotteryTicketAbi from 'config/abi/lotteryNft.json'
 import lotteryV2Abi from 'config/abi/lotteryV2.json'
@@ -129,6 +131,10 @@ export const getBunnyFactoryContract = (web3?: Web3) => {
 }
 export const getBunnySpecialContract = (web3?: Web3) => {
   return getContract(bunnySpecialAbi, getBunnySpecialAddress(), web3)
+}
+// referral 
+export const getReferralContract = (web3?: Web3) => {
+  return getContract(referralAbi, getReferralAddress(), web3)
 }
 export const getLotteryContract = (web3?: Web3) => {
   return getContract(lotteryAbi, getLotteryAddress(), web3)

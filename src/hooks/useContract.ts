@@ -9,6 +9,7 @@ import {
   getProfileContract,
   getIfoV1Contract,
   getIfoV2Contract,
+  getReferralContract,
   getLotteryContract,
   getLotteryTicketContract,
   getMasterchefContract,
@@ -100,7 +101,10 @@ export const useProfile = () => {
   const web3 = useWeb3()
   return useMemo(() => getProfileContract(web3), [web3])
 }
-
+export const useReferral = () => {
+  const web3 = useWeb3()
+  return useMemo(() => getReferralContract(web3), [web3])
+}
 export const useLottery = () => {
   const web3 = useWeb3()
   return useMemo(() => getLotteryContract(web3), [web3])

@@ -19,7 +19,8 @@ import history from './routerHistory'
 const Home = lazy(() => import('./views/Home'))
 const Farms = lazy(() => import('./views/Farms'))
 const Farms2 = lazy(() => import('./views/PoolFarms'))
-// const Lottery = lazy(() => import('./views/Lottery'))
+// referral 
+const Referrals = lazy(() => import('./views/Referrals'))
 // const Ifos = lazy(() => import('./views/Ifos'))
 const NotFound = lazy(() => import('./views/NotFound'))
 const Collectibles = lazy(() => import('./views/Collectibles'))
@@ -67,10 +68,10 @@ const App: React.FC = () => {
             <Route path="/nft">
               <Collectibles />
             </Route>
-            {/* <Route exact path="/teams">
-              <Teams />
+            {<Route exact path="/referral">
+              <Referrals />
             </Route>
-            <Route path="/teams/:id">
+            /* <Route path="/teams/:id">
               <Team />
             </Route>
             <Route path="/profile">
