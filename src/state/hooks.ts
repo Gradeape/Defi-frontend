@@ -9,7 +9,7 @@ import Nfts from 'config/constants/nfts'
 import { farmsConfig } from 'config/constants'
 import { getWeb3NoAccount } from 'utils/web3'
 import { getBalanceAmount } from 'utils/formatBalance'
-import {BIG_ONE, BIG_ZERO} from 'utils/bigNumber'
+import { BIG_ONE, BIG_ZERO } from 'utils/bigNumber'
 import useRefresh from 'hooks/useRefresh'
 import { filterFarmsByQuoteToken } from 'utils/farmsPriceHelpers'
 import {
@@ -341,6 +341,9 @@ export const usePriceCakeBusd = (): BigNumber => {
 
   // previous function got cake price in busd so this should get give price in busd?
   const giveFarm = useFarmFromPid(1)
+
+  // window.alert(new BigNumber(giveFarm.token.busdPrice))
+
   return new BigNumber(giveFarm.token.busdPrice)
 }
 

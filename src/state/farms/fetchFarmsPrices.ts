@@ -13,7 +13,7 @@ const getFarmBaseTokenPrice = (farm: Farm, quoteTokenFarm: Farm, bnbPriceBusd: B
   const hasTokenPriceVsQuote = Boolean(farm.tokenPriceVsQuote)
 
   // added UDSC here as well
-  if (farm.quoteToken.symbol === 'USDC' || farm.quoteToken.symbol === 'DAI') {
+  if (farm.quoteToken.symbol === 'USDC') {
     return hasTokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO
   }
 
@@ -38,7 +38,7 @@ const getFarmBaseTokenPrice = (farm: Farm, quoteTokenFarm: Farm, bnbPriceBusd: B
       : BIG_ZERO
   }
 
-  if (quoteTokenFarm.quoteToken.symbol === 'USDC' || farm.quoteToken.symbol === 'DAI') {
+  if (quoteTokenFarm.quoteToken.symbol === 'USDC') {
     const quoteTokenInBusd = quoteTokenFarm.tokenPriceVsQuote
     return hasTokenPriceVsQuote && quoteTokenInBusd
       ? new BigNumber(farm.tokenPriceVsQuote).times(quoteTokenInBusd)
@@ -53,6 +53,18 @@ const getFarmQuoteTokenPrice = (farm: Farm, quoteTokenFarm: Farm, bnbPriceBusd: 
   if (farm.quoteToken.symbol === 'DAI') {
     return BIG_ONE
   }
+  // if (farm.isSingleToken) {
+  //   return BIG_ONE
+  // }
+  // if (farm.quoteToken.symbol === 'WBTC') {
+  //   return BIG_ONE
+  // }
+  // if (farm.quoteToken.symbol === 'WETH') {
+  //   return BIG_ONE
+  // }
+  // if (farm.quoteToken.symbol === ('QUICK' || 'CRV' || 'AAVE')) {
+  //   return BIG_ONE
+  // }
 
   if (farm.quoteToken.symbol === 'WMATIC') {
     return bnbPriceBusd

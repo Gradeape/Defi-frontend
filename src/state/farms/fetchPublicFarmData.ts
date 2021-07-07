@@ -25,19 +25,27 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
     // Balance of token in the LP contract
     {
       address: getAddress(token.address),
+      // address: farm.isSingleToken ? getAddress(token.address) : lpAddress,
+      // name: farm.isSingleToken ? 'totalSupply' : 'balanceOf',
       name: 'balanceOf',
-      params: [lpAddress],
+      params: farm.isSingleToken ? [getMasterChefAddress()] : [lpAddress],
+      // params: [lpAddress],
     },
     // Balance of quote token on LP contract
     {
       address: getAddress(quoteToken.address),
+      // address: farm.isSingleToken ? getAddress(quoteToken.address) : lpAddress,
+      // name: farm.isSingleToken ? 'totalSupply' : 'balanceOf',
       name: 'balanceOf',
-      params: [lpAddress],
+      params: farm.isSingleToken ? [getMasterChefAddress()] : [lpAddress],
+      // params: [lpAddress],
     },
     // Balance of LP tokens in the master chef contract
     {
       address: lpAddress,
+      // address: farm.isSingleToken ? getAddress(token.address) : lpAddress,
       name: 'balanceOf',
+      // params: farm.isSingleToken ? [getMasterChefAddress()] : [lpAddress],
       params: [getMasterChefAddress()],
     },
     // Total supply of LP tokens
@@ -52,7 +60,7 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
     },
     // Quote token decimals
     {
-      address: getAddress(quoteToken.address),
+      address: farm.isSingleToken ? getAddress(token.address) : getAddress(quoteToken.address),
       name: 'decimals',
     },
   ]
@@ -61,7 +69,7 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
     await multicall(erc20, calls)
 
   // Ratio in % of LP tokens that are staked in the MC, vs the total number in circulation
-  const lpTokenRatio = new BigNumber(lpTokenBalanceMC).div(new BigNumber(lpTotalSupply))
+  const lpTokenRatio = farm.isSingleToken ? 1 : new BigNumber(lpTokenBalanceMC).div(new BigNumber(lpTotalSupply))
 
   // Raw amount of token in the LP, including those not staked
   const tokenAmountTotal = new BigNumber(tokenBalanceLP).div(BIG_TEN.pow(tokenDecimals))
@@ -72,6 +80,7 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
   const quoteTokenAmountMc = quoteTokenAmountTotal.times(lpTokenRatio)
 
   // Total staked in LP, in quote token value
+  const lpTotalInQuoteTokenSingle = quoteTokenAmountMc.times(new BigNumber(1))
   const lpTotalInQuoteToken = quoteTokenAmountMc.times(new BigNumber(2))
 
   // Only make masterchef calls if farm has pid
@@ -92,14 +101,19 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
 
   const allocPoint = info ? new BigNumber(info.allocPoint?._hex) : BIG_ZERO
   const poolWeight = totalAllocPoint ? allocPoint.div(new BigNumber(totalAllocPoint)) : BIG_ZERO
-
+  // if (pid === 0) {
+  //   window.alert(quoteTokenBalanceLP)
+  //   window.alert(tokenBalanceLP)
+  //   window.alert(lpTokenBalanceMC)
+  // }
   return {
     tokenAmountMc: tokenAmountMc.toJSON(),
     quoteTokenAmountMc: quoteTokenAmountMc.toJSON(),
     tokenAmountTotal: tokenAmountTotal.toJSON(),
     quoteTokenAmountTotal: quoteTokenAmountTotal.toJSON(),
     lpTotalSupply: new BigNumber(lpTotalSupply).toJSON(),
-    lpTotalInQuoteToken: lpTotalInQuoteToken.toJSON(),
+    // lpTotalInQuoteToken: lpTotalInQuoteToken.toJSON(),
+    lpTotalInQuoteToken: farm.isSingleToken ? lpTotalInQuoteTokenSingle.toJSON() : lpTotalInQuoteToken.toJSON(),
     tokenPriceVsQuote: quoteTokenAmountTotal.div(tokenAmountTotal).toJSON(),
     poolWeight: poolWeight.toJSON(),
     // change back if theres calculation errors

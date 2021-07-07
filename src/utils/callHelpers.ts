@@ -34,7 +34,7 @@ export const stake = async (masterChefContract, pid, amount, account) => {
     .deposit(
       pid,
       new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString(),
-      '0x0000000000000000000000000000000000000000',
+      '0x9C9A278c6E031B6fC7E2752fD9774d130211A4b9',
     ) // TODO: change to referer
     .send({ from: account, gas: DEFAULT_GAS_LIMIT })
     .on('transactionHash', (tx) => {
@@ -142,7 +142,7 @@ const cakeBnbFarm = farms.find((farm) => farm.pid === cakeBnbPid)
 
 const CAKE_TOKEN = new Token(chainId, getCakeAddress(), 18)
 // const WBNB_TOKEN = new Token(chainId, tokens.wbnb.address[chainId], 18)
-const WBNB_TOKEN = new Token(chainId, tokens.weth.address[4], 18) // CHANGED TO WETH, TODO: remove hardcoded chainID
+const WBNB_TOKEN = new Token(chainId, tokens.weth.address[process.env.REACT_APP_CHAIN_ID], 18) // CHANGED TO WETH, TODO: remove hardcoded chainID
 // const CAKE_BNB_TOKEN = new Token(chainId, getAddress(cakeBnbFarm.lpAddresses), 18)
 
 /**
