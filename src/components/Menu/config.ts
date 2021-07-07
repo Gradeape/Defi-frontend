@@ -97,25 +97,34 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
   //   ],
   // },
   {
-    label: t('Info'),
+    label: t('Charts'),
     icon: 'InfoIcon',
     items: [
+        // change these links if token changes
       {
-        label: t('Overview'),
-        href: 'https://pancakeswap.info',
+        label: t('KEKTooks'),
+        href: 'https://kek.tools/t/0x9bbcda2606e616659b118399a2823e8a392f55da',
       },
       {
-        label: t('Tokens'),
-        href: 'https://pancakeswap.info/tokens',
+        label: t('QuickChart'),
+        href: 'https://quickchart.app/token/0x9bbcda2606e616659b118399a2823e8a392f55da',
       },
       {
-        label: t('Pairs'),
-        href: 'https://pancakeswap.info/pairs',
+        label: t('Polychart'),
+        href: 'https://app.polychart.io/explorer/polygon/0x71cb1552dadb57ad9cf3d5327b2de9035fa39b3f',
       },
-      {
-        label: t('Accounts'),
-        href: 'https://pancakeswap.info/accounts',
-      },
+      // {
+      //   label: t('Tokens'),
+      //   href: 'https://pancakeswap.info/tokens',
+      // },
+      // {
+      //   label: t('Pairs'),
+      //   href: 'https://pancakeswap.info/pairs',
+      // },
+      // {
+      //   label: t('Accounts'),
+      //   href: 'https://pancakeswap.info/accounts',
+      // },
     ],
   },
   // {
@@ -129,7 +138,7 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
     items: [
       {
         label: t('Contact'),
-        href: 'https://docs.pancakeswap.finance/contact-us', // TODO: add our contact link
+        href: 'https://bcharityfi.gitbook.io/bcharity/help/socials',
       },
       // {
       //   label: t('Voting'),
@@ -142,7 +151,7 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
       {
         label: t('Docs'),
         href: 'https://bcharityfi.gitbook.io/bcharity/',
-        // href: 'https://docs.pancakeswap.finance', // TODO: add our docs link
+        // href: 'https://docs.pancakeswap.finance',
       },
       // {
       //   label: t('Blog'),
