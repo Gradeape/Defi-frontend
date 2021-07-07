@@ -11,7 +11,7 @@ const farms: FarmConfig[] = [
       137: '0x9Bbcda2606e616659b118399A2823E8a392f55DA',
     },
     token: tokens.give,
-    quoteToken: tokens.wmatic,
+    quoteToken: tokens.give,
   },
   {
     pid: 1,
@@ -21,7 +21,7 @@ const farms: FarmConfig[] = [
       137: '0xe9c29faa9ba030df89dcc4efdcbf50168bae4a58',
     },
     token: tokens.give,
-    quoteToken: tokens.give,
+    quoteToken: tokens.usdc,
   },
   {
     pid: 2,
@@ -85,7 +85,7 @@ const farms: FarmConfig[] = [
       137: '0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6',
     },
     token: tokens.wbtc,
-    quoteToken: tokens.usdc,
+    quoteToken: tokens.wbtc,
   },
   {
     pid: 8,
@@ -96,7 +96,7 @@ const farms: FarmConfig[] = [
       137: '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619',
     },
     token: tokens.weth,
-    quoteToken: tokens.usdc,
+    quoteToken: tokens.weth,
   },
   {
     pid: 9,
@@ -107,7 +107,7 @@ const farms: FarmConfig[] = [
       137: '0x831753dd7087cac61ab5644b308642cc1c33dc13',
     },
     token: tokens.quick,
-    quoteToken: tokens.usdc,
+    quoteToken: tokens.quick,
   },
   {
     pid: 10,
@@ -118,7 +118,7 @@ const farms: FarmConfig[] = [
       137: '0x172370d5cd63279efa6d502dab29171933a610af',
     },
     token: tokens.crv,
-    quoteToken: tokens.usdc,
+    quoteToken: tokens.crv,
   },
   {
     pid: 11,
@@ -129,7 +129,7 @@ const farms: FarmConfig[] = [
       137: '0xd6df932a45c0f255f85145f286ea0b292b21c90b',
     },
     token: tokens.aave,
-    quoteToken: tokens.usdc,
+    quoteToken: tokens.aave,
   },
   {
     pid: 12,
