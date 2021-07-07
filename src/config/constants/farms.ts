@@ -299,6 +299,7 @@ const farms: FarmConfig[] = [
   {
     pid: 12,
     lpSymbol: 'USDC-MATIC LP',
+    isHiddenFarm: true,
     lpAddresses: {
       4: '',
       137: '0x6e7a5fafcec6bb1e78bae2a1f0b612012bf14827',

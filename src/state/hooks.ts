@@ -54,8 +54,8 @@ export const usePollFarmsData = (includeArchive = false) => {
  * 251 = CAKE-BNB LP
  * 252 = BUSD-BNB LP
  * changed to our farms
- * 1 = GIVE-USDC LP
- * 12 = MATIC-USDC
+ * 2 = GIVE-WMATIC LP
+ * 12 = USDC-MATIC
  */
 export const usePollCoreFarmData = () => {
   const dispatch = useAppDispatch()
@@ -63,7 +63,7 @@ export const usePollCoreFarmData = () => {
   const web3 = getWeb3NoAccount()
 
   useEffect(() => {
-    dispatch(fetchFarmsPublicDataAsync([1, 12]))
+    dispatch(fetchFarmsPublicDataAsync([2, 12]))
   }, [dispatch, fastRefresh, web3])
 }
 
@@ -329,22 +329,17 @@ export const useAchievements = () => {
 }
 
 export const usePriceBnbBusd = (): BigNumber => {
-  // const bnbBusdFarm = useFarmFromPid(252)
+  // const bnbuBsdFarm = useFarmFromPid(252)
   // return new BigNumber(bnbBusdFarm.quoteToken.busdPrice)
-  const giveWmaticFarm = useFarmFromPid(12)
-  return new BigNumber(giveWmaticFarm.quoteToken.busdPrice)
+  const maticUsdcfarm = useFarmFromPid(12)
+  return new BigNumber(maticUsdcfarm.quoteToken.busdPrice)
 }
 
 export const usePriceCakeBusd = (): BigNumber => {
   // const cakeBnbFarm = useFarmFromPid(251)
   // return new BigNumber(cakeBnbFarm.token.busdPrice)
-
-  // previous function got cake price in busd so this should get give price in busd?
-  const giveFarm = useFarmFromPid(1)
-
-  // window.alert(new BigNumber(giveFarm.token.busdPrice))
-
-  return new BigNumber(giveFarm.token.busdPrice)
+  const giveWmaticFarm = useFarmFromPid(2)
+  return new BigNumber(giveWmaticFarm.token.busdPrice)
 }
 
 // Block
