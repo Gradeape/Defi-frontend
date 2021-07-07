@@ -1,5 +1,6 @@
 import React, { useEffect, useCallback, useState, useMemo, useRef } from 'react'
 import { Route, useRouteMatch, useLocation } from 'react-router-dom'
+import { BIG_ZERO } from 'utils/bigNumber'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
 import { Image, Heading, RowType, Toggle, Text } from '@pancakeswap/uikit'
@@ -161,7 +162,17 @@ const Farms: React.FC = () => {
         if (!farm.lpTotalInQuoteToken || !farm.quoteToken.busdPrice) {
           return farm
         }
-        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
+        let totalLiquidity = BIG_ZERO
+        if (farm.pid === 0 || 4 || 5) {
+          totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.token.busdPrice)
+        } else {
+          totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
+        }
+        // if (farm.pid === 4) {
+        //   window.alert(farm.quoteToken.busdPrice)
+        //   window.alert(farm.token.busdPrice)
+        //   window.alert(farm.lpTotalInQuoteToken)
+        // }
         const apr = isActive ? getFarmApr(new BigNumber(farm.poolWeight), cakePrice, totalLiquidity) : 0
 
         return { ...farm, apr, liquidity: totalLiquidity }
