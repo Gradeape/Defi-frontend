@@ -133,13 +133,14 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 12,
-    lpSymbol: 'MATIC-USDC',
+    lpSymbol: 'USDC-MATIC LP',
+    isHiddenFarm: true,
     lpAddresses: {
       4: '',
       137: '0x6e7a5fafcec6bb1e78bae2a1f0b612012bf14827',
     },
-    token: tokens.wmatic,
-    quoteToken: tokens.usdc,
+    token: tokens.usdc,
+    quoteToken: tokens.wmatic,
   },
 ]
 

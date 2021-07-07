@@ -65,6 +65,7 @@ export interface FarmConfig {
   multiplier?: string
   isCommunity?: boolean
   isSingleToken?: boolean
+  isHiddenFarm?: boolean
   dual?: {
     rewardPerBlock: number
     earnLabel: string

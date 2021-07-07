@@ -24,6 +24,7 @@ import FarmTabButtons from './components/FarmTabButtons'
 import { RowProps } from './components/FarmTable/Row'
 import ToggleView from './components/ToggleView/ToggleView'
 import { DesktopColumnSchema, ViewMode } from './components/types'
+import {BIG_ONE} from "../../utils/bigNumber";
 
 const ControlContainer = styled.div`
   display: flex;
@@ -138,8 +139,8 @@ const Farms: React.FC = () => {
   // const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X' && !isArchivedPid(farm.pid))
   // const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
 
-  const activeFarms = farmsLP.filter((farm) => !farm.isSingleToken && !isArchivedPid(farm.pid))
-  const inactiveFarms = farmsLP.filter((farm) => !farm.isSingleToken && !isArchivedPid(farm.pid))
+  const activeFarms = farmsLP.filter((farm) => !farm.isSingleToken && !farm.isHiddenFarm && !isArchivedPid(farm.pid))
+  const inactiveFarms = farmsLP.filter((farm) => !farm.isSingleToken && !farm.isHiddenFarm && !isArchivedPid(farm.pid))
   const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
 
   const stakedOnlyFarms = activeFarms.filter(
@@ -157,11 +158,30 @@ const Farms: React.FC = () => {
   const farmsList = useCallback(
     (farmsToDisplay: Farm[]): FarmWithStakedValue[] => {
       let farmsToDisplayWithAPR: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
+
+        // alert("pid: ".concat(farm.pid.toString()).concat(" \n lpTotalInQuoteToken: ").concat(farm.lpTotalInQuoteToken.toString()))
         if (!farm.lpTotalInQuoteToken || !farm.quoteToken.busdPrice) {
+          // alert(farm.quoteToken.busdPrice.toString()) // TEST delete-later
           return farm
         }
+
         const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
+        // const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(BIG_ONE)
         const apr = isActive ? getFarmApr(new BigNumber(farm.poolWeight), cakePrice, totalLiquidity) : 0
+        // const apr = 1
+        // if(farm.pid === -1 ){
+        //   alert(cakePrice.toString().concat(isActive.toString()))  // TEST
+        // }
+        // TEST
+        if (farm.pid === -3) {
+          alert("pid: ".concat(farm.pid.toString())
+              .concat("\n lpTotalInQuoteToken: ").concat(farm.lpTotalInQuoteToken.toString())
+              .concat("\n busdPrice: ").concat(farm.quoteToken.busdPrice.toString())
+              .concat("\n totalLiquidity: ").concat(totalLiquidity.toString())
+              .concat("\n poolWeight: ").concat(farm.poolWeight.toString())
+              .concat("\n cakePrice: ").concat(cakePrice.toString())
+          )
+        }
 
         return { ...farm, apr, liquidity: totalLiquidity }
       })
