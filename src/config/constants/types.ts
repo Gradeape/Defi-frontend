@@ -1,3 +1,4 @@
+import BigNumber from 'bignumber.js'
 import { TranslatableText } from 'state/types'
 
 export interface Address {
@@ -159,4 +160,14 @@ export type PageMeta = {
   title: string
   description?: string
   image?: string
+}
+
+export interface Referral {
+  uid: string
+  earning: BigNumber
+}
+
+export interface ReferralClaimData {
+  allReferred: Referral[]
+  totalEarning: BigNumber
 }
