@@ -4,7 +4,7 @@ import { Flex, CardBody, CardFooter, Heading, Text, BaseLayout } from '@pancakes
 import { useTranslation } from 'contexts/Localization'
 import Page from 'components/layout/Page'
 import FarmStakingCard from 'views/Home/components/FarmStakingCard'
-// import NewsCard from 'views/Home/components/NewsCard'
+import TwitterCard from 'views/Home/components/TwitterCard'
 import LotteryCard from 'views/Home/components/LotteryCard'
 import CakeStats from 'views/Home/components/CakeStats'
 import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
@@ -230,7 +230,7 @@ const Home: React.FC = () => {
       <div>
           <Cards>
             <FarmStakingCard />
-            <FarmStakingCard />
+            <TwitterCard />
           </Cards>
           <Cards>
             <CakeStats />
