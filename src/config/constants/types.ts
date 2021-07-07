@@ -65,6 +65,9 @@ export interface FarmConfig {
   multiplier?: string
   isCommunity?: boolean
   isSingleToken?: boolean
+  earningToken?: Token
+  stakingToken?: Token
+  qlpAddresses?: Address
   dual?: {
     rewardPerBlock: number
     earnLabel: string

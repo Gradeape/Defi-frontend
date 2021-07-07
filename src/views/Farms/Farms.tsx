@@ -161,8 +161,11 @@ const Farms: React.FC = () => {
           return farm
         }
         const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
+        // times(farm.quoteToken.busdPrice)
         const apr = isActive ? getFarmApr(new BigNumber(farm.poolWeight), cakePrice, totalLiquidity) : 0
-
+        // if (farm.pid === 1) {
+        //   window.alert(farm.lpTotalInQuoteToken)
+        // }
         return { ...farm, apr, liquidity: totalLiquidity }
       })
 
