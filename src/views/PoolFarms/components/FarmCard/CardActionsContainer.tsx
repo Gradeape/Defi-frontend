@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { provider as ProviderType } from 'web3-core'
 import BigNumber from 'bignumber.js'
-import { Button, Flex, Text } from '@pancakeswap/uikit'
+import { Button, Flex, Text, useModal } from '@pancakeswap/uikit'
 import { getAddress } from 'utils/addressHelpers'
 import { getBep20Contract } from 'utils/contractHelpers'
 import { useAppDispatch } from 'state'
@@ -14,10 +14,22 @@ import { useApprove } from 'hooks/useApprove'
 import UnlockButton from 'components/UnlockButton'
 import StakeAction from './StakeAction'
 import HarvestAction from './HarvestAction'
+import CompoundModal from './CompoundModal'
+import useStake from "../../../../hooks/useStake";
 
 const Action = styled.div`
   padding-top: 16px;
 `
+
+// for compound button
+const CompoundButtonContainer = styled.div<{ isGivePool: boolean }>`
+  margin-top: 2px;
+  margin-bottom: 5px;
+  display: ${ ({ isGivePool }) => isGivePool ? "flex": "none" };
+  flex-direction: column;
+  align-items: flex-end;
+`
+
 export interface FarmWithStakedValue extends Farm {
   apr?: number
 }
@@ -81,6 +93,13 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
     )
   }
 
+  // for compounding
+  const { onStake } = useStake(pid)
+  const [onPresentCompound] = useModal(
+      <CompoundModal earnings={earnings} onConfirm={onStake} tokenName={farm.lpSymbol} />,
+  )
+
+
   return (
     <Action>
       <Flex>
@@ -91,6 +110,9 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
           {t('Earned')}
         </Text>
       </Flex>
+      <CompoundButtonContainer isGivePool={pid === 0}>
+        <Button onClick={onPresentCompound}>Compound</Button>
+      </CompoundButtonContainer>
       <HarvestAction earnings={earnings} pid={pid} />
       <Flex>
         <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="3px">
