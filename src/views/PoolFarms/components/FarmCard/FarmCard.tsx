@@ -16,6 +16,7 @@ import ApyButton from './ApyButton'
 
 export interface FarmWithStakedValue extends Farm {
   apr?: number
+  apy?: number
   liquidity?: BigNumber
 }
 
@@ -95,6 +96,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
   const earnLabel = farm.dual ? farm.dual.earnLabel : 'GIVE'
 
   const farmAPR = farm.apr && farm.apr.toLocaleString('en-US', { maximumFractionDigits: 0 })
+  const farmAPY = farm.apy && farm.apy.toLocaleString('en-US', { maximumFractionDigits: 0 })
 
   const liquidityUrlPathParts = getLiquidityUrlPathParts({
     quoteTokenAddress: farm.quoteToken.address,
@@ -115,6 +117,19 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
         farmImage={farmImage}
         tokenSymbol={farm.token.symbol}
       />
+      <Flex justifyContent="space-between" alignItems="center">
+        <Text>{t('APY')}:</Text>
+        <Text bold style={{ display: 'flex', alignItems: 'center' }}>
+          {farm.apy ? (
+            <>
+              {farmAPY} * 10
+              <text style={{ fontSize: 13, marginLeft: '1px' }}> 23</text>%
+            </>
+          ) : (
+            <Skeleton height={24} width={80} />
+          )}
+        </Text>
+      </Flex>
       {!removed && (
         <Flex justifyContent="space-between" alignItems="center">
           <Text>{t('APR')}:</Text>
@@ -130,6 +145,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
           </Text>
         </Flex>
       )}
+
       <Flex justifyContent="space-between">
         <Text>{t('Earn')}:</Text>
         <Text bold>{earnLabel}</Text>

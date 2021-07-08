@@ -142,6 +142,21 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.usdc,
   },
   {
+    pid: 10,
+    lpSymbol: 'CRV',
+    isSingleToken: true,
+    lpAddresses: {
+      4: '',
+      137: '0x172370d5cd63279efa6d502dab29171933a610af',
+    },
+    qlpAddresses: {
+      4: '',
+      137: '0x8982D71337003cd172198739238adA0D5d0BD2Fe',
+    },
+    token: tokens.crv,
+    quoteToken: tokens.usdc,
+  },
+  {
     pid: 11,
     lpSymbol: 'AAVE',
     isSingleToken: true,
@@ -159,6 +174,7 @@ const farms: FarmConfig[] = [
   {
     pid: 12,
     lpSymbol: 'USDC-MATIC LP',
+    isHiddenFarm: true,
     lpAddresses: {
       4: '',
       137: '0x6e7a5fafcec6bb1e78bae2a1f0b612012bf14827',

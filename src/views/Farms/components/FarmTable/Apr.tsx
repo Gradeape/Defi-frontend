@@ -16,6 +16,7 @@ export interface AprProps {
   cakePrice: BigNumber
   originalValue: number
   hideButton?: boolean
+  apy: string
 }
 
 const Container = styled.div`

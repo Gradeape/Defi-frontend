@@ -16,6 +16,7 @@ import ApyButton from './ApyButton'
 
 export interface FarmWithStakedValue extends Farm {
   apr?: number
+  apy?: number
   liquidity?: BigNumber
 }
 
@@ -85,6 +86,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
   // We assume the token name is coin pair + lp e.g. CAKE-BNB LP, LINK-BNB LP,
   // NAR-CAKE LP. The images should be cake-bnb.svg, link-bnb.svg, nar-cake.svg
   const farmImage = farm.lpSymbol.split(' ')[0].toLocaleLowerCase()
+  const farmAPY = farm.apy && farm.apy.toLocaleString('en-US', { maximumFractionDigits: 0 })
 
   const totalValueFormatted =
     farm.liquidity && farm.liquidity.gt(0)
@@ -115,6 +117,19 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
         farmImage={farmImage}
         tokenSymbol={farm.token.symbol}
       />
+      <Flex justifyContent="space-between" alignItems="center">
+        <Text>{t('APY')}:</Text>
+        <Text bold style={{ display: 'flex', alignItems: 'center' }}>
+          {farm.apy ? (
+            <>
+              {farmAPY} * 10
+              <text style={{ fontSize: 13, marginLeft: '1px' }}> 23</text>%
+            </>
+          ) : (
+            <Skeleton height={24} width={80} />
+          )}
+        </Text>
+      </Flex>
       {!removed && (
         <Flex justifyContent="space-between" alignItems="center">
           <Text>{t('APR')}:</Text>
