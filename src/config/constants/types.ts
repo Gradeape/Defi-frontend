@@ -160,6 +160,12 @@ export interface Address {
   97?: string
   56: string
 }
+// for old addresses on bsc
+export interface Address2 {
+  97?: string
+  137: string
+  56: string
+}
 
 export interface Token {
   symbol: string
@@ -213,7 +219,11 @@ export interface FarmConfig {
   token: Token
   quoteToken: Token
   multiplier?: string
+  depositFeeBP?: number
   isCommunity?: boolean
+  isSingleToken?: boolean
+  isHiddenFarm?: boolean
+  qlpAddresses?: Address
   dual?: {
     rewardPerBlock: number
     earnLabel: string
@@ -252,7 +262,7 @@ export type NftVideo = {
 
 export type NftSource = {
   [key in NftType]: {
-    address: Address
+    address: Address2
     identifierKey: string
   }
 }

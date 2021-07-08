@@ -2,7 +2,13 @@
   "compilerOptions": {
     "baseUrl": "src",
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "es2017"
+    ],
+    
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -19,5 +25,10 @@
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "scripts"]
+  "include": [
+    "src",
+    "scripts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

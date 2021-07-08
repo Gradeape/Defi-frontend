@@ -24,6 +24,7 @@ import FarmTabButtons from './components/FarmTabButtons'
 import { RowProps } from './components/FarmTable/Row'
 import ToggleView from './components/ToggleView/ToggleView'
 import { DesktopColumnSchema, ViewMode } from './components/types'
+import { BIG_ONE } from '../../utils/bigNumber'
 
 const ControlContainer = styled.div`
   display: flex;
@@ -97,12 +98,12 @@ const StyledImage = styled(Image)`
   margin-right: auto;
   margin-top: 58px;
 `
-const RightHeader= styled.div`
-  display:inline-block;
-  vertical-align:top;
+const RightHeader = styled.div`
+  display: inline-block;
+  vertical-align: top;
 `
-const LeftHeader= styled.div`
-  display:inline-block;
+const LeftHeader = styled.div`
+  display: inline-block;
 `
 
 const NUMBER_OF_FARMS_VISIBLE = 12
@@ -133,8 +134,13 @@ const Farms: React.FC = () => {
     setStakedOnly(!isActive)
   }, [isActive])
 
-  const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid))
-  const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X' && !isArchivedPid(farm.pid))
+  // original code (does not show give pool)
+  // const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid))
+  // const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X' && !isArchivedPid(farm.pid))
+  // const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
+
+  const activeFarms = farmsLP.filter((farm) => !farm.isSingleToken && !farm.isHiddenFarm && !isArchivedPid(farm.pid))
+  const inactiveFarms = farmsLP.filter((farm) => !farm.isSingleToken && !farm.isHiddenFarm && !isArchivedPid(farm.pid))
   const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
 
   const stakedOnlyFarms = activeFarms.filter(
@@ -152,13 +158,33 @@ const Farms: React.FC = () => {
   const farmsList = useCallback(
     (farmsToDisplay: Farm[]): FarmWithStakedValue[] => {
       let farmsToDisplayWithAPR: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
+        // alert("pid: ".concat(farm.pid.toString()).concat(" \n lpTotalInQuoteToken: ").concat(farm.lpTotalInQuoteToken.toString()))
         if (!farm.lpTotalInQuoteToken || !farm.quoteToken.busdPrice) {
+          // alert(farm.quoteToken.busdPrice.toString()) // TEST delete-later
           return farm
         }
-        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
-        const apr = isActive ? getFarmApr(new BigNumber(farm.poolWeight), cakePrice, totalLiquidity) : 0
 
-        return { ...farm, apr, liquidity: totalLiquidity }
+        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
+        // const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(BIG_ONE)
+        const apr = isActive ? getFarmApr(new BigNumber(farm.poolWeight), cakePrice, totalLiquidity) : 0
+        // calculating APY, remove the division later when apy stabilizes
+        const apy = ((1 + apr / 100 / 365) ** 365 - 1) / 100000000000000000000000
+        // const apr = 1
+        // if(farm.pid === -1 ){
+        //   alert(cakePrice.toString().concat(isActive.toString()))  // TEST
+        // }
+        // TEST
+        // if (farm.pid === -3) {
+        //   alert("pid: ".concat(farm.pid.toString())
+        //       .concat("\n lpTotalInQuoteToken: ").concat(farm.lpTotalInQuoteToken.toString())
+        //       .concat("\n busdPrice: ").concat(farm.quoteToken.busdPrice.toString())
+        //       .concat("\n totalLiquidity: ").concat(totalLiquidity.toString())
+        //       .concat("\n poolWeight: ").concat(farm.poolWeight.toString())
+        //       .concat("\n cakePrice: ").concat(cakePrice.toString())
+        //   )
+        // }
+
+        return { ...farm, apr, liquidity: totalLiquidity, apy }
       })
 
       if (query) {
@@ -267,6 +293,7 @@ const Farms: React.FC = () => {
         quoteTokenAddress,
         cakePrice,
         originalValue: farm.apr,
+        apy: farm.apy && farm.apy.toLocaleString('en-US', { maximumFractionDigits: 2 }),
       },
       farm: {
         image: farm.lpSymbol.split(' ')[0].toLocaleLowerCase(),
@@ -358,17 +385,13 @@ const Farms: React.FC = () => {
           </Heading>
         </LeftHeader>
         <RightHeader>
-          <img src="images/BCharity-Images/cat2.png"
-               alt="cartoon cat"
-               width="200px"
-          />
+          <img src="images/BCharity-Images/cat2.png" alt="cartoon cat" width="200px" />
         </RightHeader>
-
       </PageHeader>
       <Page>
         <ControlContainer>
           <ViewControls>
-            <ToggleView viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} />
+            { /* <ToggleView viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} /> */ }
             <ToggleWrapper>
               <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
               <Text> {t('Staked only')}</Text>

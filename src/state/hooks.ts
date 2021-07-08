@@ -9,7 +9,7 @@ import Nfts from 'config/constants/nfts'
 import { farmsConfig } from 'config/constants'
 import { getWeb3NoAccount } from 'utils/web3'
 import { getBalanceAmount } from 'utils/formatBalance'
-import { BIG_ZERO } from 'utils/bigNumber'
+import { BIG_ONE, BIG_ZERO } from 'utils/bigNumber'
 import useRefresh from 'hooks/useRefresh'
 import { filterFarmsByQuoteToken } from 'utils/farmsPriceHelpers'
 import {
@@ -53,6 +53,9 @@ export const usePollFarmsData = (includeArchive = false) => {
  * Fetches the "core" farm data used globally
  * 251 = CAKE-BNB LP
  * 252 = BUSD-BNB LP
+ * changed to our farms
+ * 2 = GIVE-WMATIC LP
+ * 12 = USDC-MATIC
  */
 export const usePollCoreFarmData = () => {
   const dispatch = useAppDispatch()
@@ -60,7 +63,7 @@ export const usePollCoreFarmData = () => {
   const web3 = getWeb3NoAccount()
 
   useEffect(() => {
-    dispatch(fetchFarmsPublicDataAsync([251, 252]))
+    dispatch(fetchFarmsPublicDataAsync([2, 12]))
   }, [dispatch, fastRefresh, web3])
 }
 
@@ -326,13 +329,17 @@ export const useAchievements = () => {
 }
 
 export const usePriceBnbBusd = (): BigNumber => {
-  const bnbBusdFarm = useFarmFromPid(252)
-  return new BigNumber(bnbBusdFarm.quoteToken.busdPrice)
+  // const bnbuBsdFarm = useFarmFromPid(252)
+  // return new BigNumber(bnbBusdFarm.quoteToken.busdPrice)
+  const maticUsdcfarm = useFarmFromPid(12)
+  return new BigNumber(maticUsdcfarm.quoteToken.busdPrice)
 }
 
 export const usePriceCakeBusd = (): BigNumber => {
-  const cakeBnbFarm = useFarmFromPid(251)
-  return new BigNumber(cakeBnbFarm.token.busdPrice)
+  // const cakeBnbFarm = useFarmFromPid(251)
+  // return new BigNumber(cakeBnbFarm.token.busdPrice)
+  const giveWmaticFarm = useFarmFromPid(2)
+  return new BigNumber(giveWmaticFarm.token.busdPrice)
 }
 
 // Block

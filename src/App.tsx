@@ -18,6 +18,7 @@ import history from './routerHistory'
 // removed unused pages
 const Home = lazy(() => import('./views/Home'))
 const Farms = lazy(() => import('./views/Farms'))
+const Farms2 = lazy(() => import('./views/PoolFarms'))
 // const Lottery = lazy(() => import('./views/Lottery'))
 // const Ifos = lazy(() => import('./views/Ifos'))
 const NotFound = lazy(() => import('./views/NotFound'))
@@ -46,7 +47,7 @@ const App: React.FC = () => {
       <GlobalStyle />
       <Menu>
         {/* for page loading - uses pageLoader defined by ui-kit */}
-        <SuspenseWithChunkError fallback={<PageLoader />}> 
+        <SuspenseWithChunkError fallback={<PageLoader />}>
           <Switch>
             <Route path="/" exact>
               <Home />
@@ -55,7 +56,7 @@ const App: React.FC = () => {
               <Farms />
             </Route>
             <Route path="/pools">
-              <Pools />
+              <Farms2 />
             </Route>
             {/* <Route path="/lottery">
               <Lottery />

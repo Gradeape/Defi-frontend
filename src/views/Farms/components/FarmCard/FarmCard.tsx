@@ -16,6 +16,7 @@ import ApyButton from './ApyButton'
 
 export interface FarmWithStakedValue extends Farm {
   apr?: number
+  apy?: number
   liquidity?: BigNumber
 }
 
@@ -85,14 +86,15 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
   // We assume the token name is coin pair + lp e.g. CAKE-BNB LP, LINK-BNB LP,
   // NAR-CAKE LP. The images should be cake-bnb.svg, link-bnb.svg, nar-cake.svg
   const farmImage = farm.lpSymbol.split(' ')[0].toLocaleLowerCase()
+  const farmAPY = farm.apy && farm.apy.toLocaleString('en-US', { maximumFractionDigits: 0 })
 
   const totalValueFormatted =
     farm.liquidity && farm.liquidity.gt(0)
-      ? `$${farm.liquidity.toNumber().toLocaleString(undefined, { maximumFractionDigits: 0 })}`
+      ? `$${farm.liquidity.toNumber().toLocaleString(undefined, { maximumFractionDigits: 5 })}`
       : ''
 
   const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PANCAKE', '')
-  const earnLabel = farm.dual ? farm.dual.earnLabel : 'CAKE'
+  const earnLabel = farm.dual ? farm.dual.earnLabel : 'GIVE'
 
   const farmAPR = farm.apr && farm.apr.toLocaleString('en-US', { maximumFractionDigits: 2 })
 
@@ -100,9 +102,10 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
     quoteTokenAddress: farm.quoteToken.address,
     tokenAddress: farm.token.address,
   })
-  const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+  const addLiquidityUrl = `https://quickswap.exchange/#/add`
+  // `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
   const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
-  const isPromotedFarm = farm.token.symbol === 'CAKE'
+  const isPromotedFarm = farm.token.symbol === 'GIVE'
 
   return (
     <FCard isPromotedFarm={isPromotedFarm}>
@@ -114,6 +117,19 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
         farmImage={farmImage}
         tokenSymbol={farm.token.symbol}
       />
+      <Flex justifyContent="space-between" alignItems="center">
+        <Text>{t('APY')}:</Text>
+        <Text bold style={{ display: 'flex', alignItems: 'center' }}>
+          {farm.apy ? (
+            <>
+              {farmAPY} * 10
+              <text style={{ fontSize: 13, marginLeft: '1px' }}> 23</text>%
+            </>
+          ) : (
+            <Skeleton height={24} width={80} />
+          )}
+        </Text>
+      </Flex>
       {!removed && (
         <Flex justifyContent="space-between" alignItems="center">
           <Text>{t('APR')}:</Text>
@@ -133,6 +149,10 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
         <Text>{t('Earn')}:</Text>
         <Text bold>{earnLabel}</Text>
       </Flex>
+        <Flex justifyContent='space-between'>
+            <Text style={{ fontSize: '24px' }}>{t('Deposit Fee')}:</Text>
+            <Text bold style={{ fontSize: '24px' }}>{(farm.depositFeeBP / 100)}%</Text>
+        </Flex>
       <CardActionsContainer farm={farm} account={account} addLiquidityUrl={addLiquidityUrl} />
       <Divider />
       <ExpandableSectionButton

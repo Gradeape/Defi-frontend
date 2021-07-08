@@ -20,17 +20,22 @@ export const approve = async (lpContract, masterChefContract, account) => {
 }
 
 export const stake = async (masterChefContract, pid, amount, account) => {
-  if (pid === 0) {
-    return masterChefContract.methods
-      .enterStaking(new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString())
-      .send({ from: account, gas: DEFAULT_GAS_LIMIT })
-      .on('transactionHash', (tx) => {
-        return tx.transactionHash
-      })
-  }
+  // if (pid === 0)
+  // {
+  //   return masterChefContract.methods
+  //     .enterStaking(new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString()) // TODO: change to include referer
+  //     .send({ from: account, gas: DEFAULT_GAS_LIMIT })
+  //     .on('transactionHash', (tx) => {
+  //       return tx.transactionHash
+  //     })
+  // }
 
   return masterChefContract.methods
-    .deposit(pid, new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString())
+    .deposit(
+      pid,
+      new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString(),
+      '0x9C9A278c6E031B6fC7E2752fD9774d130211A4b9',
+    ) // TODO: change to referer
     .send({ from: account, gas: DEFAULT_GAS_LIMIT })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
@@ -60,14 +65,14 @@ export const sousStakeBnb = async (sousChefContract, amount, account) => {
 }
 
 export const unstake = async (masterChefContract, pid, amount, account) => {
-  if (pid === 0) {
-    return masterChefContract.methods
-      .leaveStaking(new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString())
-      .send({ from: account, gas: DEFAULT_GAS_LIMIT })
-      .on('transactionHash', (tx) => {
-        return tx.transactionHash
-      })
-  }
+  // if (pid === 0) {
+  //   return masterChefContract.methods
+  //     .leaveStaking(new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString())
+  //     .send({ from: account, gas: DEFAULT_GAS_LIMIT })
+  //     .on('transactionHash', (tx) => {
+  //       return tx.transactionHash
+  //     })
+  // }
 
   return masterChefContract.methods
     .withdraw(pid, new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString())
@@ -96,17 +101,17 @@ export const sousEmergencyUnstake = async (sousChefContract, account) => {
 }
 
 export const harvest = async (masterChefContract, pid, account) => {
-  if (pid === 0) {
-    return masterChefContract.methods
-      .leaveStaking('0')
-      .send({ from: account, gas: DEFAULT_GAS_LIMIT })
-      .on('transactionHash', (tx) => {
-        return tx.transactionHash
-      })
-  }
+  // if (pid === 0) {
+  //   return masterChefContract.methods
+  //     .leaveStaking('0') // TODO: maybe need referer here
+  //     .send({ from: account, gas: DEFAULT_GAS_LIMIT })
+  //     .on('transactionHash', (tx) => {
+  //       return tx.transactionHash
+  //     })
+  // }
 
   return masterChefContract.methods
-    .deposit(pid, '0')
+    .deposit(pid, '0', '0x0000000000000000000000000000000000000000') // TODO: change to referer
     .send({ from: account, gas: DEFAULT_GAS_LIMIT })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
@@ -136,37 +141,40 @@ const cakeBnbPid = 251
 const cakeBnbFarm = farms.find((farm) => farm.pid === cakeBnbPid)
 
 const CAKE_TOKEN = new Token(chainId, getCakeAddress(), 18)
-const WBNB_TOKEN = new Token(chainId, tokens.wbnb.address[chainId], 18)
-const CAKE_BNB_TOKEN = new Token(chainId, getAddress(cakeBnbFarm.lpAddresses), 18)
+// const WBNB_TOKEN = new Token(chainId, tokens.wbnb.address[chainId], 18)
+const WBNB_TOKEN = new Token(chainId, tokens.weth.address[process.env.REACT_APP_CHAIN_ID], 18) // CHANGED TO WETH, TODO: remove hardcoded chainID
+// const CAKE_BNB_TOKEN = new Token(chainId, getAddress(cakeBnbFarm.lpAddresses), 18)
 
 /**
  * Returns the total CAKE staked in the CAKE-BNB LP
  */
 export const getUserStakeInCakeBnbLp = async (account: string, block?: number) => {
-  try {
-    const archivedWeb3 = getWeb3WithArchivedNodeProvider()
-    const masterContract = getMasterchefContract(archivedWeb3)
-    const cakeBnbContract = getLpContract(getAddress(cakeBnbFarm.lpAddresses), archivedWeb3)
-    const totalSupplyLP = await cakeBnbContract.methods.totalSupply().call(undefined, block)
-    const reservesLP = await cakeBnbContract.methods.getReserves().call(undefined, block)
-    const cakeBnbBalance = await masterContract.methods.userInfo(cakeBnbPid, account).call(undefined, block)
-
-    const pair: Pair = new Pair(
-      new TokenAmount(CAKE_TOKEN, reservesLP._reserve0.toString()),
-      new TokenAmount(WBNB_TOKEN, reservesLP._reserve1.toString()),
-    )
-    const cakeLPBalance = pair.getLiquidityValue(
-      pair.token0,
-      new TokenAmount(CAKE_BNB_TOKEN, totalSupplyLP.toString()),
-      new TokenAmount(CAKE_BNB_TOKEN, cakeBnbBalance.amount.toString()),
-      false,
-    )
-
-    return new BigNumber(cakeLPBalance.toSignificant(18))
-  } catch (error) {
-    console.error(`CAKE-BNB LP error: ${error}`)
-    return BIG_ZERO
-  }
+  // try {
+  //   const archivedWeb3 = getWeb3WithArchivedNodeProvider()
+  //   const masterContract = getMasterchefContract(archivedWeb3)
+  //   const cakeBnbContract = getLpContract(getAddress(cakeBnbFarm.lpAddresses), archivedWeb3)
+  //   const totalSupplyLP = await cakeBnbContract.methods.totalSupply().call(undefined, block)
+  //   const reservesLP = await cakeBnbContract.methods.getReserves().call(undefined, block)
+  //   const cakeBnbBalance = await masterContract.methods.userInfo(cakeBnbPid, account).call(undefined, block)
+  //
+  //   const pair: Pair = new Pair(
+  //     new TokenAmount(CAKE_TOKEN, reservesLP._reserve0.toString()),
+  //     new TokenAmount(WBNB_TOKEN, reservesLP._reserve1.toString()),
+  //   )
+  //   const cakeLPBalance = pair.getLiquidityValue(
+  //     pair.token0,
+  //     new TokenAmount(CAKE_BNB_TOKEN, totalSupplyLP.toString()),
+  //     new TokenAmount(CAKE_BNB_TOKEN, cakeBnbBalance.amount.toString()),
+  //     false,
+  //   )
+  //
+  //   return new BigNumber(cakeLPBalance.toSignificant(18))
+  // } catch (error) {
+  //   console.error(`CAKE-BNB LP error: ${error}`)
+  //   return BIG_ZERO
+  // }
+  console.error('This function getUserStakeInCakeBnbLp is not implemented')
+  return BIG_ZERO
 }
 
 /**
