@@ -84,17 +84,17 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
 
   // We assume the token name is coin pair + lp e.g. CAKE-BNB LP, LINK-BNB LP,
   // NAR-CAKE LP. The images should be cake-bnb.svg, link-bnb.svg, nar-cake.svg
-  const farmImage = farm.lpSymbol.split(' ')[0].toLocaleLowerCase()
+  const farmImage = farm.lpSymbol.toLocaleLowerCase()
 
   const totalValueFormatted =
     farm.liquidity && farm.liquidity.gt(0)
-      ? `$${farm.liquidity.toNumber().toLocaleString(undefined, { maximumFractionDigits: 5 })}`
+      ? `$${farm.liquidity.toNumber().toLocaleString(undefined, { maximumFractionDigits: 8 })}`
       : ''
 
   const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PANCAKE', '')
   const earnLabel = farm.dual ? farm.dual.earnLabel : 'GIVE'
 
-  const farmAPR = farm.apr && farm.apr.toLocaleString('en-US', { maximumFractionDigits: 8 })
+  const farmAPR = farm.apr && farm.apr.toLocaleString('en-US', { maximumFractionDigits: 0 })
 
   const liquidityUrlPathParts = getLiquidityUrlPathParts({
     quoteTokenAddress: farm.quoteToken.address,

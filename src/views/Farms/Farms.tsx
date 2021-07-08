@@ -24,7 +24,7 @@ import FarmTabButtons from './components/FarmTabButtons'
 import { RowProps } from './components/FarmTable/Row'
 import ToggleView from './components/ToggleView/ToggleView'
 import { DesktopColumnSchema, ViewMode } from './components/types'
-import {BIG_ONE} from "../../utils/bigNumber";
+import { BIG_ONE } from '../../utils/bigNumber'
 
 const ControlContainer = styled.div`
   display: flex;
@@ -158,7 +158,6 @@ const Farms: React.FC = () => {
   const farmsList = useCallback(
     (farmsToDisplay: Farm[]): FarmWithStakedValue[] => {
       let farmsToDisplayWithAPR: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
-
         // alert("pid: ".concat(farm.pid.toString()).concat(" \n lpTotalInQuoteToken: ").concat(farm.lpTotalInQuoteToken.toString()))
         if (!farm.lpTotalInQuoteToken || !farm.quoteToken.busdPrice) {
           // alert(farm.quoteToken.busdPrice.toString()) // TEST delete-later
@@ -173,15 +172,15 @@ const Farms: React.FC = () => {
         //   alert(cakePrice.toString().concat(isActive.toString()))  // TEST
         // }
         // TEST
-        if (farm.pid === -3) {
-          alert("pid: ".concat(farm.pid.toString())
-              .concat("\n lpTotalInQuoteToken: ").concat(farm.lpTotalInQuoteToken.toString())
-              .concat("\n busdPrice: ").concat(farm.quoteToken.busdPrice.toString())
-              .concat("\n totalLiquidity: ").concat(totalLiquidity.toString())
-              .concat("\n poolWeight: ").concat(farm.poolWeight.toString())
-              .concat("\n cakePrice: ").concat(cakePrice.toString())
-          )
-        }
+        // if (farm.pid === -3) {
+        //   alert("pid: ".concat(farm.pid.toString())
+        //       .concat("\n lpTotalInQuoteToken: ").concat(farm.lpTotalInQuoteToken.toString())
+        //       .concat("\n busdPrice: ").concat(farm.quoteToken.busdPrice.toString())
+        //       .concat("\n totalLiquidity: ").concat(totalLiquidity.toString())
+        //       .concat("\n poolWeight: ").concat(farm.poolWeight.toString())
+        //       .concat("\n cakePrice: ").concat(cakePrice.toString())
+        //   )
+        // }
 
         return { ...farm, apr, liquidity: totalLiquidity }
       })

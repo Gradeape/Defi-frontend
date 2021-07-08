@@ -6,7 +6,7 @@ const CoreTag: React.FC<TagProps> = (props) => {
   const { t } = useTranslation()
   return (
     <Tag variant="secondary" outline startIcon={<VerifiedIcon width="18px" color="secondary" mr="4px" />} {...props}>
-      {t('Core')}
+      {t('No Fees')}
     </Tag>
   )
 }
@@ -14,9 +14,10 @@ const CoreTag: React.FC<TagProps> = (props) => {
 const CommunityTag: React.FC<TagProps> = (props) => {
   const { t } = useTranslation()
   return (
-    <Tag variant="failure" outline startIcon={<CommunityIcon width="18px" color="failure" mr="4px" />} {...props}>
-      {t('Community')}
-    </Tag>
+    // <Tag variant="failure" outline startIcon={<CommunityIcon width="18px" color="failure" mr="4px" />} {...props}>
+    //   {t('Community')}
+    // </Tag>
+    null
   )
 }
 

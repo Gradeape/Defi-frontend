@@ -9,6 +9,7 @@ const farms: FarmConfig[] = [
     pid: 0,
     lpSymbol: 'GIVE',
     isSingleToken: true,
+    isCommunity: true,
     lpAddresses: {
       4: '',
       137: '0x9Bbcda2606e616659b118399A2823E8a392f55DA',
@@ -165,7 +166,6 @@ const farms: FarmConfig[] = [
     token: tokens.usdc,
     quoteToken: tokens.wmatic,
   },
-  
 ]
 
 export default farms
