@@ -6,7 +6,7 @@ import { useTranslation } from 'contexts/Localization'
 const StyledHeadingCard = styled(Card)`
   margin-top: 35px;
   background-image: linear-gradient(165deg, #6f12e0, #459bdb, #459bdb);
-  box-shadow: 12px 16px 5px #e4e3e9;
+  // box-shadow: 12px 16px 5px #e4e3e9;
   // max-height: 1000%;
   max-width: 100%;
   overflow: visible;
