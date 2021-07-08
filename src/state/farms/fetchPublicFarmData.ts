@@ -23,12 +23,14 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
   const lpAddress = getAddress(lpAddresses)
   const calls = [
     // Balance of token in the LP contract
+    // for pools we use the qlpAddress for the token prices
     {
       address: getAddress(token.address),
       name: 'balanceOf',
       params: farm.isSingleToken ? [getAddress(qlpAddresses)] : [lpAddress],
     },
     // Balance of quote token on LP contract
+    // for pools we use the qlpAddress for the token prices
     {
       address: getAddress(quoteToken.address),
       name: 'balanceOf',
