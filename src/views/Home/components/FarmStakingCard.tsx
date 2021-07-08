@@ -11,10 +11,15 @@ import CakeHarvestBalance from './CakeHarvestBalance'
 import CakeWalletBalance from './CakeWalletBalance'
 
 const StyledFarmStakingCard = styled(Card)`
-  background-image: url('/images/cake-bg.svg');
+  background-image: url('/images/BCharity-Images/Feature2_BKG.png');
   background-repeat: no-repeat;
   background-position: top right;
   min-height: 376px;
+  background-size: 250px;
+`
+
+const ImgOpacity = styled.image`
+  opacity: 0.5;
 `
 
 const Block = styled.div`
@@ -62,7 +67,7 @@ const FarmedStakingCard = () => {
         <Heading scale="xl" mb="24px">
           {t('Farms & Staking')}
         </Heading>
-        <CardImage src="/images/BCharity-Images/token.png" alt="GIVE logo" width={64} height={64} />
+        <CardImage src="/images/BCharity-Images/Token4.png" alt="GIVE logo" width={108} height={108} />
         <Block>
           <Label>{t('GIVE to Harvest')}:</Label>
           <CakeHarvestBalance />

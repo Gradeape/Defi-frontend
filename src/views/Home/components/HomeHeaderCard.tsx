@@ -102,13 +102,13 @@ const HomeHeaderCard = () => {
   // more is written about translation in CONTRIBUTING.md
   const { t } = useTranslation()
 
-  const subtitle = 'Value-oriented, economically sustainable hybrid yield aggregator on Polygon.'
+  const subtitle = 'Better transparency and accountability for charity tokenomics ecosystem.'
   const title = 'BCharity'
   return (
     <StyledHeadingCard>
 
         <VerticalLine />
-        <Update color="pink">UPDATE</Update>
+        <Update color="pink">VISION</Update>
         <Subtitle color="white"> {subtitle} </Subtitle>
         <Title>{title}</Title>
         <LearnMoreButton>Learn More...</LearnMoreButton>

@@ -21,6 +21,8 @@ const TotalValueLockedCard = () => {
         <Heading scale="lg" mb="24px">
           {t('Total Value Locked (TVL)')}
         </Heading>
+
+        
         {data ? (
           <>
             <Heading scale="xl">{`$${tvl}`}</Heading>
