@@ -5,8 +5,8 @@ import { harvest } from 'utils/callHelpers'
 import { useWeb3React } from '@web3-react/core'
 import { useTranslation } from 'contexts/Localization'
 import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
-import { useMasterchef } from 'hooks/useContract'
 import UnlockButton from 'components/UnlockButton'
+import { useMasterchef } from "../../../hooks/useContract"
 import CakeHarvestBalance from './CakeHarvestBalance'
 import CakeWalletBalance from './CakeWalletBalance'
 

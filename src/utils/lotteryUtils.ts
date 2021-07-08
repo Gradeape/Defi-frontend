@@ -2,7 +2,7 @@
 import BigNumber from 'bignumber.js'
 import { Interface } from '@ethersproject/abi'
 import { getWeb3NoAccount } from 'utils/web3'
-import MultiCallAbi from 'config/abi/multicall.json'
+import MultiCallAbi from 'config/abi/Multicall.json'
 import ticketAbi from 'config/abi/lotteryNft.json'
 import lotteryAbi from 'config/abi/lottery.json'
 import { DEFAULT_TOKEN_DECIMAL, LOTTERY_TICKET_PRICE } from 'config'

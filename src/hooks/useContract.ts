@@ -24,9 +24,9 @@ import {
   getSouschefV2Contract,
   getLotteryV2Contract,
   getGiveContract,
+} from 'utils/contractHelpers'
 
-/**
- */
+
 
 // for our GIVE token
 export const useGive = () => {

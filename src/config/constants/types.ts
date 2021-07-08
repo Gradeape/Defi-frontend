@@ -157,8 +157,8 @@
 import { TranslatableText } from 'state/types'
 
 export interface Address {
-  97?: string
-  56: string
+  4?: string
+  137: string
 }
 // for old addresses on bsc
 export interface Address2 {
