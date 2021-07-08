@@ -140,8 +140,8 @@ const Farms: React.FC = () => {
   // const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
 
   // test code
-  const activeFarms = farmsLP.filter((farm) => farm.isSingleToken && !isArchivedPid(farm.pid))
-  const inactiveFarms = farmsLP.filter((farm) => farm.isSingleToken && !isArchivedPid(farm.pid))
+  const activeFarms = farmsLP.filter((farm) => farm.isSingleToken && !farm.isHiddenFarm && !isArchivedPid(farm.pid))
+  const inactiveFarms = farmsLP.filter((farm) => farm.isSingleToken && !farm.isHiddenFarm && !isArchivedPid(farm.pid))
   const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
 
   const stakedOnlyFarms = activeFarms.filter(
@@ -384,7 +384,7 @@ const Farms: React.FC = () => {
       <Page>
         <ControlContainer>
           <ViewControls>
-            <ToggleView viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} />
+            { /* <ToggleView viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} /> */ }
             <ToggleWrapper>
               <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
               <Text> {t('Staked only')}</Text>
