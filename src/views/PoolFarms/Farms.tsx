@@ -175,8 +175,9 @@ const Farms: React.FC = () => {
         // }
         const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.token.busdPrice)
         const apr = isActive ? getFarmApr(new BigNumber(farm.poolWeight), cakePrice, totalLiquidity) : 0
-
-        return { ...farm, apr, liquidity: totalLiquidity }
+        // calculating APY, remove the division later when apy stabilizes
+        const apy = ((1 + apr / 100 / 365) ** 365 - 1) / 100000000000000000000000
+        return { ...farm, apr, liquidity: totalLiquidity, apy }
       })
 
       if (query) {
@@ -285,6 +286,7 @@ const Farms: React.FC = () => {
         quoteTokenAddress,
         cakePrice,
         originalValue: farm.apr,
+        apy: farm.apy && farm.apy.toLocaleString('en-US', { maximumFractionDigits: 2 }),
       },
       farm: {
         image: farm.lpSymbol.split(' ')[0].toLocaleLowerCase(),

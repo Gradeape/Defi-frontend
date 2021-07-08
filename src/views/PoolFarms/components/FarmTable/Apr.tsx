@@ -16,6 +16,7 @@ export interface AprProps {
   cakePrice: BigNumber
   originalValue: number
   hideButton?: boolean
+  apy?: string
 }
 
 const Container = styled.div`
@@ -48,6 +49,7 @@ const Apr: React.FC<AprProps> = ({
   cakePrice,
   originalValue,
   hideButton = false,
+  apy,
 }) => {
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAddress, tokenAddress })
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
@@ -60,6 +62,7 @@ const Apr: React.FC<AprProps> = ({
           {!hideButton && (
             <ApyButton lpLabel={lpLabel} cakePrice={cakePrice} apr={originalValue} addLiquidityUrl={addLiquidityUrl} />
           )}
+          <AprWrapper>{apy}%</AprWrapper>
         </>
       ) : (
         <AprWrapper>
