@@ -19,38 +19,32 @@ type PublicFarmData = {
 }
 
 const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
-  const { pid, lpAddresses, token, quoteToken } = farm
+  const { pid, lpAddresses, token, quoteToken, qlpAddresses} = farm
   const lpAddress = getAddress(lpAddresses)
   const calls = [
     // Balance of token in the LP contract
+    // for pools we use the qlpAddress for the token prices
     {
       address: getAddress(token.address),
-      // address: farm.isSingleToken ? getAddress(token.address) : lpAddress,
-      // name: farm.isSingleToken ? 'totalSupply' : 'balanceOf',
       name: 'balanceOf',
-      params: farm.isSingleToken ? [getMasterChefAddress()] : [lpAddress],
-      // params: [lpAddress],
+      params: farm.isSingleToken ? [getAddress(qlpAddresses)] : [lpAddress],
     },
     // Balance of quote token on LP contract
+    // for pools we use the qlpAddress for the token prices
     {
       address: getAddress(quoteToken.address),
-      // address: farm.isSingleToken ? getAddress(quoteToken.address) : lpAddress,
-      // name: farm.isSingleToken ? 'totalSupply' : 'balanceOf',
       name: 'balanceOf',
-      params: farm.isSingleToken ? [getMasterChefAddress()] : [lpAddress],
-      // params: [lpAddress],
+      params: farm.isSingleToken ? [getAddress(qlpAddresses)] : [lpAddress],
     },
     // Balance of LP tokens in the master chef contract
     {
       address: lpAddress,
-      // address: farm.isSingleToken ? getAddress(token.address) : lpAddress,
       name: 'balanceOf',
-      // params: farm.isSingleToken ? [getMasterChefAddress()] : [lpAddress],
       params: [getMasterChefAddress()],
     },
     // Total supply of LP tokens
     {
-      address: lpAddress,
+      address: farm.isSingleToken ? getAddress(qlpAddresses) : lpAddress,
       name: 'totalSupply',
     },
     // Token decimals
@@ -60,7 +54,7 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
     },
     // Quote token decimals
     {
-      address: farm.isSingleToken ? getAddress(token.address) : getAddress(quoteToken.address),
+      address: getAddress(quoteToken.address),
       name: 'decimals',
     },
   ]
@@ -72,16 +66,34 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
   const lpTokenRatio = farm.isSingleToken ? 1 : new BigNumber(lpTokenBalanceMC).div(new BigNumber(lpTotalSupply))
 
   // Raw amount of token in the LP, including those not staked
+  // For pools, we use the qlp address to get token amounts to use for price calculation
   const tokenAmountTotal = new BigNumber(tokenBalanceLP).div(BIG_TEN.pow(tokenDecimals))
   const quoteTokenAmountTotal = new BigNumber(quoteTokenBalanceLP).div(BIG_TEN.pow(quoteTokenDecimals))
 
   // Amount of token in the LP that are staked in the MC (i.e amount of token * lp ratio)
-  const tokenAmountMc = tokenAmountTotal.times(lpTokenRatio)
+  const tokenAmountMc = farm.isSingleToken ? new BigNumber(lpTokenBalanceMC).div(BIG_TEN.pow(tokenDecimals)) : tokenAmountTotal.times(lpTokenRatio)
   const quoteTokenAmountMc = quoteTokenAmountTotal.times(lpTokenRatio)
 
   // Total staked in LP, in quote token value
-  const lpTotalInQuoteTokenSingle = quoteTokenAmountMc.times(new BigNumber(1))
-  const lpTotalInQuoteToken = quoteTokenAmountMc.times(new BigNumber(2))
+  const lpTotalInQuoteToken = farm.isSingleToken ? tokenAmountMc : quoteTokenAmountMc.times(new BigNumber(2))
+
+  // // for testing
+  // if (pid === 5){
+  //   alert("pId: ".concat(pid.toString())
+  //       .concat("\n lpTotalInQuoteToken: ").concat(lpTotalInQuoteToken.toString())
+  //       .concat("\n tokenBalanceLP: ").concat(tokenBalanceLP.toString())
+  //       .concat("\n quoteTokenBalanceLP: ").concat(quoteTokenBalanceLP.toString())
+  //       .concat("\n lpTokenBalanceMC: ").concat(lpTokenBalanceMC.toString())
+  //       .concat("\n lpTotalSupply: ").concat(lpTotalSupply.toString())
+  //       .concat("\n tokenAmountTotal: ").concat(tokenAmountTotal.toString())
+  //       .concat("\n quoteTokenAmountTotal: ").concat(quoteTokenAmountTotal.toString())
+  //       .concat("\n tokenAmountMc: ").concat(tokenAmountMc.toString())
+  //       .concat("\n quoteTokenAmountMc: ").concat(quoteTokenAmountMc.toString())
+  //       .concat("\n tokenPriceVsQuote: ").concat( quoteTokenAmountTotal.div(tokenAmountTotal).toString())
+  //       .concat(" \n tokenDecimals").concat(tokenDecimals.toString())
+  //       .concat(" \n quoteTokenDecimals").concat(quoteTokenDecimals.toString())
+  //   )
+  // }
 
   // Only make masterchef calls if farm has pid
   const [info, totalAllocPoint] =
@@ -101,19 +113,14 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
 
   const allocPoint = info ? new BigNumber(info.allocPoint?._hex) : BIG_ZERO
   const poolWeight = totalAllocPoint ? allocPoint.div(new BigNumber(totalAllocPoint)) : BIG_ZERO
-  // if (pid === 0) {
-  //   window.alert(quoteTokenBalanceLP)
-  //   window.alert(tokenBalanceLP)
-  //   window.alert(lpTokenBalanceMC)
-  // }
+
   return {
     tokenAmountMc: tokenAmountMc.toJSON(),
     quoteTokenAmountMc: quoteTokenAmountMc.toJSON(),
     tokenAmountTotal: tokenAmountTotal.toJSON(),
     quoteTokenAmountTotal: quoteTokenAmountTotal.toJSON(),
     lpTotalSupply: new BigNumber(lpTotalSupply).toJSON(),
-    // lpTotalInQuoteToken: lpTotalInQuoteToken.toJSON(),
-    lpTotalInQuoteToken: farm.isSingleToken ? lpTotalInQuoteTokenSingle.toJSON() : lpTotalInQuoteToken.toJSON(),
+    lpTotalInQuoteToken: lpTotalInQuoteToken.toJSON(),
     tokenPriceVsQuote: quoteTokenAmountTotal.div(tokenAmountTotal).toJSON(),
     poolWeight: poolWeight.toJSON(),
     // change back if theres calculation errors

@@ -41,7 +41,7 @@ const tokens = {
       4: '',
       137: '0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6'
     },
-    decimals: 18,
+    decimals: 8,
     logoURI: ''
   },
   quick: {
@@ -63,7 +63,7 @@ const tokens = {
       4: '0xeb8f08a975ab53e34d8a0330e0d34de942c95926',
       137: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
     },
-    decimals: 18,
+    decimals: 6,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xc778417E063141139Fce010982780140Aa0cD5Ab/logo.png',
   },

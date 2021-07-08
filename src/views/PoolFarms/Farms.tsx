@@ -162,17 +162,18 @@ const Farms: React.FC = () => {
         if (!farm.lpTotalInQuoteToken || !farm.quoteToken.busdPrice) {
           return farm
         }
-        let totalLiquidity = BIG_ZERO
-        if (farm.pid === 0 || 4 || 5) {
-          totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.token.busdPrice)
-        } else {
-          totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
-        }
+        // let totalLiquidity = BIG_ZERO
+        // if (farm.pid === 0 || 4 || 5) {
+        //   totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.token.busdPrice)
+        // } else {
+        //   totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
+        // }
         // if (farm.pid === 4) {
         //   window.alert(farm.quoteToken.busdPrice)
         //   window.alert(farm.token.busdPrice)
         //   window.alert(farm.lpTotalInQuoteToken)
         // }
+        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.token.busdPrice)
         const apr = isActive ? getFarmApr(new BigNumber(farm.poolWeight), cakePrice, totalLiquidity) : 0
 
         return { ...farm, apr, liquidity: totalLiquidity }

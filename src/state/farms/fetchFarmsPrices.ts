@@ -12,7 +12,8 @@ const getFarmFromTokenSymbol = (farms: Farm[], tokenSymbol: string, preferredQuo
 const getFarmBaseTokenPrice = (farm: Farm, quoteTokenFarm: Farm, bnbPriceBusd: BigNumber): BigNumber => {
   const hasTokenPriceVsQuote = Boolean(farm.tokenPriceVsQuote)
 
-  // added UDSC here as well
+  // changed BNB to WMATIC and BUSD to USDC
+
   if (farm.quoteToken.symbol === 'USDC') {
     return hasTokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO
   }
@@ -50,28 +51,13 @@ const getFarmBaseTokenPrice = (farm: Farm, quoteTokenFarm: Farm, bnbPriceBusd: B
 }
 
 const getFarmQuoteTokenPrice = (farm: Farm, quoteTokenFarm: Farm, bnbPriceBusd: BigNumber): BigNumber => {
-  if (farm.quoteToken.symbol === 'DAI') {
-    return BIG_ONE
-  }
-  // if (farm.isSingleToken) {
-  //   return BIG_ONE
-  // }
-  // if (farm.quoteToken.symbol === 'WBTC') {
-  //   return BIG_ONE
-  // }
-  // if (farm.quoteToken.symbol === 'WETH') {
-  //   return BIG_ONE
-  // }
-  // if (farm.quoteToken.symbol === ('QUICK' || 'CRV' || 'AAVE')) {
-  //   return BIG_ONE
-  // }
+
+  // changed BNB to WMATIC and BUSD to USDC
 
   if (farm.quoteToken.symbol === 'WMATIC') {
     return bnbPriceBusd
   }
 
-  // TODO: account for usdc
-  // not entirely sure but I think like dai it should return 1 since usdc is 1:1 with usd
   if (farm.quoteToken.symbol === 'USDC') {
     return BIG_ONE
   }
@@ -94,8 +80,10 @@ const getFarmQuoteTokenPrice = (farm: Farm, quoteTokenFarm: Farm, bnbPriceBusd: 
 const fetchFarmsPrices = async (farms) => {
   // changed the pid to MATIC USDC farm
   const bnbBusdFarm = farms.find((farm: Farm) => farm.pid === 12) // TODO: change this
+  // actually matic price in busd not bnb price in busd
   const bnbPriceBusd = bnbBusdFarm.tokenPriceVsQuote ? BIG_ONE.div(bnbBusdFarm.tokenPriceVsQuote) : BIG_ZERO
 
+  // alert("price: ".concat(bnbPriceBusd.toString()))
   const farmsWithPrices = farms.map((farm) => {
     const quoteTokenFarm = getFarmFromTokenSymbol(farms, farm.quoteToken.symbol)
     const baseTokenPrice = getFarmBaseTokenPrice(farm, quoteTokenFarm, bnbPriceBusd)
