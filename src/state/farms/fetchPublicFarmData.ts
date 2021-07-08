@@ -16,6 +16,7 @@ type PublicFarmData = {
   tokenPriceVsQuote: SerializedBigNumber
   poolWeight: SerializedBigNumber
   multiplier: string
+  depositFeeBP: number
 }
 
 const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
@@ -114,6 +115,8 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
   const allocPoint = info ? new BigNumber(info.allocPoint?._hex) : BIG_ZERO
   const poolWeight = totalAllocPoint ? allocPoint.div(new BigNumber(totalAllocPoint)) : BIG_ZERO
 
+  const depositFee = pid >= 1 ? info.depositFeeBP : 0
+
   return {
     tokenAmountMc: tokenAmountMc.toJSON(),
     quoteTokenAmountMc: quoteTokenAmountMc.toJSON(),
@@ -125,6 +128,7 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
     poolWeight: poolWeight.toJSON(),
     // change back if theres calculation errors
     multiplier: `${allocPoint.div(1).toString()}X`,
+    depositFeeBP: depositFee,
   }
 }
 

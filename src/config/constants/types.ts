@@ -63,6 +63,7 @@ export interface FarmConfig {
   token: Token
   quoteToken: Token
   multiplier?: string
+  depositFeeBP?: number
   isCommunity?: boolean
   isSingleToken?: boolean
   isHiddenFarm?: boolean
