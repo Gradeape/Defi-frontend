@@ -98,7 +98,7 @@ const App: React.FC = () => {
         </SuspenseWithChunkError>
       </Menu>
       {/* easter egg that shows falling pancakes if konami code is pressed */}
-      <EasterEgg iterations={2} />
+      {/* <EasterEgg iterations={2} /> */}
       <ToastListener />
     </Router>
   )

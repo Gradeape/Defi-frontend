@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Spinner } from '@pancakeswap/uikit'
+import { Image, Spinner } from '@pancakeswap/uikit'
 import Page from './layout/Page'
 
 const Wrapper = styled(Page)`
@@ -10,11 +10,11 @@ const Wrapper = styled(Page)`
 `
 
 const PageLoader: React.FC = () => {
-  return (
-    <Wrapper>
-      <Spinner />
-    </Wrapper>
-  )
+  return null
+  // add later if we want our own customized page loader
+  // <Wrapper>
+  //   <Spinner/>
+  // </Wrapper>
 }
 
 export default PageLoader
