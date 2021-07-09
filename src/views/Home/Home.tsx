@@ -227,11 +227,18 @@ const Home: React.FC = () => {
         </HomeHeaderCardLayout>
       </div>
 
+
+
       <div>
           <Cards>
             <FarmStakingCard />
             <TwitterCard />
           </Cards>
+        
+          <FarmsAndStaking>
+            <FSCard2 />
+          </FarmsAndStaking>
+          
           <Cards>
             <CakeStats />
             <TotalValueLockedCard />
@@ -239,12 +246,10 @@ const Home: React.FC = () => {
       </div>
 
       <div>
-        <FarmsAndStaking>
-          <FSCard2 />
-        </FarmsAndStaking>
-        <FarmsAndStaking>
+
+        {/* <FarmsAndStaking>
           <BottomCard />
-        </FarmsAndStaking>
+        </FarmsAndStaking> */}
       </div>
 
     </Page>
