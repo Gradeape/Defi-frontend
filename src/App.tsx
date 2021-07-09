@@ -1,4 +1,6 @@
 import React, { lazy } from 'react'
+import styled from 'styled-components'
+
 import { Router, Redirect, Route, Switch } from 'react-router-dom'
 import { ResetCSS } from '@pancakeswap/uikit'
 import BigNumber from 'bignumber.js'
@@ -28,6 +30,10 @@ const Collectibles = lazy(() => import('./views/Collectibles'))
 // const Profile = lazy(() => import('./views/Profile'))
 // const TradingCompetition = lazy(() => import('./views/TradingCompetition'))
 // const Predictions = lazy(() => import('./views/Predictions'))
+
+const Logo = styled.div`
+  background-color: white;
+`
 
 // This config is required for number formatting
 BigNumber.config({
