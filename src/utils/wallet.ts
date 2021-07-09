@@ -24,14 +24,14 @@ export const setupNetwork = async () => {
             //   name: 'BNB',
             //   symbol: 'bnb',
             //   decimals: 18,
-              // rinkeby test
-              /* chainId: `0x${chainId.toString(16)}`,
+            // rinkeby test
+            /* chainId: `0x${chainId.toString(16)}`,
             chainName: 'Rinkeby Test Network',
             nativeCurrency: {
               name: 'ETH',
               symbol: 'eth',
               decimals: 18, */
-              /* chainId: `0x${chainId.toString(16)}`,
+            /* chainId: `0x${chainId.toString(16)}`,
             chainName: 'BSC Testnet',
             nativeCurrency: {
               name: 'BNB',
@@ -41,14 +41,14 @@ export const setupNetwork = async () => {
             // rpcUrls: nodes,
             // blockExplorerUrls: [`https://explorer.binance.org/smart-testnet`],
             chainId: `0x${chainId.toString(16)}`,
-            chainName: 'Rinkeby Test Network',
+            chainName: 'Matic Mainnet',
             nativeCurrency: {
-              name: 'ETH',
-              symbol: 'ETH',
+              name: 'MATIC',
+              symbol: 'MATIC',
               decimals: 18,
             },
             rpcUrls: nodes,
-            blockExplorerUrls: [`https://rinkeby.etherscan.io`],
+            blockExplorerUrls: [`https://polygonscan.com/`],
           },
         ],
       })
