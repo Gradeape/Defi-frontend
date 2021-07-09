@@ -115,7 +115,8 @@ const Farms: React.FC = () => {
   const { data: farmsLP, userDataLoaded } = useFarms()
   const cakePrice = usePriceCakeBusd()
   const [query, setQuery] = useState('')
-  const [viewMode, setViewMode] = usePersistState(ViewMode.CARD, { localStorageKey: 'pancake_farm_view' })
+  // const [viewMode, setViewMode] = usePersistState(ViewMode.CARD, { localStorageKey: 'pancake_farm_view' })
+  const viewMode = cakePrice.toString() === '' ? ViewMode.TABLE : ViewMode.CARD
   const { account } = useWeb3React()
   const [sortOption, setSortOption] = useState('hot')
 
