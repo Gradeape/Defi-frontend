@@ -7,7 +7,7 @@ import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 import { useTranslation } from 'contexts/Localization'
 import { getGiveAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
-import {useFarmFromPid, useFarmGivePerBlock, useFarms, usePriceCakeBusd} from "../../../state/hooks";
+import {useFarmFromPid, usePriceCakeBusd} from "../../../state/hooks";
 import {CAKE_PER_BLOCK} from "../../../config";
 
 const StyledCakeStats = styled(Card)`
