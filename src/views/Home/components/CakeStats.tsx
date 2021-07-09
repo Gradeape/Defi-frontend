@@ -67,6 +67,10 @@ const CakeStats = () => {
           {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} decimals={0} />}
         </Row>
         <Row>
+          <Text fontSize="14px">{t( 'Seed Maximum Supply')}</Text>
+          {cakeSupply && <CardValue fontSize="14px" value={210000} decimals={0} />}
+        </Row>
+        <Row>
           <Text fontSize="14px">{t('New GIVE/block')}</Text>
           <CardValue fontSize="14px" decimals={3} value={givePerBlock} />
         </Row>
