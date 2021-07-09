@@ -20,6 +20,12 @@ const StyledHero = styled.div`
 const StyledPage = styled(Page)`
     background-image: radial-gradient(farthest-corner at 40px 40px, #b2deee 0%, #b69adb 100%);
 `
+const StyledDiv = styled.div`
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 20px
+`
 
 
 const Collectibles = () => {
@@ -34,6 +40,9 @@ const Collectibles = () => {
       </StyledHero>
       {/* <NftList /> */}
       <RedirectCard />
+      <StyledDiv>
+          <img src="images/BCharity-Images/Frame1.png" alt="frame with plants and cats" width="70%"/>
+      </StyledDiv>
     </StyledPage>
   )
 }
