@@ -14,20 +14,20 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
     label: t('Trade'),
     icon: 'TradeIcon',
     items: [
-      {
-        label: t('Swap (Uniswap)'),
-        href: 'https://app.uniswap.org/#/swap',
-      },
+      // {
+      //   label: t('Swap (Uniswap)'),
+      //   href: 'https://app.uniswap.org/#/swap',
+      // },
       {
         label: t('Swap (QuickSwap)'),
         href: 'https://quickswap.exchange/#/swap',
       },
+      // {
+      //   label: t('Exchange (Uniswap)'),
+      //   href: 'https://app.uniswap.org/#/add/v2/ETH',
+      // },
       {
-        label: t('Exchange (Uniswap)'),
-        href: 'https://app.uniswap.org/#/add/v2/ETH',
-      },
-      {
-        label: t('Exchange (QuickSwap)'),
+        label: t('Liquidity (QuickSwap)'),
         href: 'https://quickswap.exchange/#/swap',
       },
       // {

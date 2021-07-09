@@ -386,7 +386,7 @@ const Farms: React.FC = () => {
           </Heading>
         </LeftHeader>
         <RightHeader>
-          <img src="images/BCharity-Images/cat2.png" alt="cartoon cat" width="200px" />
+          <img src="images/BCharity-Images/Info1-cropped.png" alt="bundle of money with coins" width="280px" />
         </RightHeader>
       </PageHeader>
       <Page>
@@ -436,7 +436,7 @@ const Farms: React.FC = () => {
         </ControlContainer>
         {renderContent()}
         <div ref={loadMoreRef} />
-        <StyledImage src="/images/3dpan.png" alt="Pancake illustration" width={120} height={103} />
+        <StyledImage src="/images/BCharity-Images/cat2.png" alt="cat illustration" width={180} height={150} />
       </Page>
     </>
   )

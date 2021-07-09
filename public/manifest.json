@@ -1,10 +1,10 @@
 {
-  "short_name": "PancakeSwap",
-  "name": "PancakeSwap",
-  "description": "Farm CAKE with Pancake LP Tokens",
+  "short_name": "Bcharity",
+  "name": "Bcharity",
+  "description": "Farm GIVE with LP Tokens",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "logo.png",
       "type": "image/x-icon",
       "sizes": "256x256"
     }

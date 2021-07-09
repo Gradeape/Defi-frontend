@@ -220,6 +220,7 @@ export interface FarmConfig {
   quoteToken: Token
   multiplier?: string
   depositFeeBP?: number
+  givePerBlock?: number
   isCommunity?: boolean
   isSingleToken?: boolean
   isHiddenFarm?: boolean
