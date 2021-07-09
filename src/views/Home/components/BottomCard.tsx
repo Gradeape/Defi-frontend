@@ -167,9 +167,9 @@ const BottomCard = () => {
   return (
       <StyledTestCard>
         <BotCard>
-          <Title>Title here</Title>
-          <Subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Subtitle>
-          <ButtonButton>Button</ButtonButton>
+          <Title>BCharity</Title>
+          <Subtitle>Better transparency and accountability for charity tokenomics ecosystem.</Subtitle>
+          <ButtonButton>Contact Us</ButtonButton>
         </BotCard>
         
       </StyledTestCard>
