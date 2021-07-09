@@ -1,15 +1,18 @@
-import React, { useState, useCallback } from 'react'
+import React, {useState, useCallback, useEffect, useMemo} from 'react'
 import styled from 'styled-components'
 import { Heading, Card, CardBody, Button } from '@pancakeswap/uikit'
-// import { harvest } from 'utils/callHelpers'
-// import { useWeb3React } from '@web3-react/core'
+import BigNumber from "bignumber.js";
 import { useTranslation } from 'contexts/Localization'
-// import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
-// import { useMasterchef } from 'hooks/useContract'
-// import UnlockButton from 'components/UnlockButton'
-// import CakeHarvestBalance from './CakeHarvestBalance'
-// import CakeWalletBalance from './CakeWalletBalance'
-// import { Button as testbutton } from 'bcharity-uikit'
+import max from "lodash/max";
+import {useBurnedBalance, useTotalSupply} from "../../../hooks/useTokenBalance";
+import {getBalanceNumber} from "../../../utils/formatBalance";
+import {getGiveAddress} from "../../../utils/addressHelpers";
+import {useFarmFromPid, useFarms, usePriceCakeBusd} from "../../../state/hooks";
+import {CAKE_PER_BLOCK} from "../../../config";
+import {useAppDispatch} from "../../../state";
+import {fetchFarmsPublicDataAsync, nonArchivedFarms} from "../../../state/farms";
+import {getFarmApr} from "../../../utils/apr";
+
 
 // font import
 
@@ -225,30 +228,80 @@ const TextContainer = styled.div`
 const FSCard2 = () => {
 
   const { t } = useTranslation()
-  const APR = '482%'
 
-  return (
+    const totalSupply = useTotalSupply()
+    const parsedTotalSupply = totalSupply ? getBalanceNumber(totalSupply): 0
+    const burnedBalance = getBalanceNumber(useBurnedBalance(getGiveAddress()))
+    const circSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
+    const farm0 = useFarmFromPid(0)
+    let givePerBlock = CAKE_PER_BLOCK.toNumber() // backup use the number in config/index.ts
+    // right now givePerBlock is undefined? so just using backup for now TODO: fix this
+    if(farm0 && farm0.givePerBlock){
+        givePerBlock = new BigNumber(farm0.givePerBlock).div(new BigNumber(10).pow(18)).toNumber();
+    }
+
+    // start apr calculation
+    const [isFetchingFarmData, setIsFetchingFarmData] = useState(true)
+    const { data: farmsLP } = useFarms()
+    const cakePrice = usePriceCakeBusd()
+    const dispatch = useAppDispatch()
+
+    // Fetch farm data once to get the max APR
+    useEffect(() => {
+        const fetchFarmData = async () => {
+            try {
+                await dispatch(fetchFarmsPublicDataAsync(nonArchivedFarms.map((nonArchivedFarm) => nonArchivedFarm.pid)))
+            } finally {
+                setIsFetchingFarmData(false)
+            }
+        }
+
+        fetchFarmData()
+    }, [dispatch, setIsFetchingFarmData])
+
+    const highestApr = useMemo(() => {
+        if (cakePrice.gt(0)) {
+            const aprs = farmsLP.map((farm) => {
+                // Filter inactive farms, because their theoretical APR is super high. In practice, it's 0.
+                // also filtered out pools
+                if (farm.pid !== 0 && farm.multiplier !== '0X' && farm.lpTotalInQuoteToken && farm.quoteToken.busdPrice && !farm.isSingleToken) {
+                    const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
+                    return getFarmApr(new BigNumber(farm.poolWeight), cakePrice, totalLiquidity)
+                }
+                return null
+            })
+
+            const maxApr = max(aprs)
+            return maxApr?.toLocaleString('en-US', { maximumFractionDigits: 0 })
+        }
+        return null
+    }, [cakePrice, farmsLP])
+    // end apr calculation
+
+
+
+    return (
       <CardBody>
-        <EarningTextColor>Earning up to</EarningTextColor>
-        <APRFormat>{APR}</APRFormat>
+        <EarningTextColor>Earn up to</EarningTextColor>
+        <APRFormat>{highestApr}%</APRFormat>
         <TextColor>APR in Farms</TextColor>
 
         <BlueCircleA> </BlueCircleA>
         <BlueCircle>
-          <BlueCircleText>45B</BlueCircleText>
-          <BlueCircleTextA>Supply</BlueCircleTextA>
+          <BlueCircleText> {Math.round(parsedTotalSupply)} </BlueCircleText>
+          <BlueCircleTextA>Minted</BlueCircleTextA>
         </BlueCircle>
 
         
         <OrangeCircleA> </OrangeCircleA>
         <OrangeCircle>
-          <OrangeCircleTextA>20</OrangeCircleTextA>
-          <OrangeCircleText>New GIVE</OrangeCircleText>
+          <OrangeCircleTextA>{givePerBlock}</OrangeCircleTextA>
+          <OrangeCircleText>GIVE per Block</OrangeCircleText>
         </OrangeCircle>
 
         <PinkCircleA> </PinkCircleA>
         <PinkCircle>
-          <PinkCircleText>10M Burned</PinkCircleText>
+          <PinkCircleText>{Math.round(circSupply)} Supply</PinkCircleText>
         </PinkCircle>
 
       </CardBody>

@@ -33,6 +33,8 @@ const CakeStats = () => {
   const cakeSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
   const marketCap = givePrice.times(circSupply);
 
+  // alert("givePrice".concat(givePrice.toString()))
+
   const farm0 = useFarmFromPid(0)
   let givePerBlock = CAKE_PER_BLOCK.toNumber() // backup use the number in config/index.ts
   // right now givePerBlock is undefined? so just using backup for now TODO: fix this
@@ -54,7 +56,7 @@ const CakeStats = () => {
         </Row>
         <Row>
           <Text fontSize="14px">{t('Total Minted')}</Text>
-          {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} />}
+          {cakeSupply && <CardValue fontSize="14px" decimals={0} value={getBalanceNumber(totalSupply)} />}
         </Row>
         <Row>
           <Text fontSize="14px">{t('Total Burned')}</Text>

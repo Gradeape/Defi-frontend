@@ -31,7 +31,7 @@ const TwitterCard = () => {
       <CardBody>
 
         <Heading scale="xl" mb="24px">
-          Announcements
+          News
         </Heading>
         <Timeline
           dataSource={{
