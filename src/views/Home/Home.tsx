@@ -233,16 +233,16 @@ const Home: React.FC = () => {
           <Cards>
             <FarmStakingCard />
             <TwitterCard />
-          </Cards>
-        
-          <FarmsAndStaking>
-            <FSCard2 />
-          </FarmsAndStaking>
+          </Cards> 
           
           <Cards>
             <CakeStats />
             <TotalValueLockedCard />
           </Cards>
+          
+          <FarmsAndStaking>
+            <FSCard2 />
+          </FarmsAndStaking>
       </div>
 
       <div>
