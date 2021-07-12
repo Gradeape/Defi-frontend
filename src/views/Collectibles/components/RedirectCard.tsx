@@ -30,7 +30,7 @@ const RedirectCard = () => {
   return (
     <StyledRedirectCard>
       {/* TODO: add link to nft website when it is ready */}
-      <CardBody onClick={() => alert('website is not avalible yet'.concat(process.env.REACT_APP_CHAIN_ID))}>
+      <CardBody onClick={() => alert('website is not avalible yet')}>
         <Heading color="contrast" scale="lg">
           {t('NFT website')}
         </Heading>
