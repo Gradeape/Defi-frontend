@@ -101,17 +101,17 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
     icon: 'InfoIcon',
     items: [
         // change these links if token changes
-      {
-        label: t('KEKTooks'),
-        href: 'https://kek.tools/t/0x9bbcda2606e616659b118399a2823e8a392f55da',
-      },
+      // {
+      //   label: t('KEKTools'),
+      //   href: 'https://kek.tools/t/0x9bbcda2606e616659b118399a2823e8a392f55da',
+      // },
       {
         label: t('QuickChart'),
         href: 'https://quickchart.app/token/0x9bbcda2606e616659b118399a2823e8a392f55da',
       },
       {
         label: t('Polychart'),
-        href: 'https://app.polychart.io/explorer/polygon/0x71cb1552dadb57ad9cf3d5327b2de9035fa39b3f',
+        href: 'https://app.polychart.io/explorer/polygon/0xE9C29fAa9Ba030Df89Dcc4eFDCBF50168bAE4a58',
       },
       // {
       //   label: t('Tokens'),
