@@ -70,7 +70,7 @@ const farms: FarmConfig[] = [
     pid: 5,
     lpSymbol: 'USDC',
     isSingleToken: true,
-    isHiddenFarm: true, // TEMP TODO: change back
+    isHiddenFarm: false, // TEMP TODO: change back
     lpAddresses: {
       4: '',
       137: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
@@ -86,6 +86,7 @@ const farms: FarmConfig[] = [
     pid: 6,
     lpSymbol: 'DAI',
     isSingleToken: true,
+
     lpAddresses: {
       4: '',
       137: '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063',
@@ -101,7 +102,7 @@ const farms: FarmConfig[] = [
     pid: 7,
     lpSymbol: 'WBTC',
     isSingleToken: true,
-    isHiddenFarm: true, // TEMP TODO: change back
+    isHiddenFarm: false, // TEMP TODO: change back
     lpAddresses: {
       4: '',
       137: '0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6',

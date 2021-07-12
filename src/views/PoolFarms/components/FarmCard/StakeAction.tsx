@@ -19,6 +19,7 @@ interface FarmCardActionsProps {
   tokenName?: string
   pid?: number
   addLiquidityUrl?: string
+  tokenDecimals: BigNumber
 }
 
 const IconButtonWrapper = styled.div`
@@ -34,10 +35,11 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
   tokenName,
   pid,
   addLiquidityUrl,
+  tokenDecimals,
 }) => {
   const { t } = useTranslation()
-  const { onStake } = useStake(pid)
-  const { onUnstake } = useUnstake(pid)
+  const { onStake } = useStake(pid, tokenDecimals)
+  const { onUnstake } = useUnstake(pid, tokenDecimals)
   const location = useLocation()
   const dispatch = useAppDispatch()
   const { account } = useWeb3React()

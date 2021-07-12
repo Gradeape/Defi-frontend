@@ -16,6 +16,7 @@ import StakeAction from './StakeAction'
 import HarvestAction from './HarvestAction'
 import CompoundModal from './CompoundModal'
 import useStake from "../../../../hooks/useStake";
+import {BIG_TEN} from "../../../../utils/bigNumber";
 
 const Action = styled.div`
   padding-top: 16px;
@@ -85,6 +86,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
         tokenName={lpName}
         pid={pid}
         addLiquidityUrl={addLiquidityUrl}
+        tokenDecimals={BIG_TEN.pow(farm.token.decimals)}
       />
     ) : (
       <Button mt="8px" width="100%" disabled={requestedApproval} onClick={handleApprove}>
@@ -94,7 +96,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
   }
 
   // for compounding
-  const { onStake } = useStake(pid)
+  const { onStake } = useStake(pid, BIG_TEN.pow(farm.token.decimals))
   const [onPresentCompound] = useModal(
       <CompoundModal earnings={earnings} onConfirm={onStake} tokenName={farm.lpSymbol} />,
   )

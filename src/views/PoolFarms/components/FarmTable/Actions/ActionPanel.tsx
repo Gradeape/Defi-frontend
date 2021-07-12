@@ -6,12 +6,14 @@ import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { getBscScanAddressUrl } from 'utils/bscscan'
 import { CommunityTag, CoreTag, DualTag } from 'components/Tags'
-
+import BigNumber from "bignumber.js";
 import HarvestAction from './HarvestAction'
 import StakedAction from './StakedAction'
 import Apr, { AprProps } from '../Apr'
 import Multiplier, { MultiplierProps } from '../Multiplier'
 import Liquidity, { LiquidityProps } from '../Liquidity'
+import {BIG_TEN} from "../../../../../utils/bigNumber";
+
 
 export interface ActionPanelProps {
   apr: AprProps
@@ -202,7 +204,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
       </ValueContainer>
       <ActionContainer>
         <HarvestAction {...farm} userDataReady={userDataReady} />
-        <StakedAction {...farm} userDataReady={userDataReady} />
+        <StakedAction {...farm} userDataReady={userDataReady} tokenDecimals={BIG_TEN.pow(farm.token.decimals)} />
       </ActionContainer>
     </Container>
   )

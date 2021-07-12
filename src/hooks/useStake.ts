@@ -3,18 +3,21 @@ import { useWeb3React } from '@web3-react/core'
 import { useAppDispatch } from 'state'
 import { updateUserStakedBalance, updateUserBalance } from 'state/actions'
 import { stake, sousStake, sousStakeBnb } from 'utils/callHelpers'
+import BigNumber from 'bignumber.js'
 import { useMasterchef, useSousChef } from './useContract'
+import {DEFAULT_TOKEN_DECIMAL} from "../config";
 
-const useStake = (pid: number) => {
+
+const useStake = (pid: number, tokenDecimals: BigNumber) => {
   const { account } = useWeb3React()
   const masterChefContract = useMasterchef()
 
   const handleStake = useCallback(
     async (amount: string) => {
-      const txHash = await stake(masterChefContract, pid, amount, account)
+      const txHash = await stake(masterChefContract, pid, amount, account, tokenDecimals)
       console.info(txHash)
     },
-    [account, masterChefContract, pid],
+    [account, masterChefContract, pid, tokenDecimals],
   )
 
   return { onStake: handleStake }
@@ -29,7 +32,7 @@ export const useSousStake = (sousId: number, isUsingBnb = false) => {
   const handleStake = useCallback(
     async (amount: string, decimals: number) => {
       if (sousId === 0) {
-        await stake(masterChefContract, 0, amount, account)
+        await stake(masterChefContract, 0, amount, account, DEFAULT_TOKEN_DECIMAL)
       } else if (isUsingBnb) {
         await sousStakeBnb(sousChefContract, amount, account)
       } else {

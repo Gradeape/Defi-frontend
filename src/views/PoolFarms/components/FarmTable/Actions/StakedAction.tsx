@@ -17,10 +17,11 @@ import { getBalanceNumber, getFullDisplayBalance } from 'utils/formatBalance'
 import useStake from 'hooks/useStake'
 import useUnstake from 'hooks/useUnstake'
 import useWeb3 from 'hooks/useWeb3'
-
+import BigNumber from 'bignumber.js'
 import DepositModal from '../../DepositModal'
 import WithdrawModal from '../../WithdrawModal'
 import { ActionContainer, ActionTitles, ActionContent, Earned, Title, Subtle } from './styles'
+
 
 const IconButtonWrapper = styled.div`
   display: flex;
@@ -28,6 +29,7 @@ const IconButtonWrapper = styled.div`
 
 interface StackedActionProps extends FarmWithStakedValue {
   userDataReady: boolean
+  tokenDecimals: BigNumber
 }
 
 const Staked: React.FunctionComponent<StackedActionProps> = ({
@@ -37,13 +39,14 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   quoteToken,
   token,
   userDataReady,
+  tokenDecimals,
 }) => {
   const { t } = useTranslation()
   const { account } = useWeb3React()
   const [requestedApproval, setRequestedApproval] = useState(false)
   const { allowance, tokenBalance, stakedBalance } = useFarmUser(pid)
-  const { onStake } = useStake(pid)
-  const { onUnstake } = useUnstake(pid)
+  const { onStake } = useStake(pid, tokenDecimals)
+  const { onUnstake } = useUnstake(pid, tokenDecimals)
   const web3 = useWeb3()
   const location = useLocation()
 

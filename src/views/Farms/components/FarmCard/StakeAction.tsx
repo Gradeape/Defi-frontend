@@ -12,6 +12,7 @@ import useUnstake from 'hooks/useUnstake'
 import { getBalanceNumber, getFullDisplayBalance } from 'utils/formatBalance'
 import DepositModal from '../DepositModal'
 import WithdrawModal from '../WithdrawModal'
+import {DEFAULT_TOKEN_DECIMAL} from "../../../../config";
 
 interface FarmCardActionsProps {
   stakedBalance?: BigNumber
@@ -36,8 +37,8 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
   addLiquidityUrl,
 }) => {
   const { t } = useTranslation()
-  const { onStake } = useStake(pid)
-  const { onUnstake } = useUnstake(pid)
+  const { onStake } = useStake(pid, DEFAULT_TOKEN_DECIMAL)
+  const { onUnstake } = useUnstake(pid, DEFAULT_TOKEN_DECIMAL)
   const location = useLocation()
   const dispatch = useAppDispatch()
   const { account } = useWeb3React()
