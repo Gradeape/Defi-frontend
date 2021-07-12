@@ -28,7 +28,7 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
       // },
       {
         label: t('Liquidity (QuickSwap)'),
-        href: 'https://quickswap.exchange/#/swap',
+        href: 'https://quickswap.exchange/#/add/0x9Bbcda2606e616659b118399A2823E8a392f55DA/undefined',
       },
       // {
       //   label: t('Exchange'),
