@@ -112,7 +112,7 @@ const HomeHeaderCard = () => {
         <Subtitle color="white"> {subtitle} </Subtitle>
         <Title>{title}</Title>
         <LearnMoreButton>Learn More...</LearnMoreButton>
-        <CardImage src="/images/BCharity-Images/cat1.png" alt="cartoon cat holding coffee mug" />
+        <CardImage src="/images/BCharity-Images/cat1-compressed.png" alt="cartoon cat holding coffee mug" />
         <HorizontalLineOrange />
         <HorizontalLinePink />
 
