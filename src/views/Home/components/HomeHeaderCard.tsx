@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Button } from '@pancakeswap/uikit'
+import { Heading, Card, CardBody, Button } from '@pancakeswap/uikit/src'
 import { useTranslation } from 'contexts/Localization'
 
 const StyledHeadingCard = styled(Card)`

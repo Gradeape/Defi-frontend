@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
-import { LinkExternal, Text, useTooltip, HelpIcon } from '@pancakeswap/uikit'
+import { LinkExternal, Text, useTooltip, HelpIcon } from '@pancakeswap/uikit/src'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { getBscScanAddressUrl } from 'utils/bscscan'

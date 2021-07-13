@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Card, CardBody } from '@pancakeswap/uikit'
+import { Card, CardBody } from '@pancakeswap/uikit/src'
 import getLotteryRoundData from 'utils/getLotteryRoundData'
 import { useTranslation } from 'contexts/Localization'
 import useGetRecentLotteryRoundData from 'hooks/useGetRecentLotteryRoundData'

@@ -10,7 +10,7 @@ import {
   Box,
   Flex,
   ExpandableLabel,
-} from '@pancakeswap/uikit'
+} from '@pancakeswap/uikit/src'
 import { useTranslation } from 'contexts/Localization'
 import { TeamRanksProps } from '../../../types'
 import TopTradersGrid from './TopTradersGrid'
