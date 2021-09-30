@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
 import React, { useMemo, useState } from 'react'
-import { Button, Modal } from '@pancakeswap/uikit/src'
+import { Button, Modal } from '@pancakeswap/uikit'
 import ModalActions from 'components/ModalActions'
 import Balance from 'components/Balance'
 import { getFullDisplayBalance } from 'utils/formatBalance'

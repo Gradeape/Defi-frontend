@@ -2184,9 +2184,9 @@
     "eslint-plugin-react" "^7.21.5"
     "eslint-plugin-react-hooks" "^4.0.0"
 
-"@pancakeswap/uikit/src@^0.37.1":
+"@pancakeswap/uikit@^0.37.1":
   "integrity" "sha512-usLmWsUfxCcpNqz2+5+h0VDuhl9iLZO8PHbskWz3QoZrmVpv35+PdWOeqeDtkeV1Nz4uwBSrcQgUnu+yPpSMUw=="
-  "resolved" "https://registry.npmjs.org/@pancakeswap/uikit/src/-/uikit-0.37.1.tgz"
+  "resolved" "https://registry.npmjs.org/@pancakeswap/uikit/-/uikit-0.37.1.tgz"
   "version" "0.37.1"
   dependencies:
     "@popperjs/core" "^2.9.2"

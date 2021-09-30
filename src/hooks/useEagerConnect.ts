@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { connectorLocalStorageKey, ConnectorNames } from '@pancakeswap/uikit/src'
+import { connectorLocalStorageKey, ConnectorNames } from '@pancakeswap/uikit'
 import useAuth from 'hooks/useAuth'
 
 // BinanceChain

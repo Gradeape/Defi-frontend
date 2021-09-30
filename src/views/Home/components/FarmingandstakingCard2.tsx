@@ -1,6 +1,6 @@
 import React, {useState, useCallback, useEffect, useMemo} from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Button } from '@pancakeswap/uikit/src'
+import { Heading, Card, CardBody, Button } from '@pancakeswap/uikit'
 import BigNumber from "bignumber.js";
 import { useTranslation } from 'contexts/Localization'
 import max from "lodash/max";

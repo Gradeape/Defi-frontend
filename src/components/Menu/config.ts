@@ -1,4 +1,4 @@
-import { MenuEntry } from '@pancakeswap/uikit/src'
+import { MenuEntry } from '@pancakeswap/uikit'
 import { ContextApi } from 'contexts/Localization/types'
 
 // these icons are defined in ui-kit,

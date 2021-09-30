@@ -9,7 +9,7 @@ import {
   PlayCircleOutlineIcon,
   Text,
   WaitIcon,
-} from '@pancakeswap/uikit/src'
+} from '@pancakeswap/uikit'
 import styled from 'styled-components'
 import { Bet, PredictionStatus } from 'state/types'
 import { useBetCanClaim, useGetCurrentEpoch, useGetPredictionsStatus } from 'state/hooks'

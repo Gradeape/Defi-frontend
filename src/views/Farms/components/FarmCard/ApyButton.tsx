@@ -5,7 +5,7 @@ APY Calculator Component
 */
 import React from 'react'
 import BigNumber from 'bignumber.js'
-import { IconButton, useModal, CalculateIcon } from '@pancakeswap/uikit/src'
+import { IconButton, useModal, CalculateIcon } from '@pancakeswap/uikit'
 import ApyCalculatorModal from 'components/ApyCalculatorModal'
 import { useTranslation } from 'contexts/Localization'
 
